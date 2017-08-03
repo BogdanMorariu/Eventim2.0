@@ -1,9 +1,0 @@
-INSERT INTO public.artist(
-	id, name)
-	VALUES (1, 'Franz Ferdinand');
-INSERT INTO public.artist(
-	id, name)
-	VALUES (2, 'Ricky Martin');
-INSERT INTO public.artist(
-	id, name)
-	VALUES (3, 'David Guetta');
