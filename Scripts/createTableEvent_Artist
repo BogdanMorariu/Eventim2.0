@@ -1,0 +1,6 @@
+DROP TABLE event_artist;
+
+CREATE TABLE event_artist(
+eventid Integer NOT NULL,
+artistid Integer NOT NULL,
+PRIMARY KEY(eventid, artistid));
