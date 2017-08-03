@@ -1,0 +1,11 @@
+DROP TABLE users
+
+CREATE TABLE users(
+    id Integer Primary KEY NOT NULL,
+    name varchar(250) NOT NULL,
+    password varchar(250) NOT NULL,
+    type varchar(10) NOT NULL
+    
+);
+   
+   
