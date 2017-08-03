@@ -1,0 +1,6 @@
+DROP TABLE artist
+
+CREATE TABLE artist(
+	id Integer PRIMARY KEY NOT NULL,
+    name VARCHAR(1000) NOT NULL
+);
