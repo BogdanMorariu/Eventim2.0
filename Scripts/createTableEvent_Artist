@@ -3,4 +3,6 @@ DROP TABLE event_artist;
 CREATE TABLE event_artist(
 eventid Integer NOT NULL,
 artistid Integer NOT NULL,
-PRIMARY KEY(eventid, artistid));
+PRIMARY KEY(eventid, artistid),
+FOREIGN KEY (eventid) REFERENCES event (id),
+FOREIGN KEY (artistid) REFERENCES artist (id));
