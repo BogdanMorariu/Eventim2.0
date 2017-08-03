@@ -1,0 +1,9 @@
+create table ticket
+	(id int primary key,
+	 userId int,
+     eventId int,
+     barCode int not NULL,
+     price int default 0);
+     
+insert into ticket values(1,1,1,78124646,20.0);
+insert into ticket values(2,2,2,78178299,40.0);
