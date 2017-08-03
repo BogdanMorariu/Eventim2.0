@@ -1,9 +1,16 @@
+drop table ticket;
+drop sequence ticket_seq;
+
+create sequence ticket_seq START 1;
+--ALTER SEQUENCE seq RESTART WITH 1;
+
 create table ticket
-	(id int primary key,
-	 userId int,
-     eventId int,
+	(id int default NEXTVAL('tikcet_seq') primary key,
+	 userId int not NULL references users(ID),
+     eventId int not NULL references "event"(ID),
      barCode int not NULL,
      price int default 0);
      
-insert into ticket values(1,1,1,78124646,20.0);
-insert into ticket values(2,2,2,78178299,40.0);
+insert into ticket(userId,eventId,barCode,price) values(1,1,78124646,20.0);
+insert into ticket(userId,eventId,barCode,price) values(2,2,78178299,40.0);
+insert into ticket(userId,eventId,barCode,price) values(2,2,78178299,47.0);

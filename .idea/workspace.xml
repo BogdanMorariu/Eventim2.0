@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf57e567-0892-40d0-a3aa-a5d6fe530ef5" name="Default" comment="" />
+    <list default="true" id="cf57e567-0892-40d0-a3aa-a5d6fe530ef5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/createTicket" afterPath="$PROJECT_DIR$/Scripts/createTicket" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -200,6 +202,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cf57e567-0892-40d0-a3aa-a5d6fe530ef5" name="Default" comment="" />
@@ -207,12 +212,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1501751776928</updated>
-      <workItem from="1501751782621" duration="557000" />
+      <workItem from="1501751782621" duration="684000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="557000" />
+    <option name="totallyTimeSpent" value="684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
