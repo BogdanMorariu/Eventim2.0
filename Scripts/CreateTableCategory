@@ -1,12 +1,14 @@
 DROP table category;
+DROP SEQUENCE category_seq;  
+
+CREATE SEQUENCE category_seq START 1;
 
 CREATE TABLE category (
-   id   INTEGER    PRIMARY KEY,   --not null & unique
+   id   INTEGER DEFAULT NEXTVAL('category_seq')    PRIMARY KEY,   --not null & unique
    type   VARCHAR(100) NOT NULL);   --type of event
 
-INSERT INTO public.category(
-	id, type)
+INSERT INTO public.category(type)
 	VALUES 
-    (1, 'THEATRE'),
-    (2, 'MUSIC'),
-    (3, 'DANCE');
+    ('THEATRE'),
+    ('MUSIC'),
+    ('DANCE');
