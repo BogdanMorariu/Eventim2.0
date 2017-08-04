@@ -2,18 +2,18 @@ package events.model;
 
 public class Ticket {
     private Integer id;
-    private Integer userId;
-    private Integer eventId;
-    private Long barcode;
+    private User user;
+    private Event event;
+    private Integer barcode;
     private Double price;
 
     public Ticket() {
     }
 
-    public Ticket(Integer id, Integer userId, Integer eventId, Long barcode, Double price) {
+    public Ticket(Integer id, User user, Event event, Integer barcode, Double price) {
         this.id = id;
-        this.userId = userId;
-        this.eventId = eventId;
+        this.user = user;
+        this.event = event;
         this.barcode = barcode;
         this.price = price;
     }
@@ -22,8 +22,8 @@ public class Ticket {
     public String toString() {
         return "Ticket{" +
                 "id=" + id +
-                ", userId=" + userId +
-                ", eventId=" + eventId +
+                ", user=" + user +
+                ", event=" + event +
                 ", barcode=" + barcode +
                 ", price=" + price +
                 '}';
@@ -37,27 +37,27 @@ public class Ticket {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Integer getEventId() {
-        return eventId;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setEventId(Integer eventId) {
-        this.eventId = eventId;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
-    public Long getBarcode() {
+    public Integer getBarcode() {
         return barcode;
     }
 
-    public void setBarcode(Long barcode) {
+    public void setBarcode(Integer barcode) {
         this.barcode = barcode;
     }
 
@@ -78,8 +78,8 @@ public class Ticket {
         Ticket ticket = (Ticket) o;
 
         if (id != null ? !id.equals(ticket.id) : ticket.id != null) return false;
-        if (userId != null ? !userId.equals(ticket.userId) : ticket.userId != null) return false;
-        if (eventId != null ? !eventId.equals(ticket.eventId) : ticket.eventId != null) return false;
+        if (user != null ? !user.equals(ticket.user) : ticket.user != null) return false;
+        if (event != null ? !event.equals(ticket.event) : ticket.event != null) return false;
         if (barcode != null ? !barcode.equals(ticket.barcode) : ticket.barcode != null) return false;
         return price != null ? price.equals(ticket.price) : ticket.price == null;
     }
@@ -87,8 +87,8 @@ public class Ticket {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
-        result = 31 * result + (eventId != null ? eventId.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (event != null ? event.hashCode() : 0);
         result = 31 * result + (barcode != null ? barcode.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
         return result;
