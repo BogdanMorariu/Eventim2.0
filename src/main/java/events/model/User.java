@@ -1,17 +1,20 @@
 package events.model;
 
+import java.util.List;
+
 public class User {
 	private Integer id;
 	private String name;
 	private String password;
 	private String type;
+	private List<Event> events;
 
-	public User(Integer id, String name, String password, String type) {
-		this.id = id;
-		this.name = name;
-		this.password = password;
-		this.type = type;
+	public List<Event> getEvents() {
+		return this.events;
+	}
 
+	public void setEvents(List<Event> list) {
+		events = list;
 	}
 
 	public Integer getId() {
