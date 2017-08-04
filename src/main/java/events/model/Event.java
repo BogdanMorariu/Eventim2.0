@@ -1,6 +1,8 @@
 package events.model;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class Event {
 	private Integer id;
@@ -9,9 +11,33 @@ public class Event {
 	private Date startDate;
 	private Date endDate;
 	private Byte[] image;
-	private Integer category_id;
+	private Category category;
+	private List<Artist> artists;
 	
+	public Event() {
+	}
 	
+	public Event(Integer id, String name, String location, 
+			Date startDate, Date endDate, Byte[] image,
+			Category category, List<Artist> artists) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.location = location;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.image = image;
+		this.category = category;
+		this.artists = artists;
+	}
+
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", name=" + name + ", location=" + location + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", image=" + Arrays.toString(image) + ", category=" + category + ", artists="
+				+ artists + "]";
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -60,12 +86,20 @@ public class Event {
 		this.image = image;
 	}
 	
-	public Integer getCategory_id() {
-		return category_id;
+	public Category getCategory() {
+		return category;
 	}
 	
-	public void setCategory_id(Integer category_id) {
-		this.category_id = category_id;
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
+	public List<Artist> getArtists() {
+		return artists;
+	}
+	
+	public void setArtists(List<Artist> artists) {
+		this.artists = artists;
 	}
 	
 }
