@@ -1,14 +1,23 @@
 package events.model;
 
+import java.util.List;
+
 public class Artist {
 	private Integer id;
 	private String name;
+	private List<Event> events;
 	
-	public Artist(Integer id , String name){
-		this.id = id;
-		this.name = name;
-	}
+	
 
+	
+	public List<Event> getEvents(){
+		return this.getEvents();
+	}
+	
+	public void setEvents(List<Event> events){
+		this.events = events;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -25,10 +34,5 @@ public class Artist {
 		this.name = name;
 	}
 	
-	@Override
-	public String toString(){
-		return "Artist{ id: " + this.id +
-				" name: "+this.name 
-				+ "}" ; 
-	}
+	
 }
