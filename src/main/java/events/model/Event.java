@@ -13,13 +13,14 @@ public class Event {
 	private Byte[] image;
 	private Category category;
 	private List<Artist> artists;
+	private List<Ticket> tickets;
 	
 	public Event() {
 	}
 	
 	public Event(Integer id, String name, String location, 
 			Date startDate, Date endDate, Byte[] image,
-			Category category, List<Artist> artists) {
+			Category category, List<Artist> artists, List<Ticket> tickets) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -29,6 +30,7 @@ public class Event {
 		this.image = image;
 		this.category = category;
 		this.artists = artists;
+		this.tickets = tickets;
 	}
 
 	@Override
@@ -102,4 +104,11 @@ public class Event {
 		this.artists = artists;
 	}
 	
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+	
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
 }
