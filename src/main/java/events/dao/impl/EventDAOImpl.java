@@ -2,6 +2,10 @@ package events.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import events.dao.EventDAO;
@@ -9,27 +13,38 @@ import events.model.Event;
 
 @Repository
 public class EventDAOImpl implements EventDAO {
-
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	private Session getCurrentSession() {
+		  return sessionFactory.getCurrentSession();
+	}
+	
 	public Event findById(Integer id) {
-
-		return null;
+		Query query = getCurrentSession().createQuery("from Event where id = :id ");
+		query.setParameter("id", id);
+		return (Event) query.list();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Event> getAllEvents() {
-
-		return null;
+		String query = new String("from Event");
+		return getCurrentSession().createQuery(query).list();
 	}
 
 	public void saveEvent(Event event) {
-		
+		getCurrentSession().saveOrUpdate(event);
 	}
 
 	public void deleteEvent(Event event) {
-		
+		getCurrentSession().delete(event);
 	}
 
 	public void deleteEvent(Integer id) {
-		
+		Query query = getCurrentSession().createQuery("delete Event where id = :id ");
+		query.setParameter("id", id);
+		query.executeUpdate();
 	}
 	
 }
