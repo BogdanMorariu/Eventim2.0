@@ -1,5 +1,5 @@
 package events.service;
 
-public interface ModelService {
+public interface CategoryService {
 
 }

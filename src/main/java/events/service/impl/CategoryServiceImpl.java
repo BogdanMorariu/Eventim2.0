@@ -2,9 +2,9 @@ package events.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import events.service.ModelService;
+import events.service.CategoryService;
 
 @Service
-public class ModelServiceImpl implements ModelService{
+public class CategoryServiceImpl implements CategoryService{
 
 }

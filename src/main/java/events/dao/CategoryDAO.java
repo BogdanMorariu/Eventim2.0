@@ -1,5 +1,19 @@
 package events.dao;
 
-public interface ModelDAO {
+import java.util.List;
 
+import events.model.Category;
+
+public interface CategoryDAO {
+
+	public Category findCategoryById(Integer id);
+	
+	public List<Category> findCategoryById();
+	
+	public void saveCategory(Category category);
+	
+	public void deleteCategory(Category category);
+	
+	public void deleteCategoryById(Integer id);
+	
 }
