@@ -61,11 +61,11 @@ FOREIGN KEY (eventid) REFERENCES event (id),
 FOREIGN KEY (artistid) REFERENCES artist (id));
 
 create table ticket
-	(id int default NEXTVAL('tikcet_seq') primary key,
+	(id int default NEXTVAL('ticket_seq') primary key,
 	 userId int not NULL references users(ID),
      eventId int not NULL references "event"(ID),
-     barCode int not NULL,
-     price int default 0);
+     barCode bigint not NULL,
+     price FLOAT default 0);
    
    
    
@@ -106,9 +106,9 @@ INSERT INTO "event"("name","location","startDate","endDate","image","category_id
 INSERT INTO "event"("name","location","startDate","endDate","image","category_id") VALUES('testName2','testLoc2','2016-08-01 13:15:00 EET','2016-08-01 15:15:00 EET',null,2);
 INSERT INTO "event"("name","location","startDate","endDate","image","category_id") VALUES('testName3','testLoc3','2015-08-01 13:15:00 EET','2015-08-01 15:15:00 EET',null,3);
     
-insert into ticket(userId,eventId,barCode,price) values(1,1,78124646,20.0);
-insert into ticket(userId,eventId,barCode,price) values(2,2,78178299,40.0);
-insert into ticket(userId,eventId,barCode,price) values(2,2,78178299,47.0);
+insert into ticket(userId,eventId,barCode,price) values(1,1,7812465646,20.7);
+insert into ticket(userId,eventId,barCode,price) values(2,2,7817578299,40.0);
+insert into ticket(userId,eventId,barCode,price) values(2,2,7817918299,47.3);
    
 INSERT INTO public.event_artist(eventid, artistid)
 VALUES (1,1), (2,2)

@@ -4,13 +4,13 @@ public class Ticket {
     private Integer id;
     private User user;
     private Event event;
-    private Integer barcode;
+    private Long barcode;
     private Double price;
 
     public Ticket() {
     }
 
-    public Ticket(Integer id, User user, Event event, Integer barcode, Double price) {
+    public Ticket(Integer id, User user, Event event, Long barcode, Double price) {
         this.id = id;
         this.user = user;
         this.event = event;
@@ -53,11 +53,11 @@ public class Ticket {
         this.event = event;
     }
 
-    public Integer getBarcode() {
+    public Long getBarcode() {
         return barcode;
     }
 
-    public void setBarcode(Integer barcode) {
+    public void setBarcode(Long barcode) {
         this.barcode = barcode;
     }
 
