@@ -12,28 +12,43 @@ import events.model.User;
 
 @Repository
 public class UserDAOImpl implements UserDAO{
+	
+	@Autowired
+	 private SessionFactory sessionFactory;
+	
+	private Session getCurrentSession() {
+		return sessionFactory.getCurrentSession();
+	}
 
 	public User findUserById(Integer id) {
 		
-		return null;
+		String hql = "from User where id= " + id;
+		return (User) getCurrentSession().createQuery(hql).uniqueResult();
 	}
 
 	public List<User> getAllUsers() {
 		
-		return null;
+		String hql="from User";
+		return getCurrentSession().createQuery(hql).list();
 	}
 
 	public void saveUser(User user) {
+		getCurrentSession().saveOrUpdate(user);
 		
 		
 	}
 
 	public void deleteUser(User user) {
+	getCurrentSession().delete(user);
+		
 		
 		
 	}
 
 	public void deleteUserById(Integer id) {
+		
+		String hql = "delete from User where id= " + id;
+		getCurrentSession().createQuery(hql).executeUpdate();
 		
 		
 	}
