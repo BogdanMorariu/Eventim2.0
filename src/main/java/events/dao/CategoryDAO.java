@@ -8,7 +8,7 @@ public interface CategoryDAO {
 
 	public Category findCategoryById(Integer id);
 	
-	public List<Category> findCategoryById();
+	public List<Category> getAllCategory();
 	
 	public void saveCategory(Category category);
 	

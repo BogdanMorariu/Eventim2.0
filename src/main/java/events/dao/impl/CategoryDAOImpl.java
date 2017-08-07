@@ -16,10 +16,11 @@ public class CategoryDAOImpl implements CategoryDAO{
 		return null;
 	}
 
-	public List<Category> findCategoryById() {
+	public List<Category> getAllCategory() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 	public void saveCategory(Category category) {
 		// TODO Auto-generated method stub
@@ -36,4 +37,5 @@ public class CategoryDAOImpl implements CategoryDAO{
 		
 	}
 
+	
 }
