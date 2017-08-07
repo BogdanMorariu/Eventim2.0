@@ -7,7 +7,7 @@ import events.model.Artist;
 
 public interface ArtistDAO {
 
-	public Artist findArtistById();
+	public Artist findArtistById(Integer id);
 	public List<Artist> getAllArtists();
 	public void saveArtist(Artist artist);
 	public void deleteArtist(Artist artist);
