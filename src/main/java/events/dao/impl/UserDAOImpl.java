@@ -2,6 +2,9 @@ package events.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import events.dao.UserDAO;
@@ -10,7 +13,7 @@ import events.model.User;
 @Repository
 public class UserDAOImpl implements UserDAO{
 
-	public User findUserById() {
+	public User findUserById(Integer id) {
 		
 		return null;
 	}
@@ -31,8 +34,10 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	public void deleteUserById(Integer id) {
-		// TODO Auto-generated method stub
+		
 		
 	}
+	
+	
 
 }
