@@ -7,14 +7,14 @@ public class User {
 	private String name;
 	private String password;
 	private String type;
-	private List<Event> events;
+	private List<Ticket> tickets;
 
-	public List<Event> getEvents() {
-		return this.events;
+	public List<Ticket> getTickets() {
+		return this.tickets;
 	}
 
-	public void setEvents(List<Event> list) {
-		events = list;
+	public void setTickets(List<Ticket> list) {
+		tickets = list;
 	}
 
 	public Integer getId() {

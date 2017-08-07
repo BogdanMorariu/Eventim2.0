@@ -16,13 +16,9 @@
 		<property name="password" column="password" />
 		<property name="type" column="type" />
 		
-		<bag name="events" table="ticket">
-			<key>
-				<column name="userid" not-null="true"/>
-			</key>
-			<many-to-many entity-name="events.model.Event">
-				<column name="eventid" not-null="true"/>
-			</many-to-many>
+		<bag table="ticket" name="tickets">
+			<key column="userid"/>
+			<one-to-many class="events.model.Ticket"/>
 		</bag>
 	</class>
 </hibernate-mapping>
