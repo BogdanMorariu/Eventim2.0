@@ -21,23 +21,26 @@ public class ArtistDAOImpl implements ArtistDAO {
 	}
 	
 	public Artist findArtistById(Integer id) {
-		return null;
+		String hql = "from Artist where id =" + id;
+		return (Artist) getCurrentSession().createQuery(hql).uniqueResult();
 	}
 
 	public List<Artist> getAllArtists() {
-		return null;
+		String hql = "from Artist";
+		return getCurrentSession().createQuery(hql).list();
 	}
 
 	public void saveArtist(Artist artist) {
-
+		getCurrentSession().saveOrUpdate(artist);
 	}
 
 	public void deleteArtist(Artist artist) {
-
+		getCurrentSession().delete(artist);
 	}
 
 	public void deleteArtistById(Integer id) {
-
+		String hql = "delete from Artist where id = " + id;
+		getCurrentSession().createQuery(hql).executeUpdate();
 	}
 
 }
