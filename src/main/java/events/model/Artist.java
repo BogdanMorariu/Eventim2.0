@@ -11,7 +11,7 @@ public class Artist {
 
 	
 	public List<Event> getEvents(){
-		return this.getEvents();
+		return events;
 	}
 	
 	public void setEvents(List<Event> events){
