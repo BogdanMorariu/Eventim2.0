@@ -56,4 +56,24 @@ public class FetchServiceImpl implements FetchService {
 		return userDao.getAllUsers();
 	}
 
+	public Artist getArtistById(Integer id) {
+		return null;
+	}
+
+	public Category getCategorieById(Integer id) {
+		return null;
+	}
+
+	public Event getEventById(Integer id) {
+		return null;
+	}
+
+	public Ticket getTicketById(Integer id) {
+		return null;
+	}
+
+	public User getUserById(Integer id) {
+		return null;
+	}
+
 }

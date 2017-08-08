@@ -9,10 +9,20 @@ import events.model.Ticket;
 import events.model.User;
 
 public interface FetchService {
-	public List<Artist> getAllArtists();
-	public List<Category> getAllCategories();
-	public List<Event> getAllEvents();
-	public List<Ticket> getAllTickets();
-	public List<User> getAllUsers();
+
+	//Get all
+	List<Artist> getAllArtists();
+	List<Category> getAllCategories();
+	List<Event> getAllEvents();
+	List<Ticket> getAllTickets();
+	List<User> getAllUsers();
+
+	//Get by ID
+	Artist getArtistById(Integer id);
+	Category getCategorieById(Integer id);
+	Event getEventById(Integer id);
+	Ticket getTicketById(Integer id);
+	User getUserById(Integer id);
+
 	
 }
