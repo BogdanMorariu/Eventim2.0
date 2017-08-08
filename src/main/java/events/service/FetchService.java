@@ -24,5 +24,4 @@ public interface FetchService {
 	Ticket getTicketById(Integer id);
 	User getUserById(Integer id);
 
-	
 }

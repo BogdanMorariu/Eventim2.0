@@ -40,7 +40,6 @@ public class FetchServiceImpl implements FetchService {
 	}
 
 	public List<Category> getAllCategories() {
-		// TODO Auto-generated method stub
 		return categoryDao.getAllCategories();
 	}
 
@@ -57,23 +56,23 @@ public class FetchServiceImpl implements FetchService {
 	}
 
 	public Artist getArtistById(Integer id) {
-		return null;
+		return artistDao.findArtistById(id);
 	}
 
 	public Category getCategorieById(Integer id) {
-		return null;
+		return categoryDao.findCategoryById(id);
 	}
 
 	public Event getEventById(Integer id) {
-		return null;
+		return eventDao.findById(id);
 	}
 
 	public Ticket getTicketById(Integer id) {
-		return null;
+		return ticketDao.findByTicketId(id);
 	}
 
 	public User getUserById(Integer id) {
-		return null;
+		return userDao.findUserById(id);
 	}
 
 }
