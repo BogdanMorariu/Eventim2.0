@@ -23,13 +23,13 @@
 	
     <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />  
 
-	<context:property-placeholder location="classpath:eventim.propertyes"/>
+	<context:property-placeholder location="classpath:eventim.properties"/>
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="locations">
             <list>
-                <value>classpath:eventim.propertyes</value>
-                <value>file:#{systemProperties['user.home']}/eventim.propertyes</value>
+                <value>classpath:eventim.properties</value>
+                <value>file:#{systemProperties['user.home']}/eventim.properties</value>
             </list>
 		</property>
 	</bean>
