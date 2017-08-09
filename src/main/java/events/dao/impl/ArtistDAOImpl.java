@@ -6,11 +6,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import events.dao.ArtistDAO;
 import events.model.Artist;
 
 @Repository
+@Transactional
 public class ArtistDAOImpl implements ArtistDAO {
 
 	@Autowired

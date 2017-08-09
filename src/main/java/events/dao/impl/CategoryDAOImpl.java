@@ -9,8 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import events.dao.CategoryDAO;
 import events.model.Category;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
+@Transactional
 public class CategoryDAOImpl implements CategoryDAO{
 
 	@Autowired
@@ -24,6 +26,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 		String hql = "from Category where id=" + id;
 		return (Category) getCurrentSession().createQuery(hql).uniqueResult();
 	}
+
 
 	public List<Category> getAllCategories() {
 		String hql ="from Category";
