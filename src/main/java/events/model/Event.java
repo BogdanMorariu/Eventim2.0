@@ -1,5 +1,6 @@
 package events.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -110,5 +111,12 @@ public class Event {
 	
 	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
+	}
+	
+	public void addArtist(Artist artist) {
+		if (artists == null) {
+			artists = new ArrayList<Artist>();
+		}
+		artists.add(artist);
 	}
 }

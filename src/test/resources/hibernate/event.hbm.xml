@@ -12,8 +12,8 @@
 
 		<property name="name" column="name"/>
 		<property name="location" column="location"/>
-		<property name="startDate" column="startDate" type="java.util.Date"/>
-		<property name="endDate" column="endDate" type="java.util.Date"/>
+		<property name="startDate" column="startdate" type="java.util.Date"/>
+		<property name="endDate" column="enddate" type="java.util.Date"/>
 		<property name="image" type="binary">
             <column name="IMAGE" not-null="true" />
         </property>
@@ -28,9 +28,9 @@
             </many-to-many>
 		</bag>
 		
-		<bag name="tickets" table="ticket">
+		<bag name="tickets" table="ticket" cascade="delete" inverse="true">
 			<key column="eventId"></key>
-			<one-to-many class="events.model.Ticket"/>
+			<one-to-many class="events.model.Ticket" />
 		</bag>
 	</class>
 </hibernate-mapping>
