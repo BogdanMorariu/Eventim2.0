@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import events.model.Artist;
 import events.model.Category;
 import events.model.Event;
+import events.model.Ticket;
 import events.service.FetchService;
 import events.service.ManageService;
 
@@ -44,6 +45,9 @@ public class EventTest {
 		event.setEndDate(endDate);
 		event.setCategory(category);
 		
+		Ticket ticket = fetchService.getTicketById(2);
+		event.addTicket(ticket);
+		
 		Artist artist = new Artist();
 		artist.setName("gaga");
 		Artist artist2 = new Artist();
@@ -67,9 +71,9 @@ public class EventTest {
 	
 	@Test
 	public void testDeleteEvent(){
-		Event event = fetchService.getEventById(15);
+		Event event = fetchService.getEventById(4);
 		manageService.deleteEvent(event);
-		event = fetchService.getEventById(15);
+		event = fetchService.getEventById(4);
 		assertNull(event);
 	}
 	
