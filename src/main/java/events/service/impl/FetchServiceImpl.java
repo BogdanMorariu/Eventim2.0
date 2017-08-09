@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import events.dao.ArtistDAO;
 import events.dao.CategoryDAO;
@@ -18,6 +19,7 @@ import events.model.User;
 import events.service.FetchService;
 
 @Service
+@Transactional
 public class FetchServiceImpl implements FetchService {
 
 	@Autowired
@@ -64,7 +66,7 @@ public class FetchServiceImpl implements FetchService {
 	}
 
 	public Event getEventById(Integer id) {
-		return eventDao.findById(id);
+		return eventDao.findEventById(id);
 	}
 
 	public Ticket getTicketById(Integer id) {

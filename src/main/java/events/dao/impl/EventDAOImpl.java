@@ -21,10 +21,10 @@ public class EventDAOImpl implements EventDAO {
 		  return sessionFactory.getCurrentSession();
 	}
 	
-	public Event findById(Integer id) {
+	public Event findEventById(Integer id) {
 		Query query = getCurrentSession().createQuery("from Event where id = :id ");
 		query.setParameter("id", id);
-		return (Event) query.list();
+		return (Event) query.uniqueResult();
 	}
 
 	@SuppressWarnings("unchecked")

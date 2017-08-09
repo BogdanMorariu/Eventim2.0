@@ -20,7 +20,7 @@ public class TicketDAOImpl implements TicketDAO{
     }
 
     public Ticket findByTicketId(Integer id) {
-        return (Ticket)getCurrentSession().createQuery("from Ticket t where t.id= :tid")
+        return (Ticket) getCurrentSession().createQuery("from Ticket t where t.id= :tid")
                 .setParameter("tid",id).uniqueResult();
     }
 

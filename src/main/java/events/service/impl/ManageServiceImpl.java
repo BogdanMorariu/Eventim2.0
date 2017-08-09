@@ -2,6 +2,7 @@ package events.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import events.dao.ArtistDAO;
 import events.dao.CategoryDAO;
@@ -16,6 +17,7 @@ import events.model.User;
 import events.service.ManageService;
 
 @Service
+@Transactional
 public class ManageServiceImpl implements ManageService {
 
 	@Autowired
