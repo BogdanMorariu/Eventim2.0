@@ -12,8 +12,8 @@
 
 		<property name="name" column="name"/>
 		<property name="location" column="location"/>
-		<property name="startDate" column="startDate" type="java.util.Date"/>
-		<property name="endDate" column="endDate" type="java.util.Date"/>
+		<property name="startDate" column="startdate" type="java.util.Date"/>
+		<property name="endDate" column="enddate" type="java.util.Date"/>
 		<property name="image" type="binary">
             <column name="IMAGE" not-null="true" />
         </property>
