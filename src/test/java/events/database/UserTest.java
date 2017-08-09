@@ -34,14 +34,14 @@ public class UserTest {
 		manageService.saveUser(user);
 		
 		Ticket ticket = new Ticket();
-		ticket.setEvent(fetchService.getEventById(1));
+		ticket.setEvent(fetchService.getEventById(2));
 		ticket.setPrice(1.0);
 		ticket.setBarcode(35346l);
 		ticket.setUser(user);
 		manageService.saveTicket(ticket);
 		
 		Ticket ticket1 = new Ticket();
-		ticket1.setEvent(fetchService.getEventById(1));
+		ticket1.setEvent(fetchService.getEventById(2));
 		ticket1.setPrice(1.0);
 		ticket1.setBarcode(35346l);
 		ticket1.setUser(user);
@@ -56,17 +56,17 @@ public class UserTest {
 	
 	@Test
 	public void testDeleteUser(){
-		User user = fetchService.getUserById(8);
+		User user = fetchService.getUserById(16);
 		manageService.deleteUser(user);
-		user = fetchService.getUserById(8);
+		user = fetchService.getUserById(16);
 		assertNull(user);
 		
 	}
 	
 	@Test
 	public void testDeleteUserById(){
-		manageService.deleteUserById(10);
-		User user = fetchService.getUserById(10);
+		manageService.deleteUserById(17);
+		User user = fetchService.getUserById(17);
 		assertNull(user);
 		
 	}
