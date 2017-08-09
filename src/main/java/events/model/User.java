@@ -1,5 +1,6 @@
 package events.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -53,6 +54,13 @@ public class User {
 	public String toString() {
 		return "User [id=" + this.id + ", name=" + this.name + ", password=" + this.password + ", type=" + this.type
 				+ "]";
+	}
+
+	public void addTicket(Ticket ticket) {
+		if (tickets == null) {
+			tickets = new ArrayList<Ticket>();
+		}
+		tickets.add(ticket);
 	}
 
 }
