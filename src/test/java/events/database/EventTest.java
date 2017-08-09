@@ -34,7 +34,7 @@ public class EventTest {
 	@Test
 	public void testAddEvent() throws ParseException {
 		Event event = new Event();
-		Category category = fetchService.getCategorieById(1);
+		Category category = fetchService.getCategoryById(1);
 		DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
 		Date startDate = df.parse("12/07/2017");
 		Date endDate = df.parse("16/07/2017");

@@ -30,8 +30,8 @@ public class TicketTest {
 	@Test
 	public void testAddTicket(){
 		Ticket ticket = new Ticket();
-		Event event = fetchService.getEventById(1);
-		User user = fetchService.getUserById(1);
+		Event event = fetchService.getEventById(2);
+		User user = fetchService.getUserById(2);
 		ticket.setBarcode(1436251312L);
 		ticket.setPrice(510.00);
 		ticket.setUser(user);
@@ -47,7 +47,7 @@ public class TicketTest {
 	
 	@Test
 	public void testFindTicketById(){
-		Ticket ticket = fetchService.getTicketById(1);
+		Ticket ticket = fetchService.getTicketById(2);
 		assertNotNull(ticket);
 	}
 	
@@ -55,7 +55,7 @@ public class TicketTest {
 	public void testDeleteTicket(){
 		
 		Ticket ticket = new Ticket();
-		Event event = fetchService.getEventById(1);
+		Event event = fetchService.getEventById(2);
 		User user = fetchService.getUserById(2);
 		ticket.setBarcode(1234567L);
 		ticket.setPrice(123.00);
@@ -77,7 +77,7 @@ public class TicketTest {
 	public void testDeleteTicketById(){
 		
 		Ticket ticket = new Ticket();
-		Event event = fetchService.getEventById(1);
+		Event event = fetchService.getEventById(2);
 		User user = fetchService.getUserById(2);
 		ticket.setBarcode(1234567L);
 		ticket.setPrice(123.00);

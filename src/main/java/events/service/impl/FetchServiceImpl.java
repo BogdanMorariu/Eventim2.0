@@ -61,7 +61,7 @@ public class FetchServiceImpl implements FetchService {
 		return artistDao.findArtistById(id);
 	}
 
-	public Category getCategorieById(Integer id) {
+	public Category getCategoryById(Integer id) {
 		return categoryDao.findCategoryById(id);
 	}
 

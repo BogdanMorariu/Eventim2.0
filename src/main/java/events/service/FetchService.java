@@ -19,7 +19,7 @@ public interface FetchService {
 
 	//Get by ID
 	Artist getArtistById(Integer id);
-	Category getCategorieById(Integer id);
+	Category getCategoryById(Integer id);
 	Event getEventById(Integer id);
 	Ticket getTicketById(Integer id);
 	User getUserById(Integer id);

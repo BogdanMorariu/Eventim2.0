@@ -33,9 +33,9 @@ public class CategoryTest {
 
     @Test
     public void testGetById(){
-        assertEquals(fetchService.getCategorieById(1).getType(),"THEATRE");
-        assertEquals(fetchService.getCategorieById(2).getType(),"MUSIC");
-        assertEquals(fetchService.getCategorieById(3).getType(),"DANCE");
+        assertEquals(fetchService.getCategoryById(1).getType(),"THEATRE");
+        assertEquals(fetchService.getCategoryById(2).getType(),"MUSIC");
+        assertEquals(fetchService.getCategoryById(3).getType(),"DANCE");
     }
 
 
