@@ -9,9 +9,6 @@
 				<param name="sequence">user_seq</param>  
 			</generator>
 		</id>
-		
-		
-
 		<property name="name" column="name" />
 		<property name="password" column="password" />
 		<property name="type" column="type" />

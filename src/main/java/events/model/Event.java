@@ -119,4 +119,12 @@ public class Event {
 		}
 		artists.add(artist);
 	}
+	
+	public void addTicket(Ticket ticket) {
+		if (tickets == null) {
+			tickets = new ArrayList<Ticket>();
+		}
+		tickets.add(ticket);
+	}
+	
 }

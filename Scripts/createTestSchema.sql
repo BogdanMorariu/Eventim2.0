@@ -1,14 +1,14 @@
 --REFRESH
 --tables
-DROP table ticket;
-DROP TABLE event_artist;
+DROP table if exists ticket;
+DROP TABLE if exists event_artist;
 DROP TABLE if exists "event";
-DROP TABLE artist;
-DROP table category;
-DROP TABLE users;
+DROP TABLE if exists artist;
+DROP table if exists category;
+DROP TABLE if exists users;
 
 --sequences
-drop sequence ticket_seq;
+drop sequence if exists ticket_seq;
 drop sequence if exists event_seq;
 drop sequence if exists artist_seq;
 DROP SEQUENCE if exists category_seq;
@@ -46,27 +46,26 @@ CREATE TABLE "event" (
   "id" int PRIMARY KEY DEFAULT NEXTVAL('event_seq'),
   "name" VARCHAR(250) DEFAULT NULL,
   "location" VARCHAR(250) DEFAULT NULL,
-  "startDate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'),
-  "endDate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'),
+  "startdate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'),
+  "enddate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'),
   "image" bytea,
   "category_id" int NOT NULL
 );
 ALTER TABLE "event" ADD CONSTRAINT categoryForeignKey FOREIGN KEY(category_id) REFERENCES category(id);
 
 CREATE TABLE event_artist(
-eventid Integer NOT NULL,
-artistid Integer NOT NULL,
-PRIMARY KEY(eventid, artistid),
-FOREIGN KEY (eventid) REFERENCES event (id),
+eventid Integer, --NOT NULL,
+artistid Integer, --NOT NULL,
+--PRIMARY KEY(eventid, artistid),
+FOREIGN KEY (eventid) REFERENCES event (id) on delete cascade on update cascade,
 FOREIGN KEY (artistid) REFERENCES artist (id));
 
 create table ticket
 	(id int default NEXTVAL('ticket_seq') primary key,
 	 userId int not NULL references users(ID),
-     eventId int not NULL references "event"(ID),
+     eventId int not NULL references "event"(ID) match simple on update cascade on delete cascade,
      barCode bigint not NULL,
      price FLOAT default 0);
-
 
 
 --Inserts
@@ -102,9 +101,9 @@ INSERT INTO public.artist(name)
 INSERT INTO public.artist(name)
 	VALUES ('David Guetta');
 
-INSERT INTO "event"("name","location","startDate","endDate","image","category_id") VALUES('testName1','testLoc1','2017-08-01 13:15:00 EET','2017-08-01 15:15:00 EET',null,1);
-INSERT INTO "event"("name","location","startDate","endDate","image","category_id") VALUES('testName2','testLoc2','2016-08-01 13:15:00 EET','2016-08-01 15:15:00 EET',null,2);
-INSERT INTO "event"("name","location","startDate","endDate","image","category_id") VALUES('testName3','testLoc3','2015-08-01 13:15:00 EET','2015-08-01 15:15:00 EET',null,3);
+INSERT INTO "event"("name","location","startdate","enddate","image","category_id") VALUES('testName1','testLoc1','2017-08-01 13:15:00 EET','2017-08-01 15:15:00 EET',null,1);
+INSERT INTO "event"("name","location","startdate","enddate","image","category_id") VALUES('testName2','testLoc2','2016-08-01 13:15:00 EET','2016-08-01 15:15:00 EET',null,2);
+INSERT INTO "event"("name","location","startdate","enddate","image","category_id") VALUES('testName3','testLoc3','2015-08-01 13:15:00 EET','2015-08-01 15:15:00 EET',null,3);
 
 insert into ticket(userId,eventId,barCode,price) values(1,1,7812465646,20.7);
 insert into ticket(userId,eventId,barCode,price) values(2,2,7817578299,40.0);

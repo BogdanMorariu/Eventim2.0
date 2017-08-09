@@ -1,15 +1,15 @@
 
 --REFRESH
 --tables
-DROP table ticket;
-DROP TABLE event_artist;
+DROP table if exists ticket;
+DROP TABLE if exists event_artist;
 DROP TABLE if exists "event";
-DROP TABLE artist;
-DROP table category;
-DROP TABLE users;
+DROP TABLE if exists artist;
+DROP table if exists category;
+DROP TABLE if exists users;
 
 --sequences
-drop sequence ticket_seq;
+drop sequence if exists ticket_seq;
 drop sequence if exists event_seq;
 drop sequence if exists artist_seq;
 DROP SEQUENCE if exists category_seq;
@@ -47,8 +47,8 @@ CREATE TABLE "event" (
   "id" int PRIMARY KEY DEFAULT NEXTVAL('event_seq'),
   "name" VARCHAR(250) DEFAULT NULL,
   "location" VARCHAR(250) DEFAULT NULL,
-  "startDate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'),
-  "endDate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'), 
+  "startdate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'),
+  "enddate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'), 
   "image" bytea,
   "category_id" int NOT NULL 
 );
@@ -58,13 +58,12 @@ CREATE TABLE event_artist(
 eventid Integer NOT NULL,
 artistid Integer NOT NULL,
 PRIMARY KEY(eventid, artistid),
-FOREIGN KEY (eventid) REFERENCES event (id),
+FOREIGN KEY (eventid) REFERENCES event (id) on delete cascade on update cascade,
 FOREIGN KEY (artistid) REFERENCES artist (id));
 
 create table ticket
 	(id int default NEXTVAL('ticket_seq') primary key,
-	 userId int not NULL references users(ID),
-     eventId int not NULL references "event"(ID),
+	 userId int not NULL references users(ID)  on update cascade on delete cascade,
+     eventId int not NULL references "event"(ID) match simple on update cascade on delete cascade,
      barCode bigint not NULL,
      price FLOAT default 0);
-
