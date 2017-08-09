@@ -1,10 +1,14 @@
 package events.model;
 
 
+import java.util.List;
+
 public class Category {
 	private Integer id;
 	private String type;
-	
+	private List<Event> events;
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -23,5 +27,12 @@ public class Category {
 	public void setType(String type) {
 		this.type = type;
 	}
-		
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
 }
