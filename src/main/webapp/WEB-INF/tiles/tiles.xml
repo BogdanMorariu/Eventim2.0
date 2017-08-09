@@ -5,13 +5,13 @@
 
 <tiles-definitions>
 
-	<definition name="default" template="TEMPLATE JSP">
-		<put-attribute name="header" value="HEADER JSP" />
-		<put-attribute name="body" value="BODY JSP" />
-		<put-attribute name="footer" value="FOOTER JSP" />
+	<definition name="default" template="/WEB-INF/tiles/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/tiles/body.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
 	</definition>
 	
-	<definition extends="default" name="DEMO">
+	<definition extends="default" name="createCategory">
         <put-attribute name="body" value="DEMO"/>
     </definition>
     

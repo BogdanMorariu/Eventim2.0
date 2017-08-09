@@ -48,7 +48,6 @@ public class CategoryTest {
         category2.setType("lala");
         Category category3 = new Category();
         category3.setType("painting");
-        List<Category> l = 	fetchService.getAllCategories();
         assert fetchService.getAllCategories().size()==3;
         manageService.saveCategory(category1);
         assert fetchService.getAllCategories().size()==4;
@@ -103,11 +102,11 @@ public class CategoryTest {
         manageService.saveCategory(category2);
         manageService.saveCategory(category3);
         assertEquals(fetchService.getAllCategories().size(),6);
-        manageService.deleteCategoryById(12);
+        manageService.deleteCategoryById(category1.getId());
         assertEquals(fetchService.getAllCategories().size(),5);
-        manageService.deleteCategoryById(11);
+        manageService.deleteCategoryById(category2.getId());
         assertEquals(fetchService.getAllCategories().size(),4);
-        manageService.deleteCategoryById(10);
+        manageService.deleteCategoryById(category3.getId());
         assertEquals(fetchService.getAllCategories().size(),3);
     }
 }
