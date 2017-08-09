@@ -27,6 +27,7 @@ public class ArtistDAOImpl implements ArtistDAO {
 		return (Artist) getCurrentSession().createQuery(hql).uniqueResult();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Artist> getAllArtists() {
 		String hql = "from Artist";
 		return getCurrentSession().createQuery(hql).list();
