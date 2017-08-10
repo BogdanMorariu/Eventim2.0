@@ -56,17 +56,17 @@ public class UserTest {
 	
 	@Test
 	public void testDeleteUser(){
-		User user = fetchService.getUserById(16);
+		User user = fetchService.getUserById(14);
 		manageService.deleteUser(user);
-		user = fetchService.getUserById(16);
+		user = fetchService.getUserById(14);
 		assertNull(user);
 		
 	}
 	
 	@Test
 	public void testDeleteUserById(){
-		manageService.deleteUserById(17);
-		User user = fetchService.getUserById(17);
+		manageService.deleteUserById(15);
+		User user = fetchService.getUserById(15);
 		assertNull(user);
 		
 	}
