@@ -1,5 +1,8 @@
 package events.model;
 
+import org.hibernate.validator.constraints.Email;
+
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
