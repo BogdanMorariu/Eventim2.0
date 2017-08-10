@@ -7,10 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+
 	private Integer id;
+
+	@NotNull
 	private String name;
+
+	@NotNull
 	private String password;
+
+	@NotNull @Email
+	private String email;
+
 	private String type;
+
 	private List<Ticket> tickets;
 
 	public List<Ticket> getTickets() {
@@ -53,10 +63,12 @@ public class User {
 		this.type = type;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + this.id + ", name=" + this.name + ", password=" + this.password + ", type=" + this.type
-				+ "]";
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void addTicket(Ticket ticket) {

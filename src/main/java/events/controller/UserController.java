@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/users")
@@ -22,14 +21,42 @@ public class UserController {
     @RequestMapping("/createUser")
     public ModelAndView createUser(@Valid User user, BindingResult result, Model uiModel){
         if (result.hasErrors()) {
-            return new ModelAndView("createUser", (Map<String, ?>) uiModel);
+            return new ModelAndView("createUser", uiModel.asMap());
         }
        try {
            manageService.saveUser(user);
            return new ModelAndView("confirmUser");
        } catch  (Exception ex) {
            System.out.println(ex.getMessage());
-           return new ModelAndView("createUser", (Map<String, ?>) uiModel);
+           return new ModelAndView("createUser", uiModel.asMap());
        }
+    }
+
+    @RequestMapping("/deleteUser")
+    public ModelAndView deleteUser(Integer id, BindingResult result, Model uiModel){
+        if (result.hasErrors()) {
+            return new ModelAndView("deleteUser", uiModel.asMap());
+        }
+        try {
+            manageService.deleteUserById(id);
+            return new ModelAndView("confirmUser");
+        } catch  (Exception ex) {
+            System.out.println(ex.getMessage());
+            return new ModelAndView("deleteUser", uiModel.asMap());
+        }
+    }
+
+    @RequestMapping("/updateUser")
+    public ModelAndView updateUser(@Valid User user, BindingResult result, Model uiModel){
+        if (result.hasErrors()) {
+            return new ModelAndView("updateUser", uiModel.asMap());
+        }
+        try {
+            manageService.saveUser(user);
+            return new ModelAndView("confirmUser");
+        } catch  (Exception ex) {
+            System.out.println(ex.getMessage());
+            return new ModelAndView("updateUser", uiModel.asMap());
+        }
     }
 }

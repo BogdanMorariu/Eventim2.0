@@ -10,16 +10,23 @@
 		<put-attribute name="body" value="/WEB-INF/tiles/body.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
 	</definition>
-	
-	<definition extends="default" name="createCategory">
-        <put-attribute name="body" value="DEMO"/>
-    </definition>
 
-	<definition extends="default" name="cinfirmUser">
+    <!-- USER Tiles-->
+	<definition extends="default" name="confirmUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmUser.jsp"/>
 	</definition>
 	<definition extends="default" name="createUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
 	</definition>
+    <definition extends="default" name="deleteUser">
+        <put-attribute name="body" value="/WEB-INF/jsp/user/deleteUser.jsp"/>
+    </definition>
+    <definition extends="default" name="updateUser">
+        <put-attribute name="body" value="/WEB-INF/jsp/user/updateUser.jsp"/>
+    </definition>
+    <definition extends="default" name="home">
+        <put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
+    </definition>
+
     
 </tiles-definitions>
