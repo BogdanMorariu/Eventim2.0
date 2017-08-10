@@ -14,5 +14,12 @@
 	<definition extends="default" name="createCategory">
         <put-attribute name="body" value="DEMO"/>
     </definition>
+
+	<definition extends="default" name="cinfirmUser">
+		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmUser.jsp"/>
+	</definition>
+	<definition extends="default" name="createUser">
+		<put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
+	</definition>
     
 </tiles-definitions>
