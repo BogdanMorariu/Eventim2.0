@@ -33,6 +33,9 @@
 	<definition extends="default" name="confirmUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmUser.jsp"/>
 	</definition>
+	<definition extends="default" name="confirmMail">
+		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmMail.jsp"/>
+	</definition>
 	<definition extends="default" name="createUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
 	</definition>
@@ -45,6 +48,9 @@
     <definition extends="default" name="home">
         <put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
     </definition>
+	<definition extends="default" name="error">
+		<put-attribute name="body" value="/WEB-INF/jsp/error.jsp"/>
+	</definition>
 	
 	<definition extends="default" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>

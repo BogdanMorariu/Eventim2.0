@@ -18,6 +18,8 @@ import events.utils.MailUtil;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+	
+	public static final String MAIL_SUBJECT = "Forgot password";
 
 	private String newPassword;
 
@@ -33,7 +35,7 @@ public class LoginController {
 		try {
 			newPassword = MailUtil.generatePassword();
 			if (updatePassword(newPassword, email) == true) {
-				MailUtil.sendMail(newPassword, email);
+				MailUtil.sendMail(MAIL_SUBJECT, newPassword, email);
 				return "An eMail with the new password has been sent.";
 			}
 			else{

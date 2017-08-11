@@ -1,1 +1,1 @@
-<div>This is Sparta Footer!!!!</div>
+<div>Hello! I'm Footer !</div>

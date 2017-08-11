@@ -6,6 +6,7 @@ DROP TABLE if exists event_artist;
 DROP TABLE if exists "event";
 DROP TABLE if exists artist;
 DROP table if exists category;
+DROP TABLE if exists temporaryUsers;
 DROP TABLE if exists users;
 
 --sequences
@@ -13,17 +14,20 @@ drop sequence if exists ticket_seq;
 drop sequence if exists event_seq;
 drop sequence if exists artist_seq;
 DROP SEQUENCE if exists category_seq;
+DROP SEQUENCE if EXISTS temporary_seq;
 drop sequence if exists user_seq;
+DROP SEQUENCE if EXISTS barcode_seq;
 
 
 --Create
 --sequences
 create sequence user_seq start 1;
+CREATE SEQUENCE temporary_seq START 1;
 CREATE SEQUENCE category_seq START 1;
 create sequence artist_seq start 1;
 CREATE SEQUENCE event_seq START 1;
 create sequence ticket_seq START 1;
-
+create SEQUENCE barcode_seq START 56734986734;
 
 
 --tables
@@ -33,6 +37,15 @@ CREATE TABLE users(
     password varchar(250) NOT NULL,
     email VARCHAR(250) NOT NULL ,
     type varchar(10) NOT NULL
+);
+
+CREATE TABLE temporaryUsers(
+  id Integer Primary KEY default nextval('temporary_seq'),
+  name varchar(250) NOT NULL,
+  password varchar(250) NOT NULL,
+  email VARCHAR(250) NOT NULL,
+  type varchar(10) NOT NULL,
+  registered BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE category (
@@ -63,8 +76,9 @@ FOREIGN KEY (eventid) REFERENCES event (id) on delete cascade on update cascade,
 FOREIGN KEY (artistid) REFERENCES artist (id));
 
 create table ticket
-	(id int default NEXTVAL('ticket_seq') primary key,
+	(id int default NEXTVAL('ticket_seq'),
 	 userId int not NULL references users(ID)  on update cascade on delete cascade,
      eventId int not NULL references "event"(ID) match simple on update cascade on delete cascade,
-     barCode bigint not NULL,
-     price FLOAT default 0);
+     barCode bigint DEFAULT NEXTVAL('barcode_seq'),
+     price FLOAT default 0,
+     PRIMARY KEY (id,barCode));

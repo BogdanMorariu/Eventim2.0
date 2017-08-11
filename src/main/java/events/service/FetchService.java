@@ -2,11 +2,7 @@ package events.service;
 
 import java.util.List;
 
-import events.model.Artist;
-import events.model.Category;
-import events.model.Event;
-import events.model.Ticket;
-import events.model.User;
+import events.model.*;
 
 public interface FetchService {
 
@@ -16,6 +12,7 @@ public interface FetchService {
 	List<Event> getAllEvents();
 	List<Ticket> getAllTickets();
 	List<User> getAllUsers();
+	List<TemporaryUser> getAllTemporaryUsers();
 
 	//Get by ID
 	Artist getArtistById(Integer id);
@@ -23,6 +20,7 @@ public interface FetchService {
 	Event getEventById(Integer id);
 	Ticket getTicketById(Integer id);
 	User getUserById(Integer id);
+	TemporaryUser getTemporaryUserById(Integer id);
 
 	//Get by Foreign key
 	List<Ticket> getUserTickets(Integer userId);

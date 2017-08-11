@@ -12,6 +12,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class MailUtil {
+
 	public static void sendMail(String mailSubject, String mailMessage, String recipientMailAdress) {
 
 		final String username = "eventim2.0@gmail.com";
