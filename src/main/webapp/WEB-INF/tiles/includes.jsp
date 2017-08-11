@@ -5,6 +5,6 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-responsive.min.css"></link>
 <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css"></link>
 <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="../resources/js/moment.min.js"></script>
 <script type="text/javascript" src="../resources/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="../resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../resources/js/moment.min.js"></script>
