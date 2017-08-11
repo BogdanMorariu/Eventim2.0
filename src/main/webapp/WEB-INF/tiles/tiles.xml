@@ -12,10 +12,16 @@
 	</definition>
 	
 	<definition extends="default" name="createCategory">
-        <put-attribute name="body" value="DEMO"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/category/createCategory.jsp"/>
+    </definition>
+    <definition extends="default" name="updateCategory">
+        <put-attribute name="body" value="/WEB-INF/jsp/category/updateCategory.jsp"/>
+    </definition>
+    <definition extends="default" name="deleteCategory">
+        <put-attribute name="body" value="/WEB-INF/jsp/category/deleteCategory.jsp"/>
     </definition>
 
-	<definition extends="default" name="cinfirmUser">
+	<definition extends="default" name="confirmUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmUser.jsp"/>
 	</definition>
 	<definition extends="default" name="createUser">
