@@ -24,7 +24,8 @@ public class TicketDAOImpl implements TicketDAO{
                 .setParameter("tid",id).uniqueResult();
     }
 
-    public List<Ticket> getAllTickets() {
+    @SuppressWarnings("unchecked")
+	public List<Ticket> getAllTickets() {
         String hql = "from Ticket";
         return getCurrentSession().createQuery(hql).list();
     }
@@ -40,4 +41,9 @@ public class TicketDAOImpl implements TicketDAO{
     public void deleteTicketById(Integer id) {
         getCurrentSession().createQuery("delete from Ticket t where t.id="+id).executeUpdate();
     }
+
+	@SuppressWarnings("unchecked")
+	public List<Ticket> getUserTickets(Integer userId) {
+		 return getCurrentSession().createQuery("from Ticket t where t.user.id= :tid").setParameter("tid",userId).list();
+	}
 }

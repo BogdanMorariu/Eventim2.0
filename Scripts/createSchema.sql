@@ -31,6 +31,7 @@ CREATE TABLE users(
     id Integer Primary KEY default nextval('user_seq'),
     name varchar(250) NOT NULL,
     password varchar(250) NOT NULL,
+    email VARCHAR(250) NOT NULL ,
     type varchar(10) NOT NULL
 );
 

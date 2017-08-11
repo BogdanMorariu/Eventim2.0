@@ -1,5 +1,7 @@
 package events.model;
 
+import javax.validation.constraints.NotNull;
+
 public class Ticket {
     private Integer id;
     private User user;

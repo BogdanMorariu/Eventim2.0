@@ -11,4 +11,5 @@ public interface TicketDAO {
     void saveTicket(Ticket ticket);
     void deleteTicket(Ticket ticket);
     void deleteTicketById(Integer id);
+    List<Ticket> getUserTickets(Integer userId);
 }
