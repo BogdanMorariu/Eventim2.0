@@ -77,4 +77,8 @@ public class FetchServiceImpl implements FetchService {
 		return userDao.findUserById(id);
 	}
 
+	public List<Ticket> getUserTickets(Integer userId) {
+		return ticketDao.getUserTickets(userId);
+	}
+
 }

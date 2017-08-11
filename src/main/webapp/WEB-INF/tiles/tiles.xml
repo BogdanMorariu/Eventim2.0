@@ -27,6 +27,15 @@
     <definition extends="default" name="home">
         <put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
     </definition>
-
+	
+	<definition extends="default" name="createTicket">
+		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
+	</definition>
+	<definition extends="default" name="deleteTicket">
+		<put-attribute name="body" value="/WEB-INF/jsp/ticket/deleteTicket.jsp"/>
+	</definition>
+	<definition extends="default" name="updateTicket">
+		<put-attribute name="body" value="/WEB-INF/jsp/ticket/updateTicket.jsp"/>
+	</definition>
     
 </tiles-definitions>

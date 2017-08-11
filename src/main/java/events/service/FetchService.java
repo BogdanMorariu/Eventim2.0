@@ -24,4 +24,6 @@ public interface FetchService {
 	Ticket getTicketById(Integer id);
 	User getUserById(Integer id);
 
+	//Get by Foreign key
+	List<Ticket> getUserTickets(Integer userId);
 }
