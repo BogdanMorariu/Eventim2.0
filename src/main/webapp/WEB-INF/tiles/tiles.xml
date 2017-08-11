@@ -46,5 +46,14 @@
 	<definition extends="default" name="updateTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/updateTicket.jsp"/>
 	</definition>
+	<definition extends="default" name="createArtist">
+		<put-attribute name="body" value="/WEB-INF/jsp/artist/createArtist.jsp"/>
+	</definition>
+		<definition extends="default" name="deleteArtist">
+		<put-attribute name="body" value="/WEB-INF/jsp/artist/deleteArtist.jsp"/>
+	</definition>
+		<definition extends="default" name="updateArtist">
+		<put-attribute name="body" value="/WEB-INF/jsp/artist/updateArtist.jsp"/>
+	</definition>
     
 </tiles-definitions>
