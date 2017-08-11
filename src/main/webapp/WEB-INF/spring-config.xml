@@ -67,6 +67,7 @@
    				<value>hibernate/event.hbm.xml</value>
    				<value>hibernate/ticket.hbm.xml</value>
    				<value>hibernate/user.hbm.xml</value>
+				<value>hibernate/temporaryUser.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

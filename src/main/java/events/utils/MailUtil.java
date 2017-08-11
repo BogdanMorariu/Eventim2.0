@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 public class MailUtil {
 
-	public static void sendMail(String mailMessage, String senderMailAdress, String recipientMailAdress) {
+	public static void sendMail(String mailSubject, String mailMessage, String recipientMailAdress) {
 
 		final String username = "eventim2.0@gmail.com";
 		final String password = "practica17";
@@ -30,9 +30,9 @@ public class MailUtil {
 		});
 		try {
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress(senderMailAdress));
+			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientMailAdress));
-			message.setSubject("Testing Subject");
+			message.setSubject(mailSubject);
 			message.setText(mailMessage);
 
 			Transport.send(message);
