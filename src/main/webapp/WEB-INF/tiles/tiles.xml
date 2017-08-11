@@ -24,9 +24,6 @@
 	<definition extends="default" name="confirmUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmUser.jsp"/>
 	</definition>
-	<definition extends="default" name="confirmMail">
-		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmMail.jsp"/>
-	</definition>
 	<definition extends="default" name="createUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
 	</definition>
@@ -39,9 +36,6 @@
     <definition extends="default" name="home">
         <put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
     </definition>
-	<definition extends="default" name="error">
-		<put-attribute name="body" value="/WEB-INF/jsp/error.jsp"/>
-	</definition>
 	
 	<definition extends="default" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
@@ -52,14 +46,19 @@
 	<definition extends="default" name="updateTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/updateTicket.jsp"/>
 	</definition>
-	<definition extends="default" name="createArtist">
-		<put-attribute name="body" value="/WEB-INF/jsp/artist/createArtist.jsp"/>
-	</definition>
-		<definition extends="default" name="deleteArtist">
-		<put-attribute name="body" value="/WEB-INF/jsp/artist/deleteArtist.jsp"/>
-	</definition>
-		<definition extends="default" name="updateArtist">
-		<put-attribute name="body" value="/WEB-INF/jsp/artist/updateArtist.jsp"/>
-	</definition>
+	
+	<definition extends="default" name="createEvent">
+        <put-attribute name="body" value="/WEB-INF/jsp/event/createEvent.jsp"/>
+    </definition>
+    <definition extends="default" name="updateEvent">
+        <put-attribute name="body" value="/WEB-INF/jsp/event/updateEvent.jsp"/>
+    </definition>
+    <definition extends="default" name="deleteCategory">
+        <put-attribute name="body" value="/WEB-INF/jsp/event/deleteEvent.jsp"/>
+    </definition>
+    
+    <definition extends="default" name="createEventInfo">
+        <put-attribute name="body" value="/WEB-INF/jsp/event/createEventInfo.jsp"/>
+    </definition>
     
 </tiles-definitions>
