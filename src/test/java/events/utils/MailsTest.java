@@ -11,10 +11,10 @@ public class MailsTest {
 		
 		
 		String body = "This is another test";
-		String senderMailAdress = "eventim2.0@gmail.com";
+		//String senderMailAdress = "eventim2.0@gmail.com";
 		String recipientMailAdress = "geraldlionb@gmail.com";
 		
-		MailUtil.sendMail(body, senderMailAdress, recipientMailAdress);
+		MailUtil.sendMail(body, recipientMailAdress);
 		
 		Thread.sleep(60000);
 
@@ -22,10 +22,10 @@ public class MailsTest {
 	public static void main(String[] args) {
 		
 		String body = "Gerri";
-		String senderMailAdress = "eventim2.0@gmail.com";
+		//String senderMailAdress = "eventim2.0@gmail.com";
 		String recipientMailAdress = "geraldlionb@gmail.com";
 		
-		MailUtil.sendMail(body, senderMailAdress, recipientMailAdress);
+		MailUtil.sendMail(body, recipientMailAdress);
 		
 	}
 

@@ -46,5 +46,13 @@
 	<definition extends="default" name="updateTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/updateTicket.jsp"/>
 	</definition>
+	
+	 <definition extends="default" name="changePassword">
+		<put-attribute name="body" value="/WEB-INF/jsp/login/changePassword.jsp"/>
+	</definition>
+	
+	<definition extends="default" name="login">
+		<put-attribute name="body" value="/WEB-INF/jsp/login/login.jsp"/>
+	</definition>
     
 </tiles-definitions>
