@@ -66,10 +66,10 @@ public class ArtistController {
 	public ModelAndView removeArtist(@RequestParam(value="idValue",required=true) Integer id,Model uiModel){
 		try{
 			manageService.deleteArtistById(id);
-			return new ModelAndView("deleted Succesfully");
+			return new ModelAndView("deleteArtistSucces");
 		} catch (Exception ex) {
 			 System.out.println(ex.getMessage());
-			   return new ModelAndView("deleteCategory", uiModel.asMap());}
+			   return new ModelAndView("deleteArtist", uiModel.asMap());}
 		}
     
 	@RequestMapping("/updateArtist")

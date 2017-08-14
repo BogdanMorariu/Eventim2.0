@@ -29,7 +29,11 @@
     <definition extends="default" name="deleteCategorySuccess">
         <put-attribute name="body" value="/WEB-INF/jsp/category/deletedSuccessfully.jsp"/>
     </definition>
-
+	 <definition extends="default" name="deleteArtistSuccess">
+        <put-attribute name="body" value="/WEB-INF/jsp/artist/deletedSuccessfully.jsp"/>
+    </definition>
+	
+	
 	<definition extends="default" name="confirmUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmUser.jsp"/>
 	</definition>

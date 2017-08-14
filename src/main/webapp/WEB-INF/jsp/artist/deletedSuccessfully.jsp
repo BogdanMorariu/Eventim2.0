@@ -1,0 +1,1 @@
+Artist has been deleted!
