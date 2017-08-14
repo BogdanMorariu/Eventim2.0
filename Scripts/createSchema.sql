@@ -64,9 +64,9 @@ CREATE TABLE "event" (
   "startdate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'),
   "enddate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'), 
   "image" bytea,
-  "category_id" int NOT NULL 
+  "category_id" int
 );
-ALTER TABLE "event" ADD CONSTRAINT categoryForeignKey FOREIGN KEY(category_id) REFERENCES category(id);
+ALTER TABLE "event" ADD CONSTRAINT categoryForeignKey FOREIGN KEY(category_id) REFERENCES category(id) on update cascade on delete set null;
 
 CREATE TABLE event_artist(
 eventid Integer NOT NULL,

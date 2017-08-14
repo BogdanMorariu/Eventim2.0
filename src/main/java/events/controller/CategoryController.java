@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import events.model.Category;
@@ -72,16 +73,21 @@ public class CategoryController {
 	}
 
 	@RequestMapping("/deleteCategory")
-	public ModelAndView deleteCategory(@Valid Category category, BindingResult result, Model uiModel) {
-		Integer id = category.getId();
-		List<Category> categories = fetchService.getAllCategories();
-		if (result.hasErrors()) {
+	public ModelAndView deleteCategory(Model uiModel) {
+		try {
+			List<Category> categories = fetchService.getAllCategories();
 			uiModel.addAttribute("categories" , categories);
+			return new ModelAndView("deleteCategory");
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
 			return new ModelAndView("deleteCategory", uiModel.asMap());
 		}
+	}
+	
+	@RequestMapping("/removeCategory")
+	public ModelAndView removeCategory(@RequestParam(value = "idValue", required = true) Integer id, Model uiModel) {
 		try {
 			manageService.deleteCategoryById(id);
-			uiModel.addAttribute("categories" , categories);
 			return new ModelAndView("deletedSuccessfully");
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());

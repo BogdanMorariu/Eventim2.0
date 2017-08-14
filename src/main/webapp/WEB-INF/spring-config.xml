@@ -45,7 +45,7 @@
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${driverClass}"/>
-        <property name="url" value="${testUrl}"/>
+        <property name="url" value="${url}"/>
         <property name="username" value="${myUsername}"/>
         <property name="password" value="${myPassword}"/>
         <property name="testOnBorrow" value="true"/>
