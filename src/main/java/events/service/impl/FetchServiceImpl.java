@@ -2,20 +2,12 @@ package events.service.impl;
 
 import java.util.List;
 
+import events.dao.*;
+import events.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import events.dao.ArtistDAO;
-import events.dao.CategoryDAO;
-import events.dao.EventDAO;
-import events.dao.TicketDAO;
-import events.dao.UserDAO;
-import events.model.Artist;
-import events.model.Category;
-import events.model.Event;
-import events.model.Ticket;
-import events.model.User;
 import events.service.FetchService;
 
 @Service
@@ -36,7 +28,10 @@ public class FetchServiceImpl implements FetchService {
 	
 	@Autowired
 	private UserDAO userDao;
-	
+
+	@Autowired
+	private TemporaryUserDAO temporaryUserDAO;
+
 	public List<Artist> getAllArtists() {
 		return artistDao.getAllArtists();
 	}
@@ -55,6 +50,11 @@ public class FetchServiceImpl implements FetchService {
 
 	public List<User> getAllUsers() {
 		return userDao.getAllUsers();
+	}
+
+	@Override
+	public List<TemporaryUser> getAllTemporaryUsers() {
+		return temporaryUserDAO.getAllTemporaryUsers();
 	}
 
 	public Artist getArtistById(Integer id) {
@@ -79,6 +79,15 @@ public class FetchServiceImpl implements FetchService {
 
 	public List<Ticket> getUserTickets(Integer userId) {
 		return ticketDao.getUserTickets(userId);
+	}
+
+	public User findUserAtLogin(String username) {
+		return userDao.findUserAtLogin(username);
+	}
+	
+	@Override
+	public TemporaryUser getTemporaryUserById(Integer id) {
+		return temporaryUserDAO.findTemporaryUserById(id);
 	}
 
 }

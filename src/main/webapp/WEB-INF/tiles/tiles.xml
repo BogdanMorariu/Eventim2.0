@@ -55,5 +55,26 @@
 	<definition extends="default" name="updateTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/updateTicket.jsp"/>
 	</definition>
+		
+	<definition extends="default" name="createEvent">
+        <put-attribute name="body" value="/WEB-INF/jsp/event/createEvent.jsp"/>
+    </definition>
+    <definition extends="default" name="updateEvent">
+        <put-attribute name="body" value="/WEB-INF/jsp/event/updateEvent.jsp"/>
+    </definition>
+    <definition extends="default" name="deleteCategory">
+        <put-attribute name="body" value="/WEB-INF/jsp/event/deleteEvent.jsp"/>
+    </definition>
+    
+    <definition extends="default" name="createEventInfo">
+        <put-attribute name="body" value="/WEB-INF/jsp/event/createEventInfo.jsp"/>
+    </definition>
+	 <definition extends="default" name="changePassword">
+		<put-attribute name="body" value="/WEB-INF/jsp/login/changePassword.jsp"/>
+	</definition>
+	
+	<definition extends="default" name="login">
+		<put-attribute name="body" value="/WEB-INF/jsp/login/login.jsp"/>
+	</definition>
     
 </tiles-definitions>

@@ -1,6 +1,7 @@
 package events.utils;
 
 import java.util.Properties;
+import java.util.Random;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -12,7 +13,11 @@ import javax.mail.internet.MimeMessage;
 
 public class MailUtil {
 
-	public static void sendMail(String mailMessage, String senderMailAdress, String recipientMailAdress) {
+<<<<<<< HEAD
+	public static void sendMail(String mailMessage, String recipientMailAdress) {
+=======
+	public static void sendMail(String mailSubject, String mailMessage, String recipientMailAdress) {
+>>>>>>> 97d9b1812c8da1c4f0d9ced8679cea6fec7ac9a5
 
 		final String username = "eventim2.0@gmail.com";
 		final String password = "practica17";
@@ -30,9 +35,9 @@ public class MailUtil {
 		});
 		try {
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress(senderMailAdress));
+			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientMailAdress));
-			message.setSubject("Testing Subject");
+			message.setSubject(mailSubject);
 			message.setText(mailMessage);
 
 			Transport.send(message);
@@ -42,6 +47,20 @@ public class MailUtil {
 			// TODO: handle exception
 			throw new RuntimeException(e);
 		}
+	}
+	
+	public static String generatePassword() {
+
+		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+		StringBuilder salt = new StringBuilder();
+		Random rnd = new Random();
+		while (salt.length() < 8) { // length of the random string.
+			int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+			salt.append(SALTCHARS.charAt(index));
+		}
+		String saltStr = salt.toString();
+		return saltStr;
+
 	}
 	
 	

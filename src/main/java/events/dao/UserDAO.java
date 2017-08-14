@@ -14,4 +14,5 @@ public interface UserDAO {
 	public void saveUser(User user);
 	public void deleteUser(User user);
 	public void deleteUserById(Integer id);
+	public User findUserAtLogin(String username);
 }

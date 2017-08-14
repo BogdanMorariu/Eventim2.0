@@ -83,5 +83,12 @@ public class UserTest {
 		assertNotNull(list);
 	}
 	
+	@Test
+	public void testFindUserAtLogin(){
+		String username = "cristin";
+		User user = fetchService.findUserAtLogin(username);
+		assertNotNull(user);
+		
+	}
 
 }
