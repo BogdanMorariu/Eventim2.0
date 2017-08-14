@@ -17,6 +17,16 @@
 
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="formatters">
+			<set>
+				<ref bean="eventFormatter" />
+				<ref bean="userFormatter" />
+			</set>
+		</property>
+	</bean>
+
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<!-- Configures Spring MVC DataBinder instances globally -->
@@ -29,15 +39,7 @@
 	</bean>
 
 
-	<bean id="conversionService"
-		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-		<property name="formatters">
-			<set>
-				<ref bean="eventFormatter" />
-				<ref bean="userFormatter" />
-			</set>
-		</property>
-	</bean>
+
 
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
