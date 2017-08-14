@@ -66,7 +66,7 @@ public class ArtistController {
 	public ModelAndView removeArtist(@RequestParam(value="idValue",required=true) Integer id,Model uiModel){
 		try{
 			manageService.deleteArtistById(id);
-			return new ModelAndView("deleteArtistSucces");
+			return new ModelAndView("deleteArtistSuccess");
 		} catch (Exception ex) {
 			 System.out.println(ex.getMessage());
 			   return new ModelAndView("deleteArtist", uiModel.asMap());}
