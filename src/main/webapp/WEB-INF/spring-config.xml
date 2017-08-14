@@ -18,7 +18,7 @@
 	<mvc:annotation-driven />
 	<context:component-scan base-package="events" />
 
-	<mvc:resources mapping="/resources/**" location="resources" />
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 	
     <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />  
 

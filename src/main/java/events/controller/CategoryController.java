@@ -1,5 +1,7 @@
 package events.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,12 +73,15 @@ public class CategoryController {
 
 	@RequestMapping("/deleteCategory")
 	public ModelAndView deleteCategory(@Valid Category category, BindingResult result, Model uiModel) {
+		Integer id = category.getId();
+		List<Category> categories = fetchService.getAllCategories();
 		if (result.hasErrors()) {
-			uiModel.addAttribute("categories" , fetchService.getAllCategories());
+			uiModel.addAttribute("categories" , categories);
 			return new ModelAndView("deleteCategory", uiModel.asMap());
 		}
 		try {
-			manageService.deleteCategoryById(category.getId());
+			manageService.deleteCategoryById(id);
+			uiModel.addAttribute("categories" , categories);
 			return new ModelAndView("deletedSuccessfully");
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());

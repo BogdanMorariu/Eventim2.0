@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import events.model.User;
 import events.service.FetchService;
 import events.service.ManageService;
-import events.service.impl.FetchServiceImpl;
-import events.service.impl.ManageServiceImpl;
 import events.utils.MailUtil;
 
 @Controller
@@ -24,10 +22,10 @@ public class LoginController {
 	private String newPassword;
 
 	@Autowired
-	FetchServiceImpl fetchService;
+	private FetchService fetchService;
 
 	@Autowired
-	ManageServiceImpl manageService;
+	private ManageService manageService;
 
 	@RequestMapping("/forgotPassword")
 	@ResponseBody
