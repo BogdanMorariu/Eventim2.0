@@ -12,6 +12,7 @@
 		<property name="name" column="name" />
 		<property name="password" column="password" />
 		<property name="type" column="type" />
+		<property name="email" column="email"/>
 		
 		<bag table="ticket" name="tickets">
 			<key column="userid"/>

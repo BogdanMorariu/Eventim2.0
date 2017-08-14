@@ -3,9 +3,14 @@ package events.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 public class Artist {
 	private Integer id;
+	
+	@NotNull
 	private String name;
+	
 	private List<Event> events;
 
 	public Artist() {

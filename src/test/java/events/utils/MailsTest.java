@@ -11,10 +11,9 @@ public class MailsTest {
 		
 		
 		String body = "This is another test";
-		//String senderMailAdress = "eventim2.0@gmail.com";
 		String recipientMailAdress = "geraldlionb@gmail.com";
 		
-		MailUtil.sendMail(body, recipientMailAdress);
+		MailUtil.sendMail("Subject", body, recipientMailAdress);
 		
 		Thread.sleep(60000);
 
@@ -22,14 +21,9 @@ public class MailsTest {
 	public static void main(String[] args) {
 		
 		String body = "Gerri";
-		//String senderMailAdress = "eventim2.0@gmail.com";
 		String recipientMailAdress = "geraldlionb@gmail.com";
 		
-<<<<<<< HEAD
-		MailUtil.sendMail(body, recipientMailAdress);
-=======
 		MailUtil.sendMail("Test",body, recipientMailAdress);
->>>>>>> 97d9b1812c8da1c4f0d9ced8679cea6fec7ac9a5
 		
 	}
 

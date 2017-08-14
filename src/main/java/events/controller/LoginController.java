@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import events.model.User;
 import events.service.FetchService;
 import events.service.ManageService;
-import events.service.impl.FetchServiceImpl;
-import events.service.impl.ManageServiceImpl;
 import events.utils.MailUtil;
 
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+	
+	public static final String MAIL_SUBJECT = "Forgot password";
 
 	private String newPassword;
 
 	@Autowired
-	FetchServiceImpl fetchService;
+	private FetchService fetchService;
 
 	@Autowired
-	ManageServiceImpl manageService;
+	private ManageService manageService;
 
 	@RequestMapping("/forgotPassword")
 	@ResponseBody
@@ -33,7 +33,7 @@ public class LoginController {
 		try {
 			newPassword = MailUtil.generatePassword();
 			if (updatePassword(newPassword, email) == true) {
-				MailUtil.sendMail(newPassword, email);
+				MailUtil.sendMail(MAIL_SUBJECT, newPassword, email);
 				return "An eMail with the new password has been sent.";
 			}
 			else{

@@ -1,24 +1,26 @@
 package events.service;
 
-import events.model.Artist;
-import events.model.Category;
-import events.model.Event;
-import events.model.Ticket;
-import events.model.User;
+import events.model.*;
 
 public interface ManageService {
 
-	public void saveArtist(Artist artist);
+	void saveArtist(Artist artist);
 
-	public void deleteArtist(Artist artist);
+	void deleteArtist(Artist artist);
 
-	public void deleteArtistById(Integer id);
+	void deleteArtistById(Integer id);
 
-	public void saveCategory(Category category);
+	void saveCategory(Category category);
 
-	public void deleteCategory(Category category);
+	void deleteCategory(Category category);
 
-	public void deleteCategoryById(Integer id);
+	void deleteCategoryById(Integer id);
+
+	void saveTemporaryUser(TemporaryUser temporaryUser);
+
+	void deleteTemporaryUser(TemporaryUser temporaryUser);
+
+	void deleteTemporaryUserById(Integer id);
 
 	void saveEvent(Event event);
 
@@ -32,9 +34,9 @@ public interface ManageService {
 
 	void deleteTicketById(Integer id);
 
-	public void saveUser(User user);
+	void saveUser(User user);
 
-	public void deleteUser(User user);
+	void deleteUser(User user);
 
-	public void deleteUserById(Integer id);
+	void deleteUserById(Integer id);
 }

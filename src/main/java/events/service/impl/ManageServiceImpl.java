@@ -1,19 +1,11 @@
 package events.service.impl;
 
+import events.dao.*;
+import events.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import events.dao.ArtistDAO;
-import events.dao.CategoryDAO;
-import events.dao.EventDAO;
-import events.dao.TicketDAO;
-import events.dao.UserDAO;
-import events.model.Artist;
-import events.model.Category;
-import events.model.Event;
-import events.model.Ticket;
-import events.model.User;
 import events.service.ManageService;
 
 @Service
@@ -31,21 +23,21 @@ public class ManageServiceImpl implements ManageService {
 	
 	@Autowired
 	private EventDAO eventDAO;
+
+	@Autowired
+	private TemporaryUserDAO temporaryUserDAO;
 	
 	
 	public void saveArtist(Artist artist) {
 		artistDao.saveArtist(artist);
-		
 	}
 
 	public void deleteArtist(Artist artist) {
 		artistDao.deleteArtist(artist);
-		
 	}
 
 	public void deleteArtistById(Integer id) {
 		artistDao.deleteArtistById(id);
-		
 	}
 		
 	
@@ -63,20 +55,32 @@ public class ManageServiceImpl implements ManageService {
 		categoryDAO.deleteCategoryById(id);
 		
 	}
-	
+
+	@Override
+	public void saveTemporaryUser(TemporaryUser temporaryUser) {
+		temporaryUserDAO.saveTemporaryUser(temporaryUser);
+	}
+
+	@Override
+	public void deleteTemporaryUser(TemporaryUser temporaryUser) {
+		temporaryUserDAO.saveTemporaryUser(temporaryUser);
+	}
+
+	@Override
+	public void deleteTemporaryUserById(Integer id) {
+		temporaryUserDAO.deleteTemporaryUserById(id);
+	}
+
 	public void saveEvent(Event event) {
 		eventDAO.saveEvent(event);
-		
 	}
 
 	public void deleteEvent(Event event) {
 		eventDAO.deleteEvent(event);
-		
 	}
 
 	public void deleteEvent(Integer id) {
 		eventDAO.deleteEvent(id);
-		
 	}
 
 	@Autowired
@@ -84,23 +88,19 @@ public class ManageServiceImpl implements ManageService {
 	
 	public void saveTicket(Ticket ticket) {
 		ticketDAO.saveTicket(ticket);
-		
 	}
 
 	public void deleteTicket(Ticket ticket) {
 		ticketDAO.deleteTicket(ticket);
-		
 	}
 
 	public void deleteTicketById(Integer id) {
 		ticketDAO.deleteTicketById(id);
-		
 	}
 
 	
 	public void saveUser(User user) {
 		userDAO.saveUser(user);
-		
 	}
 
 	public void deleteUser(User user) {
@@ -110,7 +110,6 @@ public class ManageServiceImpl implements ManageService {
 
 	public void deleteUserById(Integer id) {
 		userDAO.deleteUserById(id);
-		
 	}
 
 }

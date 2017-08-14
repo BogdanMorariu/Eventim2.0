@@ -10,15 +10,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import events.model.User;
-import events.service.impl.FetchServiceImpl;
-
-
+import events.service.FetchService;
 
 @Component
 public class Authenticate implements AuthenticationProvider{
 	
 	@Autowired
-	FetchServiceImpl fetchService;
+	private FetchService fetchService;
 	
 	public static final String SUPER_ADMIN_USER = "admin";
 	public static final String SUPER_ADMIN_PASSWORD = "admin1234";

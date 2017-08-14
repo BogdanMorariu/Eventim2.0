@@ -1,15 +1,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: info
-  Date: 10.08.2017
-  Time: 09:42
-  To change this template use File | Settings | File Templates.
---%>
+
 <jsp:include page="../../tiles/includes.jsp"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<form:form modelAttribute="user" action="/users/createUser">
-    <form:input path="name" />
-    <form:password path="password"/>
-    <form:input path="email" />
-</form:form>
+    <form:form modelAttribute="temporaryUser" action="/users/createUser" method="POST">
+        <label>Username:</label><input  name="name" class="form-control" placeholder="Dorel42"/>
+        <input name="password" type="password" class="form-control" title="Password:"/>
+        <input name="email" class="form-control" title="Email:"/>
+        <input type="submit" class="btn btn-default" value="Save"/>
+    </form:form>
