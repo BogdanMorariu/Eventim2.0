@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Repository
@@ -51,6 +52,6 @@ public class TicketDAOImpl implements TicketDAO{
 	
 	public Long getNextBarcode() {
 		String sql = "SELECT nextval('barcode_seq')";
-		return (Long) getCurrentSession().createSQLQuery(sql).uniqueResult();
+		return ((BigInteger) getCurrentSession().createSQLQuery(sql).uniqueResult()).longValue();
 	}
 }
