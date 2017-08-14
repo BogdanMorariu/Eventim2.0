@@ -21,13 +21,13 @@
         <put-attribute name="body" value="/WEB-INF/jsp/category/deleteCategory.jsp"/>
     </definition>
     <definition extends="default" name="createCategorySuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/createdSuccessfully.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/category/createCategorySuccess.jsp"/>
     </definition>
      <definition extends="default" name="updateCategorySuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/updatedSuccessfully.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/category/updateCategorySuccess.jsp"/>
     </definition>
     <definition extends="default" name="deleteCategorySuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/deletedSuccessfully.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/category/deleteCategorySuccess.jsp"/>
     </definition>
 
 	<definition extends="default" name="confirmUser">
