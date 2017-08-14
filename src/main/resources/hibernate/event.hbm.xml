@@ -17,6 +17,7 @@
 		<property name="image" type="binary">
             <column name="IMAGE" not-null="true" />
         </property>
+		<property name="price" column="price" type="java.lang.Double"/>
 		
 		<many-to-one name="category" class="events.model.Category" 
 		 	column="category_id" not-null="true" />
