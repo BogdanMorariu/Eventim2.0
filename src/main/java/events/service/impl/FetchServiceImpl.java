@@ -52,7 +52,6 @@ public class FetchServiceImpl implements FetchService {
 		return userDao.getAllUsers();
 	}
 
-	@Override
 	public List<TemporaryUser> getAllTemporaryUsers() {
 		return temporaryUserDAO.getAllTemporaryUsers();
 	}
@@ -81,7 +80,6 @@ public class FetchServiceImpl implements FetchService {
 		return ticketDao.getUserTickets(userId);
 	}
 
-	@Override
 	public TemporaryUser getTemporaryUserById(Integer id) {
 		return temporaryUserDAO.findTemporaryUserById(id);
 	}

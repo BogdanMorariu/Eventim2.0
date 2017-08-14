@@ -56,17 +56,14 @@ public class ManageServiceImpl implements ManageService {
 		
 	}
 
-	@Override
 	public void saveTemporaryUser(TemporaryUser temporaryUser) {
 		temporaryUserDAO.saveTemporaryUser(temporaryUser);
 	}
 
-	@Override
 	public void deleteTemporaryUser(TemporaryUser temporaryUser) {
 		temporaryUserDAO.saveTemporaryUser(temporaryUser);
 	}
 
-	@Override
 	public void deleteTemporaryUserById(Integer id) {
 		temporaryUserDAO.deleteTemporaryUserById(id);
 	}
