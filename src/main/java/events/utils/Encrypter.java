@@ -1,8 +1,13 @@
 package events.utils;
+import org.springframework.stereotype.Component;
+
 import javax.crypto.*;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
+import java.util.Base64;
 
 
 //Deprecated
@@ -10,33 +15,31 @@ import java.security.InvalidKeyException;
 //Methods not working
 public class Encrypter {
 
-    private static SecretKey secretKey;
-    private static Cipher cipher;
+    private SecretKey secretKey;
+    private Cipher cipher;
 
     public Encrypter(){
         try{
-        KeyGenerator keyGenerator = KeyGenerator.getInstance("DES");
+        KeyGenerator keyGenerator = KeyGenerator.getInstance("DESede");
         secretKey = keyGenerator.generateKey();
-        Cipher cipher;
-        cipher = Cipher.getInstance("DES");
+        cipher = Cipher.getInstance("DESede");
 
         }catch (Exception e){
             System.out.print(e.getMessage());
         }
     }
 
-    public static String encript(Integer number) throws InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+    public byte[] encript(Integer number) throws InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         ByteBuffer byteBuffer = ByteBuffer.allocate(4);
         byteBuffer.putInt(number);
         byte[] text = byteBuffer.array();
         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        byte[] textEncripted = cipher.doFinal(text);
-        return new String(textEncripted);
+        return cipher.doFinal(text);
     }
 
-    public static Integer decript(String text) throws InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+    public Integer decript(byte[] text) throws InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
-        byte[] textDecrypted = cipher.doFinal(text.getBytes());
+        byte[] textDecrypted = cipher.doFinal(text);
         return new BigInteger(textDecrypted).intValue();
     }
 }
