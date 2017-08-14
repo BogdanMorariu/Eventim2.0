@@ -14,6 +14,5 @@
 		<many-to-one name="event" class="events.model.Event" column="eventId"></many-to-one>
 
 		<property name="barcode" column="barcode" type="java.lang.Long"/>
-		<property name="price" column="price" type="java.lang.Double"/>
 	</class>
 </hibernate-mapping>
