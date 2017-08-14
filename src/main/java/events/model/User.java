@@ -38,6 +38,7 @@ public class User implements UserDetails {
 	public User(String name, String password){
 		this.name = name;
 		this.password = password;
+		this.type = "ADMIN";
 	}
 
 	public List<Ticket> getTickets() {
@@ -94,7 +95,7 @@ public class User implements UserDetails {
 		}
 		tickets.add(ticket);
 	}
-
+	
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		GrantedAuthority auth = new GrantedAuthority() {
 			

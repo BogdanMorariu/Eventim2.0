@@ -27,7 +27,7 @@ public class Authenticate implements AuthenticationProvider{
 		
 		if (username.equals(SUPER_ADMIN_USER) && password.equals(SUPER_ADMIN_PASSWORD)){
 			User user = new User(SUPER_ADMIN_USER,SUPER_ADMIN_PASSWORD);
-			return new UsernamePasswordAuthenticationToken(user, null, null);
+			return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 		} else {
 			User foundUser = fetchService.findUserAtLogin(username);
 			if (foundUser != null){
@@ -35,7 +35,7 @@ public class Authenticate implements AuthenticationProvider{
 				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 				
 				if (passwordEncoder.matches(password, dbPassword)){				
-					return new UsernamePasswordAuthenticationToken(foundUser, null, null);
+					return new UsernamePasswordAuthenticationToken(foundUser, null, foundUser.getAuthorities());
 				}
 				else{
 					throw new BadCredentialsException("Wrong password");
