@@ -14,7 +14,6 @@ import events.service.ManageService;
 import events.utils.MailUtil;
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 	
 	public static final String MAIL_SUBJECT = "Forgot password";
@@ -26,6 +25,12 @@ public class LoginController {
 
 	@Autowired
 	private ManageService manageService;
+	
+	@RequestMapping("/loginUri")
+	public String goToLogin(){
+		return "login";
+	}
+
 
 	@RequestMapping("/forgotPassword")
 	@ResponseBody
