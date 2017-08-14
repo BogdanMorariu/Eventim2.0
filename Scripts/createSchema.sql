@@ -76,9 +76,8 @@ FOREIGN KEY (eventid) REFERENCES event (id) on delete cascade on update cascade,
 FOREIGN KEY (artistid) REFERENCES artist (id));
 
 create table ticket
-	(id int default NEXTVAL('ticket_seq'),
+	(id int primary key default NEXTVAL('ticket_seq'),
 	 userId int not NULL references users(ID)  on update cascade on delete cascade,
      eventId int not NULL references "event"(ID) match simple on update cascade on delete cascade,
-     barCode bigint DEFAULT NEXTVAL('barcode_seq'),
-     price FLOAT default 0,
-     PRIMARY KEY (id,barCode));
+     barCode bigint,
+     price FLOAT default 0);
