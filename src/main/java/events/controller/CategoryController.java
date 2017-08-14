@@ -50,7 +50,7 @@ public class CategoryController {
 				return new ModelAndView("createCategory", uiModel.asMap());
 			}
 			manageService.saveCategory(category);
-			return new ModelAndView("createdSuccessfully");
+			return new ModelAndView("createCategorySuccess");
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return new ModelAndView("createCategory", uiModel.asMap());
@@ -88,7 +88,7 @@ public class CategoryController {
 	public ModelAndView removeCategory(@RequestParam(value = "idValue", required = true) Integer id, Model uiModel) {
 		try {
 			manageService.deleteCategoryById(id);
-			return new ModelAndView("deletedSuccessfully");
+			return new ModelAndView("deleteCategorySuccess");
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return new ModelAndView("deleteCategory", uiModel.asMap());
