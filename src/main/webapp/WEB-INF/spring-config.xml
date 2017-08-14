@@ -11,16 +11,38 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+       http://www.springframework.org/schema/task  http://www.springframework.org/schema/task/spring-task-3.2.xsd
+       http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
 	<tx:annotation-driven />
 
-	<mvc:annotation-driven />
 	<context:component-scan base-package="events" />
 
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
-	
+
     <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />  
+
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+	    <property name="formatters">
+			<set>
+				<ref bean="eventFormatter"/>
+	   			<ref bean="userFormatter"/>
+			</set>
+		</property>
+	</bean>
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <!-- Configures Spring MVC DataBinder instances globally -->
+        <property name="webBindingInitializer">
+            <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+                <property name="conversionService" ref="conversionService" />
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+    <!-- end: using these tags instead of mvc:annotation-driven -->
 
 	<context:property-placeholder location="classpath:eventim.properties"/>
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -35,7 +57,9 @@
 
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 		<property name="definitions">
-			<value>/WEB-INF/tiles/tiles.xml</value>
+			<list>
+				<value>/WEB-INF/tiles/tiles.xml</value>
+			</list>
 		</property>
 	</bean>
 
@@ -67,7 +91,6 @@
    				<value>hibernate/event.hbm.xml</value>
    				<value>hibernate/ticket.hbm.xml</value>
    				<value>hibernate/user.hbm.xml</value>
-				<value>hibernate/temporaryUser.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -83,4 +106,5 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     
+
 </beans>
