@@ -64,8 +64,8 @@ CREATE TABLE "event" (
   "startdate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'),
   "enddate" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'EET'), 
   "image" bytea,
-  "category_id" int
-);
+  "category_id" int,
+  "price" FLOAT default 0);
 ALTER TABLE "event" ADD CONSTRAINT categoryForeignKey FOREIGN KEY(category_id) REFERENCES category(id) on update cascade on delete set null;
 
 CREATE TABLE event_artist(
@@ -79,5 +79,4 @@ create table ticket
 	(id int primary key default NEXTVAL('ticket_seq'),
 	 userId int not NULL references users(ID)  on update cascade on delete cascade,
      eventId int not NULL references "event"(ID) match simple on update cascade on delete cascade,
-     barCode bigint,
-     price FLOAT default 0);
+     barCode bigint);
