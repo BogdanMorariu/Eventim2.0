@@ -13,7 +13,11 @@ import javax.mail.internet.MimeMessage;
 
 public class MailUtil {
 
+<<<<<<< HEAD
 	public static void sendMail(String mailMessage, String recipientMailAdress) {
+=======
+	public static void sendMail(String mailSubject, String mailMessage, String recipientMailAdress) {
+>>>>>>> 97d9b1812c8da1c4f0d9ced8679cea6fec7ac9a5
 
 		final String username = "eventim2.0@gmail.com";
 		final String password = "practica17";
@@ -33,7 +37,7 @@ public class MailUtil {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientMailAdress));
-			message.setSubject("Testing Subject");
+			message.setSubject(mailSubject);
 			message.setText(mailMessage);
 
 			Transport.send(message);

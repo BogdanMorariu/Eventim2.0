@@ -25,7 +25,11 @@ public class MailsTest {
 		//String senderMailAdress = "eventim2.0@gmail.com";
 		String recipientMailAdress = "geraldlionb@gmail.com";
 		
+<<<<<<< HEAD
 		MailUtil.sendMail(body, recipientMailAdress);
+=======
+		MailUtil.sendMail("Test",body, recipientMailAdress);
+>>>>>>> 97d9b1812c8da1c4f0d9ced8679cea6fec7ac9a5
 		
 	}
 
