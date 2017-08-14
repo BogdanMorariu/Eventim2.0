@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+
 public class Category {
 	private Integer id;
 	@NotNull
+	@Length(min=1)
 	private String type;
 	private List<Event> events;
 

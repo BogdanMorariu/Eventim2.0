@@ -1,12 +1,20 @@
 package events.model;
 
 import org.hibernate.validator.constraints.Email;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class User {
+public class User implements UserDetails {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Integer id;
 
@@ -22,6 +30,16 @@ public class User {
 	private String type;
 
 	private List<Ticket> tickets;
+	
+	public User() {
+		
+	}
+
+	public User(String name, String password){
+		this.name = name;
+		this.password = password;
+		this.type = "ADMIN";
+	}
 
 	public List<Ticket> getTickets() {
 		return this.tickets;
@@ -76,6 +94,43 @@ public class User {
 			tickets = new ArrayList<Ticket>();
 		}
 		tickets.add(ticket);
+	}
+	
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		GrantedAuthority auth = new GrantedAuthority() {
+			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			public String getAuthority() {
+				return type;
+			}
+		};
+		List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();
+		authList.add(auth);
+		return authList;
+	}
+
+	public String getUsername() {
+		return name;
+	}
+
+	public boolean isAccountNonExpired() {		
+		return true;
+	}
+
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	public boolean isEnabled() {
+		return true;
 	}
 
 }

@@ -20,19 +20,21 @@
     <definition extends="default" name="deleteCategory">
         <put-attribute name="body" value="/WEB-INF/jsp/category/deleteCategory.jsp"/>
     </definition>
-    
-    <definition extends="default" name="createArtist">
-        <put-attribute name="body" value="/WEB-INF/jsp/artist/createArtist.jsp"/>
+    <definition extends="default" name="createdSuccessfully">
+        <put-attribute name="body" value="/WEB-INF/jsp/category/createdSuccessfully.jsp"/>
     </definition>
-    <definition extends="default" name="updateArtist">
-        <put-attribute name="body" value="/WEB-INF/jsp/artist/updateArtist.jsp"/>
+     <definition extends="default" name="updatedSuccessfully">
+        <put-attribute name="body" value="/WEB-INF/jsp/category/updatedSuccessfully.jsp"/>
     </definition>
-    <definition extends="default" name="deleteArtist">
-        <put-attribute name="body" value="/WEB-INF/jsp/artist/deleteArtist.jsp"/>
+    <definition extends="default" name="deletedSuccessfully">
+        <put-attribute name="body" value="/WEB-INF/jsp/category/deletedSuccessfully.jsp"/>
     </definition>
 
 	<definition extends="default" name="confirmUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmUser.jsp"/>
+	</definition>
+	<definition extends="default" name="confirmMail">
+		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmMail.jsp"/>
 	</definition>
 	<definition extends="default" name="createUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
@@ -46,6 +48,9 @@
     <definition extends="default" name="home">
         <put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
     </definition>
+	<definition extends="default" name="error">
+		<put-attribute name="body" value="/WEB-INF/jsp/error.jsp"/>
+	</definition>
 	
 	<definition extends="default" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
@@ -56,8 +61,8 @@
 	<definition extends="default" name="updateTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/updateTicket.jsp"/>
 	</definition>
-	
-	<definition extends="default" name="createEvent">
+		
+<!-- 	<definition extends="default" name="createEvent">
         <put-attribute name="body" value="/WEB-INF/jsp/event/createEvent.jsp"/>
     </definition>
     <definition extends="default" name="updateEvent">
@@ -65,10 +70,27 @@
     </definition>
     <definition extends="default" name="deleteCategory">
         <put-attribute name="body" value="/WEB-INF/jsp/event/deleteEvent.jsp"/>
-    </definition>
+    </definition> -->
     
     <definition extends="default" name="createEventInfo">
         <put-attribute name="body" value="/WEB-INF/jsp/event/createEventInfo.jsp"/>
     </definition>
+	 <definition extends="default" name="changePassword">
+		<put-attribute name="body" value="/WEB-INF/jsp/login/changePassword.jsp"/>
+	</definition>
+	
+	<definition extends="default" name="login">
+		<put-attribute name="body" value="/WEB-INF/jsp/login/login.jsp"/>
+	</definition>
+	<definition extends="default" name="createArtist">
+		<put-attribute name="body" value="/WEB-INF/jsp/artist/createArtist.jsp"/>
+	</definition>
+		<definition extends="default" name="deleteArtist">
+		<put-attribute name="body" value="/WEB-INF/jsp/artist/deleteArtist.jsp"/>
+	</definition>
+		<definition extends="default" name="updateArtist">
+		<put-attribute name="body" value="/WEB-INF/jsp/artist/updateArtist.jsp"/>
+	</definition>
     
+
 </tiles-definitions>

@@ -80,8 +80,16 @@ public class FetchServiceImpl implements FetchService {
 		return ticketDao.getUserTickets(userId);
 	}
 
+	public User findUserAtLogin(String username) {
+		return userDao.findUserAtLogin(username);
+	}
+	
 	public TemporaryUser getTemporaryUserById(Integer id) {
 		return temporaryUserDAO.findTemporaryUserById(id);
+	}
+
+	public Long getNextBarcode() {
+		return ticketDao.getNextBarcode();
 	}
 
 }

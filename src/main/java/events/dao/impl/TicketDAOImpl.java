@@ -42,8 +42,15 @@ public class TicketDAOImpl implements TicketDAO{
         getCurrentSession().createQuery("delete from Ticket t where t.id="+id).executeUpdate();
     }
 
+    
+    
 	@SuppressWarnings("unchecked")
 	public List<Ticket> getUserTickets(Integer userId) {
 		 return getCurrentSession().createQuery("from Ticket t where t.user.id= :tid").setParameter("tid",userId).list();
+	}
+	
+	public Long getNextBarcode() {
+		String sql = "SELECT nextval('barcode_seq')";
+		return (Long) getCurrentSession().createSQLQuery(sql).uniqueResult();
 	}
 }

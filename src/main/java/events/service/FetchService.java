@@ -24,4 +24,11 @@ public interface FetchService {
 
 	//Get by Foreign key
 	List<Ticket> getUserTickets(Integer userId);
+	
+	//Get by username & password
+	User findUserAtLogin(String username);
+	
+	//Barcode_seq nextval
+	Long getNextBarcode();
+
 }
