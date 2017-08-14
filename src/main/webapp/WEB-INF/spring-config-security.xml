@@ -11,7 +11,7 @@
         <intercept-url pattern="/loginUri/**" access="permitAll" />
         <intercept-url pattern="/users/**" access="permitAll" />
         <intercept-url pattern="/artists/**" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/tickets/**" access="hasRole('NORMAL')" />
+        <intercept-url pattern="/tickets/**" access="permitAll" />
         <intercept-url pattern="/events/**" access="permitAll" />
         
 	    <session-management session-fixation-protection="migrateSession" session-authentication-error-url="/loginFailUri"> 

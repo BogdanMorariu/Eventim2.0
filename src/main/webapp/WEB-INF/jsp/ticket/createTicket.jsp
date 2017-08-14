@@ -1,17 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<jsp:include page="../../tiles/includes.jsp" flush="true" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>createTicket</title>
-</head>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <body>
-	<form:form modelAttribute="ticket" action="/tickets/createTicket" method="POST">
-		User Name : ${ticket.user.name}
-		Event: ${ticket.event.name}
-		Price: ${ticket.event.price}
-		<input name="quantity"/>
-		<input type="submit" value="Buy">
+	<c:if test="${not empty errorMessage}">
+		<label><b><center>${errorMessage}</center></b></label>
+	</c:if>
+	<form:form modelAttribute="ticket" action="/Eventim2.0/tickets/${ticket.event.id}/createTicket" method="POST">
+		<label><b>User Name:</b></label> ${ticket.user.name} <br/>
+		<input type="hidden" name="user" value="${ticket.user.id}" />
+		<input type="hidden" name="event" value="${ticket.event.id}" />
+		<label><b>Event:</b></label> ${ticket.event.name} 	<br/>
+		<label><b>Price: ${ticket.event.price}</b></label> <%-- ${ticket.event.price} --%> <br/>
+		<label><b>Quantity:</b></label><input name="quantity"/> <br/>
+		<input type="submit" value="Buy"> <br/>
 	</form:form>
 </body>
-</html>
