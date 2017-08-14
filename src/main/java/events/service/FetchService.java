@@ -27,4 +27,8 @@ public interface FetchService {
 	
 	//Get by username & password
 	User findUserAtLogin(String username);
+	
+	//Barcode_seq nextval
+	Long getNextBarcode();
+
 }

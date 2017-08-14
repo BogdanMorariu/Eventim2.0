@@ -13,6 +13,7 @@ public class Event {
 	private Date endDate;
 	private Byte[] image;
 	private Category category;
+    private Double price;
 	private List<Artist> artists;
 	private List<Ticket> tickets;
 	
@@ -21,7 +22,7 @@ public class Event {
 	
 	public Event(Integer id, String name, String location, 
 			Date startDate, Date endDate, Byte[] image,
-			Category category, List<Artist> artists, List<Ticket> tickets) {
+			Category category, List<Artist> artists, List<Ticket> tickets, Double price) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -32,13 +33,14 @@ public class Event {
 		this.category = category;
 		this.artists = artists;
 		this.tickets = tickets;
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
 		return "Event [id=" + id + ", name=" + name + ", location=" + location + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", image=" + Arrays.toString(image) + ", category=" + category + ", artists="
-				+ artists + "]";
+				+ artists + ", price=" + price + "]";
 	}
 
 	public Integer getId() {
@@ -127,4 +129,11 @@ public class Event {
 		tickets.add(ticket);
 	}
 	
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	
+	public Double getPrice() {
+		return price;
+	}
 }

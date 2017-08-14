@@ -4,10 +4,11 @@ import javax.validation.constraints.NotNull;
 
 public class Ticket {
     private Integer id;
+    @NotNull
     private User user;
+    @NotNull
     private Event event;
     private Long barcode;
-    private Double price;
 
     public Ticket() {
     }
@@ -17,7 +18,6 @@ public class Ticket {
         this.user = user;
         this.event = event;
         this.barcode = barcode;
-        this.price = price;
     }
 
     @Override
@@ -27,7 +27,6 @@ public class Ticket {
                 ", user=" + user +
                 ", event=" + event +
                 ", barcode=" + barcode +
-                ", price=" + price +
                 '}';
     }
 
@@ -62,15 +61,6 @@ public class Ticket {
     public void setBarcode(Long barcode) {
         this.barcode = barcode;
     }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
     @Override
     @SuppressWarnings("all")
     public boolean equals(Object o) {
@@ -82,8 +72,7 @@ public class Ticket {
         if (id != null ? !id.equals(ticket.id) : ticket.id != null) return false;
         if (user != null ? !user.equals(ticket.user) : ticket.user != null) return false;
         if (event != null ? !event.equals(ticket.event) : ticket.event != null) return false;
-        if (barcode != null ? !barcode.equals(ticket.barcode) : ticket.barcode != null) return false;
-        return price != null ? price.equals(ticket.price) : ticket.price == null;
+        return barcode != null ? !barcode.equals(ticket.barcode) : ticket.barcode == null;
     }
 
     @Override
@@ -92,7 +81,6 @@ public class Ticket {
         result = 31 * result + (user != null ? user.hashCode() : 0);
         result = 31 * result + (event != null ? event.hashCode() : 0);
         result = 31 * result + (barcode != null ? barcode.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
         return result;
     }
 }

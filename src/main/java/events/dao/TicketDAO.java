@@ -12,4 +12,5 @@ public interface TicketDAO {
     void deleteTicket(Ticket ticket);
     void deleteTicketById(Integer id);
     List<Ticket> getUserTickets(Integer userId);
+    Long getNextBarcode();
 }

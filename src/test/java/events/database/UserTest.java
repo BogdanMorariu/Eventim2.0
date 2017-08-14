@@ -35,14 +35,12 @@ public class UserTest {
 		
 		Ticket ticket = new Ticket();
 		ticket.setEvent(fetchService.getEventById(2));
-		ticket.setPrice(1.0);
 		ticket.setBarcode(35346l);
 		ticket.setUser(user);
 		manageService.saveTicket(ticket);
 		
 		Ticket ticket1 = new Ticket();
 		ticket1.setEvent(fetchService.getEventById(2));
-		ticket1.setPrice(1.0);
 		ticket1.setBarcode(35346l);
 		ticket1.setUser(user);
 		manageService.saveTicket(ticket1);

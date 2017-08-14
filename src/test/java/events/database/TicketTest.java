@@ -33,7 +33,6 @@ public class TicketTest {
 		Event event = fetchService.getEventById(2);
 		User user = fetchService.getUserById(2);
 		ticket.setBarcode(1436251312L);
-		ticket.setPrice(510.00);
 		ticket.setUser(user);
 		ticket.setEvent(event);
 		manageService.saveTicket(ticket);
@@ -58,7 +57,6 @@ public class TicketTest {
 		Event event = fetchService.getEventById(2);
 		User user = fetchService.getUserById(2);
 		ticket.setBarcode(1234567L);
-		ticket.setPrice(123.00);
 		ticket.setUser(user);
 		ticket.setEvent(event);
 		manageService.saveTicket(ticket);
@@ -80,7 +78,6 @@ public class TicketTest {
 		Event event = fetchService.getEventById(2);
 		User user = fetchService.getUserById(2);
 		ticket.setBarcode(1234567L);
-		ticket.setPrice(123.00);
 		ticket.setUser(user);
 		ticket.setEvent(event);
 		manageService.saveTicket(ticket);
