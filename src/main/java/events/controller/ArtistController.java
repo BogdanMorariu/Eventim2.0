@@ -39,7 +39,7 @@ public class ArtistController {
         }
        try {
            manageService.saveArtist(artist);
-           return "Succes";
+           return "Success";
        } catch  (Exception ex) {
            System.out.println(ex.getMessage());
            return "Failed";
@@ -63,23 +63,25 @@ public class ArtistController {
     
 	
 	@RequestMapping("/removeArtist")
-	public ModelAndView removeArtist(@RequestParam(value="idValue",required=true) Integer id,Model uiModel){
+	@ResponseBody
+	public String removeArtist(@RequestParam(value="idValue",required=true) Integer id,Model uiModel){
 		try{
 			manageService.deleteArtistById(id);
-			return new ModelAndView("deleteArtistSuccess");
+			return "success";
 		} catch (Exception ex) {
 			 System.out.println(ex.getMessage());
-			   return new ModelAndView("listArtists", uiModel.asMap());}
+			   return "failed";
 		}
-    
+	}
+
 	@RequestMapping("/updateArtist")
-	public ModelAndView updateArtist(Model uiModel) {
+	public ModelAndView updateArtist(@RequestParam(value = "idValue", required = true) Integer id, Model uiModel) {
 		
 		try {
-			 List<Artist> artists = fetchService.getAllArtists();
-			 uiModel.addAttribute("artists", artists);
+			 Artist artist = fetchService.getArtistById(id);
+			 uiModel.addAttribute("artist", artist);
 			 
-			 return new ModelAndView("updateArtist", uiModel.asMap());
+			 return new ModelAndView("updateArtist");
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return new ModelAndView("updateArtist", uiModel.asMap());
@@ -87,21 +89,18 @@ public class ArtistController {
 	}
 	
 	 @RequestMapping("/processUpdateArtist")
-	    @ResponseBody
-	    public String processUpdateArtist(@Valid Artist artist, BindingResult result, Model uiModel){
-	        if (result.hasErrors()) {
-	            return "Failed";
-	        }
-	       try {
-	           manageService.saveArtist(artist);
-	           return "Succes";
-	       } catch  (Exception ex) {
-	           System.out.println(ex.getMessage());
-	           return "Failed";
-	       }
-	    }
-	
-
-    
+	 @ResponseBody
+	 public String processUpdateArtist(@Valid Artist artist, BindingResult result, Model uiModel){
+		 if (result.hasErrors()) {
+			return "Failed";
+		 }
+		 try {
+			 manageService.saveArtist(artist);
+			 return  "Success";
+		 } catch  (Exception ex) {
+			 System.out.println(ex.getMessage());
+			 return "Failed";
+		 }
+	 }
    
 }

@@ -1,1 +1,0 @@
-Artist has been updated!
