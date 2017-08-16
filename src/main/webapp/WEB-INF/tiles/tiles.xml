@@ -10,26 +10,20 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
 	</definition>
 	
-	<definition extends="default" name="createCategory">
+	<definition name="admin" template="/WEB-INF/tiles/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/headerAdmin.jsp" />
+		<put-attribute name="body" value="/WEB-INF/tiles/body.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+	
+	<definition extends="admin" name="createCategory">
         <put-attribute name="body" value="/WEB-INF/jsp/category/createCategory.jsp"/>
     </definition>
-    <definition extends="default" name="updateCategory">
+    <definition extends="admin" name="updateCategory">
         <put-attribute name="body" value="/WEB-INF/jsp/category/updateCategory.jsp"/>
     </definition>
-    <definition extends="default" name="listCategories">
+    <definition extends="admin" name="listCategories">
         <put-attribute name="body" value="/WEB-INF/jsp/category/listCategories.jsp"/>
-    </definition>
-    <definition extends="default" name="createCategorySuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/createCategorySuccess.jsp"/>
-    </definition>
-     <definition extends="default" name="updateCategorySuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/updateCategorySuccess.jsp"/>
-    </definition>
-    <definition extends="default" name="deleteCategorySuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/deleteCategorySuccess.jsp"/>
-    </definition>
-	 <definition extends="default" name="deleteArtistSuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/artist/deletedSuccessfully.jsp"/>
     </definition>
 
 
@@ -55,32 +49,24 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/error.jsp"/>
 	</definition>
 	
-	<definition extends="default" name="listTicket">
+	<definition extends="admin" name="listTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/listTicket.jsp"/>
 	</definition>
-	<definition extends="default" name="createTicket">
+	<definition extends="admin" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
 	</definition>
-	<definition extends="default" name="deleteTicket">
-		<put-attribute name="body" value="/WEB-INF/jsp/ticket/deleteTicket.jsp"/>
-	</definition>
-	<definition extends="default" name="updateTicket">
-		<put-attribute name="body" value="/WEB-INF/jsp/ticket/updateTicket.jsp"/>
-	</definition>
 
- 	<definition extends="default" name="createEvent">
+
+ 	<definition extends="admin" name="createEvent">
         <put-attribute name="body" value="/WEB-INF/jsp/event/createEvent.jsp"/>
     </definition>
-    <definition extends="default" name="updateEvent">
+    <definition extends="admin" name="updateEvent">
         <put-attribute name="body" value="/WEB-INF/jsp/event/updateEvent.jsp"/>
     </definition>
-    <definition extends="default" name="deleteEvent">
-        <put-attribute name="body" value="/WEB-INF/jsp/event/deleteEvent.jsp"/>
+    <definition extends="admin" name="listEvenst">
+        <put-attribute name="body" value="/WEB-INF/jsp/event/listEvents.jsp"/>
     </definition> 
-    
-    <definition extends="default" name="createEventInfo">
-        <put-attribute name="body" value="/WEB-INF/jsp/event/createEventInfo.jsp"/>
-    </definition>
+   
 
 	 <definition extends="default" name="changePassword">
 		<put-attribute name="body" value="/WEB-INF/jsp/login/changePassword.jsp"/>
@@ -89,13 +75,13 @@
 	<definition extends="default" name="login">
 		<put-attribute name="body" value="/WEB-INF/jsp/login/login.jsp"/>
 	</definition>
-	<definition extends="default" name="createArtist">
+	<definition extends="admin" name="createArtist">
 		<put-attribute name="body" value="/WEB-INF/jsp/artist/createArtist.jsp"/>
 	</definition>
-		<definition extends="default" name="deleteArtist">
-		<put-attribute name="body" value="/WEB-INF/jsp/artist/deleteArtist.jsp"/>
+	<definition extends="admin" name="listArtists">
+		<put-attribute name="body" value="/WEB-INF/jsp/artist/listArtists.jsp"/>
 	</definition>
-		<definition extends="default" name="updateArtist">
+		<definition extends="admin" name="updateArtist">
 		<put-attribute name="body" value="/WEB-INF/jsp/artist/updateArtist.jsp"/>
 	</definition>
     

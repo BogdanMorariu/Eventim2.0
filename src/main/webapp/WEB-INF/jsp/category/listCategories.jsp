@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="../../tiles/includes.jsp" />
 <script type="text/javascript">
 function deleteCategoryById(id){
 	 $.ajax({
@@ -47,7 +46,7 @@ function deleteCategoryById(id){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Succes</h4>
+        <h4 class="modal-title">success</h4>
       </div>
       <div class="modal-body">
         <p id="category-text"></p>
