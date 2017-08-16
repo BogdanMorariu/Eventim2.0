@@ -26,7 +26,6 @@
         <put-attribute name="body" value="/WEB-INF/jsp/category/listCategories.jsp"/>
     </definition>
 
-
 	<definition extends="default" name="confirmUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/confirmUser.jsp"/>
 	</definition>
@@ -49,8 +48,8 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/error.jsp"/>
 	</definition>
 	
-	<definition extends="admin" name="listTicket">
-		<put-attribute name="body" value="/WEB-INF/jsp/ticket/listTicket.jsp"/>
+	<definition extends="admin" name="listTickets">
+		<put-attribute name="body" value="/WEB-INF/jsp/ticket/listTickets.jsp"/>
 	</definition>
 	<definition extends="admin" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
@@ -63,7 +62,7 @@
     <definition extends="admin" name="updateEvent">
         <put-attribute name="body" value="/WEB-INF/jsp/event/updateEvent.jsp"/>
     </definition>
-    <definition extends="admin" name="listEvenst">
+    <definition extends="admin" name="listEvents">
         <put-attribute name="body" value="/WEB-INF/jsp/event/listEvents.jsp"/>
     </definition> 
    
