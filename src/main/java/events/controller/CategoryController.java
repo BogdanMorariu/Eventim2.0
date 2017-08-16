@@ -58,12 +58,9 @@ public class CategoryController {
 	}
 
 	@RequestMapping("/updateCategory")
-	public ModelAndView updateCategory(@Valid Category category, BindingResult result, Model uiModel) {
-		if (result.hasErrors()) {
-			uiModel.addAttribute("categories" , fetchService.getAllCategories());
-			return new ModelAndView("updateCategory", uiModel.asMap());
-		}
+	public ModelAndView updateCategory(@RequestParam(value = "idValue", required = true) Integer id, Model uiModel) {
 		try {
+			Category category = fetchService.getCategoryById(id);
 			uiModel.addAttribute("category", category);
 			return new ModelAndView("updateCategory");
 		} catch (Exception ex) {
@@ -72,15 +69,15 @@ public class CategoryController {
 		}
 	}
 
-	@RequestMapping("/deleteCategory")
-	public ModelAndView deleteCategory(Model uiModel) {
+	@RequestMapping("/listCategories")
+	public ModelAndView listCategories(Model uiModel) {
 		try {
 			List<Category> categories = fetchService.getAllCategories();
 			uiModel.addAttribute("categories" , categories);
-			return new ModelAndView("deleteCategory");
+			return new ModelAndView("listCategories");
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			return new ModelAndView("deleteCategory", uiModel.asMap());
+			return new ModelAndView("listCategories", uiModel.asMap());
 		}
 	}
 	
@@ -92,6 +89,23 @@ public class CategoryController {
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return new ModelAndView("deleteCategory", uiModel.asMap());
+		}
+	}
+	
+	@RequestMapping("/processUpdateCategory")
+	public ModelAndView processUpdateCategory(@Valid Category category, BindingResult result, Model uiModel) {
+		try {
+			if(result.hasErrors()) {
+				uiModel.addAttribute("category", category);
+				uiModel.addAttribute("errorMessage", "Invalid input!");
+				
+				return new ModelAndView("updateCategory", uiModel.asMap());
+			}
+			manageService.saveCategory(category);
+			return new ModelAndView("updateCategorySuccess");
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			return new ModelAndView("updateCategory", uiModel.asMap());
 		}
 	}
 }

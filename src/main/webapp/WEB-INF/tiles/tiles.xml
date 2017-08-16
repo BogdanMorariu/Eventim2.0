@@ -17,8 +17,8 @@
     <definition extends="default" name="updateCategory">
         <put-attribute name="body" value="/WEB-INF/jsp/category/updateCategory.jsp"/>
     </definition>
-    <definition extends="default" name="deleteCategory">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/deleteCategory.jsp"/>
+    <definition extends="default" name="listCategories">
+        <put-attribute name="body" value="/WEB-INF/jsp/category/listCategories.jsp"/>
     </definition>
     <definition extends="default" name="createCategorySuccess">
         <put-attribute name="body" value="/WEB-INF/jsp/category/createCategorySuccess.jsp"/>

@@ -12,7 +12,7 @@
 
 		<property name="type" column="type"/>
 		
-		<bag name="events" table="event">
+		<bag name="events" table="event" inverse="true">
 			<key column="category_id"></key>
 			<one-to-many class="events.model.Event"/>
 		</bag>
