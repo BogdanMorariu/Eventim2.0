@@ -6,16 +6,12 @@
 	<label><b>${errorMessage}</b></label>
 </c:if>
 <form:form modelAttribute="category"
-	action="../categories/updateCategory" method="POST">
+	action="../categories/processUpdateCategory" method="POST">
 	<label>Category: </label>
-	<form:select path="type">
-		<form:option value="NONE"> --SELECT-- </form:option>
-		<form:options items="${categories}"></form:options>
-	</form:select>
-
 	<br>
 	<label>New type: </label>
-	<form:input path="type" />
+	<form:input path="type"  />
+	<input type="hidden" name="id" value="${category.id}"/>
 	<input type="submit" value="Update" />
 
 </form:form>

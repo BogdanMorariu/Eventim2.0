@@ -86,6 +86,21 @@ public class ArtistController {
 		}
 	}
 	
+	 @RequestMapping("/processUpdateArtist")
+	    @ResponseBody
+	    public String processUpdateArtist(@Valid Artist artist, BindingResult result, Model uiModel){
+	        if (result.hasErrors()) {
+	            return "Failed";
+	        }
+	       try {
+	           manageService.saveArtist(artist);
+	           return "Succes";
+	       } catch  (Exception ex) {
+	           System.out.println(ex.getMessage());
+	           return "Failed";
+	       }
+	    }
+	
 
     
    

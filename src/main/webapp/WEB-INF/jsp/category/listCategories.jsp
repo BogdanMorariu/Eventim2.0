@@ -8,6 +8,10 @@
             	${category.type}
             </td>
             <td>
+            <form action="../categories/updateCategory" method="POST">
+            	<input type="hidden" name="idValue" value="${category.id}">
+	            <input type="submit" value="Update category" class="btn-success"/>
+			</form>
             <form action="../categories/removeCategory" method="POST">
             	<input type="hidden" name="idValue" value="${category.id}">
 	            <input type="submit" value="Delete category" class="btn-danger"/>
