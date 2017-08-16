@@ -20,16 +20,16 @@
 		<property name="price" column="price" type="java.lang.Double"/>
 		
 		<many-to-one name="category" class="events.model.Category" 
-		 	column="category_id" not-null="true" />
+		 	column="category_id" not-null="true" lazy="false"/>
 		
-		<bag name="artists" table="event_artist">
+		<bag name="artists" table="event_artist" lazy="false">
 			<key column="eventid"></key>
 			<many-to-many entity-name="events.model.Artist">
                 <column name="artistid" not-null="true" />
             </many-to-many>
 		</bag>
 		
-		<bag name="tickets" table="ticket">
+		<bag name="tickets" table="ticket" inverse="true">
 			<key column="eventId"></key>
 			<one-to-many class="events.model.Ticket"/>
 		</bag>

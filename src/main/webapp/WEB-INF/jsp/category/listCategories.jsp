@@ -31,7 +31,7 @@ function deleteCategoryById(id){
 			</form>
             <form action="../categories/removeCategory" method="POST">
             	<input type="hidden" name="idValue" value="${category.id}">
-	            <input type="button" value="Delete category" class="btn-danger delete-category" onclick="deleteCategoryById('${category.id}')" />
+	            <input type="button" value="Delete category" class="btn-danger" onclick="deleteCategoryById('${category.id}')" />
 			</form>
             </td>
         </tr>
@@ -47,7 +47,7 @@ function deleteCategoryById(id){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Succes</h4>
+        <h4 class="modal-title">success</h4>
       </div>
       <div class="modal-body">
         <p id="category-text"></p>

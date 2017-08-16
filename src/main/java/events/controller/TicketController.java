@@ -1,5 +1,6 @@
 package events.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import events.model.Ticket;
@@ -63,62 +65,33 @@ public class TicketController {
 			if(quantity > 0) {
 				for (int i = 0; i < quantity; i++) {
 					Ticket ticketHelp = new Ticket();
-
 					ticketHelp.setBarcode(fetchService.getNextBarcode());
 					ticketHelp.setEvent(ticket.getEvent());
 					ticketHelp.setUser(ticket.getUser());
 					manageService.saveTicket(ticketHelp);
 				}
 			}
-			return getTickets(eventId, uiModel);
+			uiModel.addAttribute("response", "OK");
+			return getBuyTicketSite(eventId, uiModel);
 			
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			uiModel.addAttribute("ticket", ticket);
-			return new ModelAndView("createTicket", uiModel.asMap());
+			uiModel.addAttribute("response", "NO");
+			return getBuyTicketSite(eventId, uiModel);
 		}
 	}
 
-	// do we need update for tickets?
-	@RequestMapping("/updateTicket")
-	public ModelAndView updateTicket(@Valid Ticket ticket, BindingResult result, Model uiModel) {
-		if (result.hasErrors()) {
-			return new ModelAndView("updateTicket", uiModel.asMap());
-		}
-		try {
-			manageService.saveTicket(ticket);
-			return new ModelAndView("updateTicket", uiModel.asMap());
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-			return new ModelAndView("updateTicket", uiModel.asMap());
-		}
-	}
-
-	@RequestMapping(value = "/deleteTicket", method = RequestMethod.GET)
-	public ModelAndView getDeleteTicketSite(BindingResult result, Model uiModel) {
-		if (result.hasErrors()) {
-			uiModel.addAttribute("ticketList", fetchService.getUserTickets(1)); // from
-																				// where
-																				// do
-																				// i
-																				// get
-																				// userId
-			return new ModelAndView("deleteTicket", uiModel.asMap());
-		}
-		return new ModelAndView(); // error
-	}
-
-	@RequestMapping(value = "/deleteTicket", method = RequestMethod.POST)
-	public ModelAndView deleteTicket(@RequestParam("id") Integer id, BindingResult result, Model uiModel) {
-		if (result.hasErrors()) {
-			return new ModelAndView("deleteTicket", uiModel.asMap());
-		}
+	@RequestMapping(value = "/{eventId}/deleteTicket", method = RequestMethod.POST)
+	@ResponseBody
+	public String deleteTicket(@RequestParam("id") Integer id, HttpServletResponse response) {
 		try {
 			manageService.deleteTicketById(id);
-			return new ModelAndView("deleteTicket", uiModel.asMap());
+			response.setStatus(200);
+			return "Succes";
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			return new ModelAndView("deleteTicket", uiModel.asMap());
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			return "Fail";
 		}
 	}
 }
