@@ -1,6 +1,6 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <jsp:include page="includes.jsp"/>
-<table>
+<table style="width:100%">
     <tr>
         <td>
             <tiles:insertAttribute name="header" />
