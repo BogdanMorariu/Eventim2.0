@@ -46,7 +46,7 @@ public class ArtistController {
        }
     }
     
-	@RequestMapping("/deleteArtist")
+	@RequestMapping("/listArtists")
 	public ModelAndView deleteArtist(Model uiModel) {
 		try {
 			
@@ -54,10 +54,10 @@ public class ArtistController {
 			 uiModel.addAttribute("artists", artists);
 			 
 			 
-			return new ModelAndView("deleteArtist", uiModel.asMap());
+			return new ModelAndView("listArtists", uiModel.asMap());
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			return new ModelAndView("deleteArtist", uiModel.asMap());
+			return new ModelAndView("listArtists", uiModel.asMap());
 		}
 	}
     
@@ -69,23 +69,24 @@ public class ArtistController {
 			return new ModelAndView("deleteArtistSuccess");
 		} catch (Exception ex) {
 			 System.out.println(ex.getMessage());
-			   return new ModelAndView("deleteArtist", uiModel.asMap());}
+			   return new ModelAndView("listArtists", uiModel.asMap());}
 		}
     
 	@RequestMapping("/updateArtist")
-	public ModelAndView updateArtist(@Valid Artist artist, BindingResult result, Model uiModel) {
-		if (result.hasErrors()) {
-			return new ModelAndView("updateArtist", uiModel.asMap());
-		}
+	public ModelAndView updateArtist(Model uiModel) {
+		
 		try {
-			manageService.saveArtist(artist);
-			return new ModelAndView("updateArtist", uiModel.asMap());
+			 List<Artist> artists = fetchService.getAllArtists();
+			 uiModel.addAttribute("artists", artists);
+			 
+			 return new ModelAndView("updateArtist", uiModel.asMap());
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return new ModelAndView("updateArtist", uiModel.asMap());
 		}
 	}
-    
+	
+
     
    
 }
