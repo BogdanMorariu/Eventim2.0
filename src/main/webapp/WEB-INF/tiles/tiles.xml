@@ -48,8 +48,8 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/error.jsp"/>
 	</definition>
 	
-	<definition extends="admin" name="listTickets">
-		<put-attribute name="body" value="/WEB-INF/jsp/ticket/listTickets.jsp"/>
+	<definition extends="admin" name="listTicket">
+		<put-attribute name="body" value="/WEB-INF/jsp/ticket/listTicket.jsp"/>
 	</definition>
 	<definition extends="admin" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
