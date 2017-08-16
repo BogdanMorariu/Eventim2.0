@@ -6,9 +6,10 @@
         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
     <!-- HTTP security configurations -->
     <http auto-config="false" use-expressions="true">
-        <form-login login-page="/loginUri" authentication-failure-url="/loginFailUri" username-parameter="userNameParam" password-parameter="userPasswordParam"/>
+        <form-login login-page="/loginUri" authentication-failure-url="/loginUri?failed=true" username-parameter="userNameParam" password-parameter="userPasswordParam"/>
         <!-- Configure these elements to secure URIs in your application -->
         <intercept-url pattern="/loginUri/**" access="permitAll" />
+        <intercept-url pattern="/forgotPassword/**" access="permitAll" />
         <intercept-url pattern="/users/**" access="permitAll" />
         <intercept-url pattern="/artists/**" access="hasRole('ADMIN')" />
         <intercept-url pattern="/tickets/**" access="permitAll" />

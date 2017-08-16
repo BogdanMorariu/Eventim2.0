@@ -28,6 +28,8 @@
 			<set>
 				<ref bean="eventFormatter"/>
 	   			<ref bean="userFormatter"/>
+	   			<ref bean="categoryFormatter"/>
+	   			<ref bean="artistFormatter"/>
 			</set>
 		</property>
 	</bean>

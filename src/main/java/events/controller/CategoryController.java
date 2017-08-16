@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import events.model.Category;
@@ -40,20 +41,17 @@ public class CategoryController {
 	}
 
 	@RequestMapping("/processCategory")
-	public ModelAndView processCategory(@Valid Category category, BindingResult result, Model uiModel) {
+	@ResponseBody
+	public String processCategory(@Valid Category category, BindingResult result, Model uiModel) {
 		try {
 			if(result.hasErrors()) {
-				uiModel.addAttribute("categories" , fetchService.getAllCategories());
-				uiModel.addAttribute("category", category);
-				uiModel.addAttribute("errorMessage", "Invalid input!");
-				
-				return new ModelAndView("createCategory", uiModel.asMap());
+				return "failed";
 			}
 			manageService.saveCategory(category);
-			return new ModelAndView("createCategorySuccess");
+			return "success";
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			return new ModelAndView("createCategory", uiModel.asMap());
+			return "failed";
 		}
 	}
 
@@ -82,30 +80,32 @@ public class CategoryController {
 	}
 	
 	@RequestMapping("/removeCategory")
-	public ModelAndView removeCategory(@RequestParam(value = "idValue", required = true) Integer id, Model uiModel) {
+	@ResponseBody
+	public String removeCategory(@RequestParam(value = "idValue", required = true) Integer id, Model uiModel) {
 		try {
 			manageService.deleteCategoryById(id);
-			return new ModelAndView("deleteCategorySuccess");
+			return "success";
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			return new ModelAndView("deleteCategory", uiModel.asMap());
+			return "failed";
 		}
 	}
 	
 	@RequestMapping("/processUpdateCategory")
-	public ModelAndView processUpdateCategory(@Valid Category category, BindingResult result, Model uiModel) {
+	@ResponseBody
+	public String processUpdateCategory(@Valid Category category, BindingResult result, Model uiModel) {
 		try {
 			if(result.hasErrors()) {
 				uiModel.addAttribute("category", category);
 				uiModel.addAttribute("errorMessage", "Invalid input!");
 				
-				return new ModelAndView("updateCategory", uiModel.asMap());
+				return "failed";
 			}
 			manageService.saveCategory(category);
-			return new ModelAndView("updateCategorySuccess");
+			return "success";
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			return new ModelAndView("updateCategory", uiModel.asMap());
+			return "failed";
 		}
 	}
 }
