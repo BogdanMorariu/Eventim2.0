@@ -25,7 +25,6 @@ public class TemporaryUserDAOImpl implements TemporaryUserDAO {
     }
 
     public List<TemporaryUser> getAllTemporaryUsers() {
-
         String hql="from TemporaryUser";
         return getCurrentSession().createQuery(hql).list();
     }
