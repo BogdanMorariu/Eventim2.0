@@ -68,7 +68,7 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/updateTicket.jsp"/>
 	</definition>
 
-<!-- 	<definition extends="default" name="createEvent">
+ 	<definition extends="default" name="createEvent">
         <put-attribute name="body" value="/WEB-INF/jsp/event/createEvent.jsp"/>
     </definition>
     <definition extends="default" name="updateEvent">
@@ -76,7 +76,7 @@
     </definition>
     <definition extends="default" name="deleteEvent">
         <put-attribute name="body" value="/WEB-INF/jsp/event/deleteEvent.jsp"/>
-    </definition> -->
+    </definition> 
     
     <definition extends="default" name="createEventInfo">
         <put-attribute name="body" value="/WEB-INF/jsp/event/createEventInfo.jsp"/>
