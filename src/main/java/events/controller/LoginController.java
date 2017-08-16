@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import events.model.User;
 import events.service.FetchService;
@@ -31,7 +32,11 @@ public class LoginController {
 		return "login";
 	}
 
-
+	@RequestMapping("/changePassword")
+	public ModelAndView changePassword(){
+		return new ModelAndView("changePassword");
+	}
+	
 	@RequestMapping("/forgotPassword")
 	@ResponseBody
 	public String forgotPassword(String email) {
@@ -39,7 +44,7 @@ public class LoginController {
 			newPassword = MailUtil.generatePassword();
 			if (updatePassword(newPassword, email) == true) {
 				MailUtil.sendMail(MAIL_SUBJECT, newPassword, email);
-				return "An eMail with the new password has been sent.";
+				return "Success";
 			}
 			else{
 				return "Mail not registered. Register for new Account.";
