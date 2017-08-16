@@ -1,5 +1,6 @@
 package events.controller;
 
+import events.authentication.Authenticate;
 import events.model.TemporaryUser;
 import events.model.User;
 import events.service.FetchService;
@@ -7,6 +8,7 @@ import events.service.ManageService;
 import events.utils.Encrypter;
 import events.utils.MailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,15 +36,17 @@ public class UserController {
     @RequestMapping("/createUser")
     public ModelAndView createUser(@Valid TemporaryUser temporaryUser, BindingResult result, Model uiModel){
 
-        //temporary user default values
-        temporaryUser.setType("n");
-        temporaryUser.setRegistered(Boolean.FALSE);
-
         //check compatibility errors
         if (result.hasErrors()) {
             return new ModelAndView("createUser", uiModel.asMap());
         }
        try {
+           BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+           String encodedPassword = bCryptPasswordEncoder.encode(temporaryUser.getPassword());
+           //temporary user default values
+           temporaryUser.setPassword(encodedPassword);
+           temporaryUser.setType("NORMAL");
+           temporaryUser.setRegistered(Boolean.FALSE);
 
             //Check for duplicates
             List<User> users = fetchService.getAllUsers();
@@ -50,7 +54,7 @@ public class UserController {
            for (int i = 0; i < users.size(); i++) {
                u = users.get(i);
                if (u.getName().equals(temporaryUser.getName())) {
-                   uiModel.addAttribute("errorMessage", "User with that Name already exists!");
+                   uiModel.addAttribute("message", "User with that Name already exists!");
                    System.out.println("Duplicate user tried to register");
                    return new ModelAndView("createUser", uiModel.asMap());
                }
@@ -62,7 +66,7 @@ public class UserController {
            //Send mail
            String subject = "Eventim 2.0 Acount validation !\n";
            String message = "Hello " + temporaryUser.getName() + "!\n Please click on the link below to activate your acount:\n";
-           message += "<a href=\"localhost:8080/users/validate?token=" + encript(temporaryUser.getId()) + "\">Click me</a>";
+           message += "<a href=\"localhost:8080/users/validate?token=" + encrypt(temporaryUser.getId()) + "\">Click me</a>";
            message += "\n\n Have a Great day,\nEventim 2.0 Team.";
            MailUtil.sendMail(subject, message, temporaryUser.getEmail());
 
@@ -70,8 +74,6 @@ public class UserController {
 
         } catch  (Exception ex) {
             //send back to createUser link with error
-           System.out.println(ex.getMessage());
-           uiModel.addAttribute("errorMessage","Some unknown error has occurred :(");
            return new ModelAndView("createUser", uiModel.asMap());
             }
     }
@@ -79,12 +81,6 @@ public class UserController {
     @RequestMapping(value = "/deleteUser")
     public ModelAndView deleteUser(@RequestParam(value = "id", required = false) Integer id, Model uiModel){
         List<User> users;
-        /*if (result.hasErrors()) {
-            users = fetchService.getAllUsers();
-            uiModel.addAttribute("errorMessage", "Compatibility error occurred!");
-            uiModel.addAttribute("users",users);
-            return new ModelAndView("deleteUser", uiModel.asMap());
-        }*/
         try {
             manageService.deleteUserById(id);
             users = fetchService.getAllUsers();
@@ -93,28 +89,52 @@ public class UserController {
         } catch  (Exception ex) {
             System.out.println(ex.getMessage());
             users = fetchService.getAllUsers();
-            uiModel.addAttribute("errorMessage", "Something unexpected occurred");
+            uiModel.addAttribute("message", "Something unexpected occurred");
             uiModel.addAttribute("users",users);
             return new ModelAndView("deleteUser", uiModel.asMap());
         }
     }
 
-    @RequestMapping("/updateUser")
-    public ModelAndView updateUser(@Valid User user, BindingResult result, Model uiModel){
-        List<User> users ;
+    @RequestMapping("/updateUsers")
+    public ModelAndView updateUsers(@Valid User user, BindingResult result, Model uiModel){
+        List<User> users;
         if (result.hasErrors()) {
             users = fetchService.getAllUsers();
             uiModel.addAttribute("users",users);
+            uiModel.addAttribute("message", "Something unexpected occurred");
+            return new ModelAndView("updateUsers", uiModel.asMap());
+        }
+        try {
+            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+            user.setPassword(encodedPassword);
+            manageService.saveUser(user);
+            users = fetchService.getAllUsers();
+            uiModel.addAttribute("users",users);
+            uiModel.addAttribute("message", "User updated !");
+            return new ModelAndView("updateUsers");
+        } catch  (Exception ex) {
+            users = fetchService.getAllUsers();
+            uiModel.addAttribute("users",users);
+            uiModel.addAttribute("message", "Users:");
+            return new ModelAndView("updateUsers", uiModel.asMap());
+        }
+    }
+
+    @RequestMapping("/updateUser")
+    public ModelAndView updateUser(@Valid User user, BindingResult result, Model uiModel){
+        User oldUser = fetchService.getUserById(user.getId());
+        if (result.hasErrors()) {
+            uiModel.addAttribute("user",oldUser);
             return new ModelAndView("updateUser", uiModel.asMap());
         }
         try {
             manageService.saveUser(user);
-            users = fetchService.getAllUsers();
-            uiModel.addAttribute("users",users);
-            return new ModelAndView("confirmUser");
+            uiModel.addAttribute("user",oldUser);
+            uiModel.addAttribute("message", "Changes saved");
+            return new ModelAndView("updateUser");
         } catch  (Exception ex) {
-            users = fetchService.getAllUsers();
-            uiModel.addAttribute("users",users);
+            uiModel.addAttribute("user",oldUser);
             System.out.println(ex.getMessage());
             return new ModelAndView("updateUser", uiModel.asMap());
         }
@@ -123,7 +143,7 @@ public class UserController {
     @RequestMapping("/validate")
     public ModelAndView validateUser(@RequestParam String token, Model uiModel){
         try{
-            TemporaryUser temporaryUsers = fetchService.getTemporaryUserById(Integer.parseInt(decript(token)));
+            TemporaryUser temporaryUsers = fetchService.getTemporaryUserById(Integer.parseInt(decrypt(token)));
             User user = temporaryUsers.toUser();
             manageService.saveUser(user);
             temporaryUsers.setRegistered(Boolean.TRUE);
@@ -135,11 +155,11 @@ public class UserController {
         }
     }
 
-    private String encript(Integer number) throws UnsupportedEncodingException {
+    private String encrypt(Integer number) throws UnsupportedEncodingException {
         return Base64.getUrlEncoder().encodeToString(number.toString().getBytes("utf-8"));
     }
 
-    private String decript(String token){
+    private String decrypt(String token){
         return new String(Base64.getUrlDecoder().decode(token), StandardCharsets.UTF_8);
     }
 }

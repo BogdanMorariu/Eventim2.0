@@ -11,7 +11,7 @@ $(document).ready(function(){
     $("#Apasa-ma").click(function(){
         $.ajax({
         	url: "processArtist",
-        	data: $("#myForm").serialize(), 
+        	data: $("#myForm").serialize(),
         	success: function(result){
 	        	if (result.indexOf("Succes") != -1) {
 	        		$("#artist-text").html("Artist has been saved!");

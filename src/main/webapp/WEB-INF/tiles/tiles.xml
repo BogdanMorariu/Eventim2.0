@@ -19,22 +19,6 @@
     <definition extends="default" name="listCategories">
         <put-attribute name="body" value="/WEB-INF/jsp/category/listCategories.jsp"/>
     </definition>
-    <definition extends="default" name="createCategorySuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/createCategorySuccess.jsp"/>
-    </definition>
-     <definition extends="default" name="updateCategorySuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/updateCategorySuccess.jsp"/>
-    </definition>
-    <definition extends="default" name="deleteCategorySuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/category/deleteCategorySuccess.jsp"/>
-    </definition>
-	 <definition extends="default" name="deleteArtistSuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/artist/deletedSuccessfully.jsp"/>
-    </definition>
-	 <definition extends="default" name="updateArtistSuccess">
-        <put-attribute name="body" value="/WEB-INF/jsp/artist/updatedSuccessfully.jsp"/>
-    </definition>
-	
 
 
 	<definition extends="default" name="confirmUser">
@@ -52,6 +36,10 @@
     <definition extends="default" name="updateUser">
         <put-attribute name="body" value="/WEB-INF/jsp/user/updateUser.jsp"/>
     </definition>
+	<definition extends="default" name="updateUsers">
+		<put-attribute name="body" value="/WEB-INF/jsp/user/updateUsers.jsp"/>
+	</definition>
+
     <definition extends="default" name="home">
         <put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
     </definition>
@@ -65,12 +53,6 @@
 	<definition extends="default" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
 	</definition>
-	<definition extends="default" name="deleteTicket">
-		<put-attribute name="body" value="/WEB-INF/jsp/ticket/deleteTicket.jsp"/>
-	</definition>
-	<definition extends="default" name="updateTicket">
-		<put-attribute name="body" value="/WEB-INF/jsp/ticket/updateTicket.jsp"/>
-	</definition>
 
  	<definition extends="default" name="createEvent">
         <put-attribute name="body" value="/WEB-INF/jsp/event/createEvent.jsp"/>
@@ -78,9 +60,6 @@
     <definition extends="default" name="updateEvent">
         <put-attribute name="body" value="/WEB-INF/jsp/event/updateEvent.jsp"/>
     </definition>
-    <definition extends="default" name="deleteEvent">
-        <put-attribute name="body" value="/WEB-INF/jsp/event/deleteEvent.jsp"/>
-    </definition> 
     
     <definition extends="default" name="createEventInfo">
         <put-attribute name="body" value="/WEB-INF/jsp/event/createEventInfo.jsp"/>

@@ -6,6 +6,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import events.model.User;
@@ -31,11 +32,9 @@ public class Authenticate implements AuthenticationProvider {
 			User foundUser = fetchService.findUserAtLogin(username);
 			if (foundUser != null) {
 				String dbPassword = foundUser.getPassword();
-				// TODO: BCryptPasswordEncoder passwordEncoder = new
-				// BCryptPasswordEncoder();
-
-				if (password.equals(dbPassword)) {// passwordEncoder.matches(password,
-													// dbPassword)){
+				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+				
+				if (passwordEncoder.matches(password, dbPassword)){
 					return new UsernamePasswordAuthenticationToken(foundUser, null, foundUser.getAuthorities());
 				} else {
 					throw new BadCredentialsException("Wrong username or password");
