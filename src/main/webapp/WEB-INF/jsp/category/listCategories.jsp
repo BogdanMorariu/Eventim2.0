@@ -30,7 +30,7 @@ function deleteCategoryById(id){
 			</form>
             <form action="../categories/removeCategory" method="POST">
             	<input type="hidden" name="idValue" value="${category.id}">
-	            <input type="button" value="Delete category" class="btn-danger delete-category" onclick="deleteCategoryById('${category.id}')" />
+	            <input type="button" value="Delete category" class="btn-danger" onclick="deleteCategoryById('${category.id}')" />
 			</form>
             </td>
         </tr>

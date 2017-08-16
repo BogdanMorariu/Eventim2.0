@@ -12,7 +12,11 @@
 
 		<property name="name" column="name" />
 
-		<bag name="events" table="event_artist" inverse="true">
+
+		<bag name="events" table="event_artist" lazy="false" inverse="true">
+
+		
+
 			<key column="artistid"></key>
 			<many-to-many class="events.model.Event" >
 				<column name="eventid" />
