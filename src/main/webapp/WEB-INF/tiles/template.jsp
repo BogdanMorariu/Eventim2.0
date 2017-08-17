@@ -1,7 +1,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <jsp:include page="includes.jsp"/>
 <table style="width:100%; height: 100%;">
-    <tr>
+    <tr style="vertical-align: top;">
         <td>
             <tiles:insertAttribute name="header" />
         </td>

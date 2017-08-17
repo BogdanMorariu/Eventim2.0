@@ -5,14 +5,75 @@
 <c:if test="${not empty errorMessage}">
 	<label><b>${errorMessage}</b></label>
 </c:if>
-<form:form modelAttribute="category"
-	action="../categories/processUpdateCategory" method="POST" id="myForm">
-	<label>New type: </label>
-	<form:input path="type"  />
-	<input type="hidden" name="id" value="${category.id}"/>
-	<input type="button" value="Update" id="Apasa-ma"/>
+<style>
+#categoryUpdateContainer{
+width:30%;
+font-size:110%;
 
+background-color:rgba(255,255,255,0.6);
+height:100%;
+padding:2%;
+margin:0 35%;
+}
+
+#myForm{
+	width:100%;
+}
+
+body{
+background-image:url(https://i1.wp.com/festpop.com/news/wp-content/uploads/2017/03/Hammock.jpeg);
+background-size:100% 100%;
+
+width:100%
+}
+
+.col-sm-5{
+margin-bottom:1%;
+
+}
+
+input[type=text]{
+ 
+    
+    border: none;
+    padding: 1%;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+select {
+    width: 100%;
+    padding: 1%;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+</style>
+
+<div style="    text-align: center;
+    margin: 0 auto;">
+<div class="col-sm-5" id="categoryUpdateContainer">
+<center><h3>Update category</h3></center>
+<br>
+<form:form modelAttribute="category"
+	action="../categories/processUpdateCategory" method="POST" id="myForm" cssClass="form-horizontal">
+	<div class="form-group">
+	<label class="col-sm-5">New type: </label>
+	<form:input cssClass="col-sm-5" path="type"/>
+	</div>
+	<input type="hidden" name="id" value="${category.id}"/>
+	<br>
+	<input type="button" value="Update" id="Apasa-ma" class="btn-success col-sm-1.5 col-sm-offset-0"/>
 </form:form>
+</div>
+</div>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -42,7 +103,7 @@ $(document).ready(function(){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">success</h4>
+        <h4 class="modal-title">Status</h4>
       </div>
       <div class="modal-body">
         <p id="category-text"></p>

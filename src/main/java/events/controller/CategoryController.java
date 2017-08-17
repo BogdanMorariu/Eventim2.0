@@ -45,6 +45,7 @@ public class CategoryController {
 	public String processCategory(@Valid Category category, BindingResult result, Model uiModel) {
 		try {
 			if(result.hasErrors()) {
+				uiModel.addAttribute("errorMessage","NOOOOOOOO");
 				return "failed";
 			}
 			manageService.saveCategory(category);
