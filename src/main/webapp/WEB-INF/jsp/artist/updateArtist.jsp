@@ -9,7 +9,10 @@
 <style>
 #createArtistContainer {
 	margin-left: 30%;
-	
+	height: 100%;
+	padding: 2%;
+	overflow: auto;
+	overflow-x: hidden;
  	background-color:rgba(255,255,255,0.7);
 }
 
