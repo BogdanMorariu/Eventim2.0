@@ -43,6 +43,8 @@ public class TicketController {
 	public ModelAndView getBuyTicketSite( @PathVariable("eventId") Integer eventId, Model uiModel) {
 		Ticket ticket = new Ticket();
 		ticket.setUser(fetchService.getUserById(1));	//userId from session
+		//User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		//System.out.println(user.getName());
 		ticket.setEvent(fetchService.getEventById(eventId));
 		uiModel.addAttribute("ticket", ticket);
 		return new ModelAndView("createTicket", uiModel.asMap());
@@ -59,9 +61,6 @@ public class TicketController {
 			return new ModelAndView("createTicket", uiModel.asMap());
 		}
 		try {
-			//barcode
-			//quantity
-			//manageService.saveTicket(ticket);
 			if(quantity > 0) {
 				for (int i = 0; i < quantity; i++) {
 					Ticket ticketHelp = new Ticket();

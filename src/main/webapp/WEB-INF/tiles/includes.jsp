@@ -10,3 +10,5 @@
 <script type="text/javascript" src="${externalAddress}resources/js/moment.min.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${externalAddress}resources/js/ticket.js"></script>
+<script type="text/javascript" src="${externalAddress}resources/js/event.js"></script>

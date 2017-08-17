@@ -66,6 +66,7 @@ public class EventController {
 				*/
 				return "failed";
 			}
+			System.out.println(event.getImage());
 			manageService.saveEvent(event);
 			return "success";
 		} catch (Exception e) {
@@ -120,6 +121,7 @@ public class EventController {
 				
 				return new ModelAndView("updateEvent", uiModel.asMap());
 			}
+			System.out.println(event.getImageBase64());
 			manageService.saveEvent(event);
 			return new ModelAndView("updateEventInfo");
 		} catch (Exception ex) {
