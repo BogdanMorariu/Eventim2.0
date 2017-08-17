@@ -6,10 +6,16 @@
 	<label><b style="color: red"><center>${errorMessage}</center></b></label>
 </c:if>
 <style>
+body{
+background-image:url('https://static1.squarespace.com/static/55c37beae4b0336075603f86/55c3cd80e4b01531b3208f2e/5603032be4b008bd0ad4e6fb/1486126957019/?format=1500w');
+background-size:100% 100%
+}
 #eventCreateContainer{
+	padding: 0 3% ;
+	background-color:rgba(255,255,255,0.7);
 	width:30%;
     margin-left:30%;
-    font-size:110%
+    font-size:110%;
     
 }
 
@@ -54,7 +60,7 @@ input[type=button], input[type=submit], input[type=reset] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin-left:10%
+    margin-left:-10%
 }
 </style>
 
