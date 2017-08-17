@@ -58,7 +58,7 @@ input[type=button], input[type=submit], input[type=reset] {
 <div style="    text-align: center;
     margin: 0 auto;">
 <div class="col-sm-5" id="categoryCreateContainer">
-<center><h3>Create new category</h3></center>
+<center><h3>Create New Category</h3></center>
 <br>
 <form:form modelAttribute="category"
 	action="../categories/processCategory" method="POST" id="myForm"

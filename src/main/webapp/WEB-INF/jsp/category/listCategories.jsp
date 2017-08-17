@@ -41,7 +41,7 @@ background-size:100% 100%
 </style>
 <div class="col-sm-6" id="categoryListContainer">
 <center>
-	<h3>List of categories</h3>
+	<h3>List of Categories</h3>
 </center>
 <br>
 <br>
@@ -52,6 +52,7 @@ background-size:100% 100%
 				<td><br> <label class="col-sm-3"> ${category.type} <br></label>
 				</td>
 				<td>
+				<div style="padding:10px">
 					<form action="../categories/updateCategory" method="POST"
 						style="display: inline;">
 						<input type="hidden" name="idValue" value="${category.id}">
@@ -63,6 +64,7 @@ background-size:100% 100%
 						<input type="button" value="Delete category" class="btn-danger"
 							onclick="deleteCategoryById('${category.id}')" />
 					</form>
+					</div>
 				</td>
 			</tr>
 		</c:forEach>

@@ -16,9 +16,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href='<spring:url value="/updateMilestones"/>'>Create new Event</a></li>
-              <li><a href='<spring:url value="/updateMilestones"/>'>Update Event</a></li>
-                <li><a href='<spring:url value="/updateMilestones"/>'>Delete Event</a></li>
+            <li><a href='<spring:url value="/event/createEvent"/>'>Create New Event</a></li>
+              <li><a href='<spring:url value="/event/listEvents"/>'>Manage Events</a></li>
           </ul>
         </li>
  	</ul> 
@@ -26,9 +25,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artists<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href='<spring:url value="/updateMilestones"/>'>Create new Artist</a></li>
-              <li><a href='<spring:url value="/updateMilestones"/>'>Update Artist</a></li>
-                <li><a href='<spring:url value="/updateMilestones"/>'>Delete Artist</a></li>
+            <li><a href='<spring:url value="../artists/createArtist"/>'>Create New Artist</a></li>
+              <li><a href='<spring:url value="../artists/listArtists"/>'>Manage Artists</a></li>
           </ul>
         </li>
  	</ul> 
@@ -36,9 +34,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href='<spring:url value="/updateMilestones"/>'>Create new Category</a></li>
-              <li><a href='<spring:url value="/updateMilestones"/>'>Update Category</a></li>
-                <li><a href='<spring:url value="/updateMilestones"/>'>Delete Category</a></li>
+            <li><a href='<spring:url value="../categories/createCategory"/>'>Create New Category</a></li>
+              <li><a href='<spring:url value="../categories/listCategories"/>'>Manage Categories</a></li>
           </ul>
         </li>
  	</ul> 
@@ -46,9 +43,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tickets<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href='<spring:url value="/updateMilestones"/>'>Create new Ticket</a></li>
-              <li><a href='<spring:url value="/updateMilestones"/>'>Update Ticket</a></li>
-                <li><a href='<spring:url value="/updateMilestones"/>'>Delete Ticket</a></li>
+            <li><a href='<spring:url value="../tickets/createTicket"/>'>Create New Ticket</a></li>
+              <li><a href='<spring:url value="../tickets/createTicket"/>'>Manage Tickets</a></li>
           </ul>
         </li>
  	</ul>
