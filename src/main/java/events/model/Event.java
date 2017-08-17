@@ -89,12 +89,14 @@ public class Event {
 	}
 	
 	public void setImage(byte[] image) {
-		this.image = image;
-		byte[] imageHelp = new byte[image.length];
-		for (int i = 0; i < image.length; i++) {
-			imageHelp[i] = image[i];
+		if (image != null) {
+			this.image = image;
+			byte[] imageHelp = new byte[image.length];
+			for (int i = 0; i < image.length; i++) {
+				imageHelp[i] = image[i];
+			}
+			imageBase64 = new String(imageHelp);
 		}
-		imageBase64 = new String(imageHelp);
 	}
 	
 	public Category getCategory() {
