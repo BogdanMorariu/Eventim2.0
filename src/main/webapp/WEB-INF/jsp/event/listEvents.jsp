@@ -33,7 +33,7 @@ h3 {
 }
 
 #manageEventsContainer {
-	width: 30%;
+	width: 60%;
 	margin-top: auto;
 	margin-left: auto;
 	margin-right: auto;
