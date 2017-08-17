@@ -22,7 +22,7 @@ function deleteEvent(id){
 	<table>
 		<c:forEach items="${events}" var="event">
 			<tr id="${event.id}">
-
+				<td><img width="100" src="${event.imageBase64}"/></td>
 				<td>${event.name}</td>
 				<td>
 					<form action="../event/updateEvent" method="POST">
