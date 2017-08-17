@@ -1,5 +1,6 @@
 package events.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -45,6 +46,14 @@ public class EventDAOImpl implements EventDAO {
 		Query query = getCurrentSession().createQuery("delete Event where id = :id ");
 		query.setParameter("id", id);
 		query.executeUpdate();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Event> getNextEvents() {
+		String hql = "From Event where startDate >= :currentdate order by startDate desc";
+		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("currentdate", new Date());
+		return query.list();
 	}
 	
 }

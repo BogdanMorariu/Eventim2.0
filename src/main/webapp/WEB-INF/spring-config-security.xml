@@ -11,7 +11,7 @@
         <intercept-url pattern="/loginUri/**" access="permitAll" />
         <intercept-url pattern="/forgotPassword/**" access="permitAll" />
         <intercept-url pattern="/users/**" access="permitAll" />
-        <intercept-url pattern="/artists/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/artists/**" access="permitAll" />
         <intercept-url pattern="/tickets/**" access="permitAll" />
         <intercept-url pattern="/events/**" access="permitAll" />
         <intercept-url pattern="/home/**" access="permitAll" />
