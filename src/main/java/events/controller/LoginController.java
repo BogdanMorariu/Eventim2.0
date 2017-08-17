@@ -3,6 +3,7 @@ package events.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,17 +52,19 @@ public class LoginController {
 			}
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			return "Mail has not been sent.";
+			return "Exception error ";
 
 		}
 	}
 
 	public boolean updatePassword(String newPassword, String email) {
 		boolean found = false;
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = bCryptPasswordEncoder.encode(newPassword);
 		List<User> users = fetchService.getAllUsers();
 		for (User user : users) {
 			if (user.getEmail().equals(email)) {
-				user.setPassword(newPassword);
+				user.setPassword(encodedPassword);
 				manageService.saveUser(user);
 				found = true;
 			}

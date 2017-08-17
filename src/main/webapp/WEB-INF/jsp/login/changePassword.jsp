@@ -63,35 +63,58 @@
 </div>
 
 <style>
-#myForm1 {
-	margin-left: 10%;
-	margin-right: 25%;
-	width: 60%
+#changePass {
+	margin: 0 20%;
+	width: 60%;
+	background-color: rgba(255, 255, 255, 0.8);
+	heigth: 100%;
+	padding: 2%;
+	width: 60%;
+	font-size: 110%;
+}
+
+input[type=email] {
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+	margin-left: -2%
+}
+
+body {
+	background-image:
+		url('https://images6.alphacoders.com/303/303014.jpg');
+	background-size: 100% 100%;
+	width: 100%;
+	
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+	background-color: #4CAF50;
+	color: White;
+	border-radius: 15% 15%;
+	text-align: center; margin-left : 2%;
+	margin-top: -0.5%;
+	margin-left: 2%;
 }
 </style>
 
-<center>
-	<h3 style="margin-left: -7%">
-		Change Password
-		</h3>
-		<br> <br>
-		<h4 style="margin-left: -49%">
-			A new Password will be sent to your e-Mail.
-			</h4>
-</center>
+<div class="col-sm-6" id="changePass">
 
-<body>
+	<h3 align="center">Change Password</h3>
+	<br> <br>
+	<h4 align="left">A new Password will be sent to your e-Mail.</h4>
+
+
+
+
 	<br>
-	<div class="col-sm-6" id="myForm1">
-
-		<form method="POST" class="form-horizontal" action="forgotPassword"
-			id="myForm" class="form-horizontal">
-			<div class="form-group">
-				<label class="col-sm-5">Enter your registered email here:</label> <input
-					class="col-sm-5" type="email" name="email" /> <input class="col-sm-1 col-sm-offset-1" type="button"
-					value="Send" id="click" />
-			</div>
-			<br /> <a href="loginUri"> Go Back to login page</a>
-		</form>
-	</div>
-</body>
+	<form method="POST" class="form-horizontal" action="forgotPassword"
+		id="myForm" class="form-horizontal">
+		<div class="form-group">
+			<label class="col-sm-5">Enter your registered email here:</label> <input
+				class="col-sm-5" type="email" name="email" /> <input
+				class="col-sm-2 " type="button" value="Send" id="click" />
+		</div>
+		<br /> <a href="loginUri"> Go Back to login page</a>
+	</form>
+</div>
