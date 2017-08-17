@@ -12,7 +12,7 @@
 </style>
 <div >
 <form:form modelAttribute="event" action="../event/processUpdateEvent"
-	method="POST" id="myForm" cssClass="form-horizontal">
+	method="POST" id="myForm" cssClass="form-horizontal" cssClass="form-horizontal">
 	
 	
 	<label>Event: </label>
