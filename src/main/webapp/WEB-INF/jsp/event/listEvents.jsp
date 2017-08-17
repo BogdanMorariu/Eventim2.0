@@ -19,12 +19,49 @@ function deleteEvent(id){
 }
 </script>
 
-	<table>
+<style>
+body {
+	width: 100%;
+	background-image:
+		url('http://www.clujulcultural.ro/wp-content/uploads/2015/06/Electric-Castle-ziua-2-foto-Vlad-Gabriel.jpg');
+	background-size: 100% 100%
+}
+
+h3 {
+	margin-bottom: 2%;
+	margin-top: -2%;
+}
+
+#manageEventsContainer {
+	width: 30%;
+	margin-top: auto;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgba(255, 255, 255, 0.7);
+	height: 100%;
+	padding: 2%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+form {
+	display: inline;
+}
+
+.col-sm-3 {
+	margin-top: -10%;
+}
+</style>
+
+
+<div id="manageEventsContainer">
+<h3 align="center">List of Events</h3>
+<table align="center">
 		<c:forEach items="${events}" var="event">
 			<tr id="${event.id}">
 				<td><img width="100" src="${event.imageBase64}"/></td>
-				<td>${event.name}</td>
-				<td>
+				<td class="left" ><br><label class="col-sm-3">${event.name}</label></td>
+				<td class="right">
 					<form action="../event/updateEvent" method="POST">
 						<input type="hidden" name="idValue" value="${event.id}">
 						<input type="submit" value="Update event" class="btn-success" />
@@ -41,6 +78,7 @@ function deleteEvent(id){
 
 <!-- Modal -->
 
+</div>
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 

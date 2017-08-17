@@ -5,45 +5,54 @@
 <c:if test="${not empty errorMessage}">
 	<label><b>${errorMessage}</b></label>
 </c:if>
+
+
+<style>
+	
+</style>
+<div >
 <form:form modelAttribute="event" action="../event/processUpdateEvent"
-	method="POST" id="myForm">
+	method="POST" id="myForm" cssClass="form-horizontal">
+	
+	
 	<label>Event: </label>
 	<br>
-	<label>New Name: </label>
-	<form:input path="name" />
+	<div class="form-group">
+	<label class="col-sm-3">New Name: </label>
+	<form:input path="name" cssClass="col-sm-9"/>
 	<input type="hidden" name="id" value="${event.id}" />
-	
+	</div>
 	<br>
 	
-	<label>Start Date: </label>
-	<form:input path="startDate" />
+	<label class="col-sm-3">Start Date: </label>
+	<form:input path="startDate" cssClass="col-sm-9"/>
 	
 	<br>
-	<label>Location:</label>
-	<form:input path="location"/>
+	<label class="col-sm-3">Location:</label>
+	<form:input path="location" cssClass="col-sm-9"/>
 	<br>
 	
-	<label>End Date: </label>
-	<form:input path="endDate" />
+	<label class="col-sm-3">End Date: </label>
+	<form:input path="endDate" cssClass="col-sm-9"/>
 
 	<br>
 
-	<label>Artists: </label>
-	<form:select path="artists">
+	<label class="col-sm-3">Artists: </label>
+	<form:select path="artists" cssClass="col-sm-9">
 		<form:options items="${artists}" itemValue="id" itemLabel="name"></form:options>
 	</form:select>
 
 	<br>
 
-	<label>Categories: </label>
-	<form:select path="category">
+	<label class="col-sm-3">Categories: </label>
+	<form:select path="category" cssClass="col-sm-9">
 		<form:options items="${categories}" itemValue="id" itemLabel="type"></form:options>
 	</form:select>
 
 	<br>
 
-	<label>Price: </label>
-	<form:input path="price" />
+	<label class="col-sm-3">Price: </label>
+	<form:input path="price" cssClass="col-sm-9"/>
 	
 	<br>
 	
@@ -51,7 +60,7 @@
 	
 	
 </form:form>
-
+</div>
 
 <script type="text/javascript">
 $(document).ready(function(){
