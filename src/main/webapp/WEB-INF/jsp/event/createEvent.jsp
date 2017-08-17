@@ -16,7 +16,7 @@ body {
 	padding: 0 3%;
 	background-color: rgba(255, 255, 255, 0.7);
 	width: 60%;
-	margin: 20%;
+	margin:0 20%;
 	font-size: 100%;
 }
 
