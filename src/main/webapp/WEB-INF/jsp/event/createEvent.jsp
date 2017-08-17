@@ -8,7 +8,8 @@
 body {
 	background-image:
 		url('https://static1.squarespace.com/static/55c37beae4b0336075603f86/55c3cd80e4b01531b3208f2e/5603032be4b008bd0ad4e6fb/1486126957019/?format=1500w');
-	background-size: 100% 100%
+	background-size: 100% 100%;
+	height:100%
 }
 
 #eventCreateContainer {
