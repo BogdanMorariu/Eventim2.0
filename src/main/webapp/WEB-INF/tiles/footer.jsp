@@ -1,1 +1,1 @@
-<div>Hello! I'm Footer !</div>
+<div style="text-align:center">© Gasca Javra Industries</div>

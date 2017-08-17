@@ -50,7 +50,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Success</h4>
+				<h4 class="modal-title">Status</h4>
 			</div>
 			<div class="modal-body">
 				<p id="artist-text"></p>
@@ -62,11 +62,36 @@
 	</div>
 </div>
 
+<style>
+#myForm1 {
+	margin-left: 10%;
+	margin-right: 25%;
+	width: 60%
+}
+</style>
+
+<center>
+	<h3 style="margin-left: -7%">
+		Change Password
+		</h3>
+		<br> <br>
+		<h4 style="margin-left: -49%">
+			A new Password will be sent to your e-Mail.
+			</h4>
+</center>
+
 <body>
-	<form method="POST" action="forgotPassword" id="myForm">
-		<br /> <label>Introduceti eMailul pentru a primi o parola
-			noua:</label> <input type="email" name="email" /> <input type="button"
-			value="Send" id="click" /> <br />
-		<br /> <a href="loginUri"> Go Back to login page</a>
-	</form>
+	<br>
+	<div class="col-sm-6" id="myForm1">
+
+		<form method="POST" class="form-horizontal" action="forgotPassword"
+			id="myForm" class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-5">Enter your registered email here:</label> <input
+					class="col-sm-5" type="email" name="email" /> <input class="col-sm-1 col-sm-offset-1" type="button"
+					value="Send" id="click" />
+			</div>
+			<br /> <a href="loginUri"> Go Back to login page</a>
+		</form>
+	</div>
 </body>
