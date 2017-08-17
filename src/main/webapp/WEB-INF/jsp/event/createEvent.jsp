@@ -1,6 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:include page="../../tiles/includes.jsp" />
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <c:if test="${not empty errorMessage}">
 	<label><b style="color: red"><center>${errorMessage}</center></b></label>

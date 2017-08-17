@@ -8,23 +8,32 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<c:if test="${not empty message}">
-    <label>${message}</label><br>
-</c:if>
-<form:form modelAttribute="user" action="/users/updateUser" method="POST">
-    <label>ID:${user.id}</label><input type="hidden" name="id" value="${user.id}"/>
-    <label>Username:</label><input  name="name" class="form-control" value="${user.name}"/>
-    <label>Password:</label><input name="password" class="form-control" value="${user.password}"/>
-    <label>Email:</label><input name="email" value="${user.email}"/>
-    <label>Type:</label><br>
-    <input type="radio" name="type" value="ADMIN"> Administrator<br>
-    <input type="radio" name="type" value="NORMAL" checked> User<br>
-    <input type="submit" class="btn btn-default" value="Save"/><br>
-</form:form>
-</body>
-</html>
+<h3 class="col-md-offset-5">User Details</h3>
+<div class="col-sm-4 offset5">
+    <c:if test="${not empty message}">
+        <label>${message}</label><br>
+    </c:if>
+    <form:form modelAttribute="user" action="/users/updateUser" method="POST" class="form-hotizontal">
+        <input hidden name="id" value="${pageContext['request'].userPrincipal.principal.id}"/>
+        <div class="form-group">
+            <label class="col-sm-3" for="username">Username:</label>
+            <div class="col-sm-9">
+                <input id="username" name="name" class="form-control" value="${pageContext['request'].userPrincipal.principal.name}" onfocus="blur()"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3" for="pass">New password:</label>
+            <div class="col-sm-9">
+                <input id="pass" name="password" class="form-control" type="password" placeholder="********"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3" for="em">Email:</label>
+            <div class="col-sm-9">
+                <input id="em" name="email" class="form-control" value="${pageContext['request'].userPrincipal.principal.email}"/>
+            </div>
+        </div>
+        <input name="type" value="${pageContext['request'].userPrincipal.principal.type}" hidden/>
+        <input type="submit" style="margin-left: 2%; margin-top: 2%" class="btn btn-success col-sm-3" value="Save"/><br>
+    </form:form>
+</div>

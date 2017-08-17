@@ -36,13 +36,13 @@
 	<definition extends="default" name="createUser">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/>
 	</definition>
-    <definition extends="default" name="deleteUser">
+    <definition extends="admin" name="deleteUser">
         <put-attribute name="body" value="/WEB-INF/jsp/user/deleteUser.jsp"/>
     </definition>
     <definition extends="default" name="updateUser">
         <put-attribute name="body" value="/WEB-INF/jsp/user/updateUser.jsp"/>
     </definition>
-	<definition extends="default" name="updateUsers">
+	<definition extends="admin" name="updateUsers">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/updateUsers.jsp"/>
 	</definition>
 
