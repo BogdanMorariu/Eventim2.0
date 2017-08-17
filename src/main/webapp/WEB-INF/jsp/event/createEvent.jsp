@@ -147,7 +147,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#Apasa-ma").click(function() {
+		$("#submitButton").click(function() {
 			$.ajax({
 				url : "../event/processEvent",
 				data : $("#myForm").serialize(),

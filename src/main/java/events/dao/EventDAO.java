@@ -10,4 +10,5 @@ public interface EventDAO {
 	void saveEvent(Event event);
 	void deleteEvent(Event event);
 	void deleteEvent(Integer id);
+	List<Event> getNextEvents();
 }

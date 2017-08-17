@@ -92,4 +92,9 @@ public class FetchServiceImpl implements FetchService {
 		return ticketDao.getNextBarcode();
 	}
 
+	public List<Event> getNextEvents() {
+		return eventDao.getNextEvents();
+		
+	}
+
 }

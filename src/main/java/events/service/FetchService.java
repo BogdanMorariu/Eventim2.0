@@ -13,7 +13,8 @@ public interface FetchService {
 	List<Ticket> getAllTickets();
 	List<User> getAllUsers();
 	List<TemporaryUser> getAllTemporaryUsers();
-
+	List<Event> getNextEvents();
+	
 	//Get by ID
 	Artist getArtistById(Integer id);
 	Category getCategoryById(Integer id);
@@ -30,5 +31,7 @@ public interface FetchService {
 	
 	//Barcode_seq nextval
 	Long getNextBarcode();
+	
+	
 
 }
