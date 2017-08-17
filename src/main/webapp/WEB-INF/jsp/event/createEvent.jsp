@@ -1,100 +1,110 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:include page="../../tiles/includes.jsp" />
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <c:if test="${not empty errorMessage}">
 	<label><b style="color: red"><center>${errorMessage}</center></b></label>
 </c:if>
 <style>
-body{
-background-image:url('https://static1.squarespace.com/static/55c37beae4b0336075603f86/55c3cd80e4b01531b3208f2e/5603032be4b008bd0ad4e6fb/1486126957019/?format=1500w');
-background-size:100% 100%
-}
-#eventCreateContainer{
-	padding: 0 3% ;
-	background-color:rgba(255,255,255,0.7);
-	width:30%;
-    margin-left:30%;
-    font-size:110%;
-    
+body {
+	background-image:
+		url('https://static1.squarespace.com/static/55c37beae4b0336075603f86/55c3cd80e4b01531b3208f2e/5603032be4b008bd0ad4e6fb/1486126957019/?format=1500w');
+	background-size: 100% 100%
 }
 
-.col-sm-9{
-	padding:1%
+#eventCreateContainer {
+	padding: 0 3%;
+	background-color: rgba(255, 255, 255, 0.7);
+	width: 30%;
+	margin-left: 30%;
+	font-size: 110%;
 }
 
-.col-sm-6{
-	padding:1%
+.col-sm-9 {
+	padding: 1%
 }
 
-input[type=datetime-local]{
-	
-    
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
+.col-sm-6 {
+	padding: 1%
 }
 
-input[type=text]{
-	
-    
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
+input[type=datetime-local] {
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+}
+
+input[type=text] {
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
 }
 
 select {
-    width: 100%;
-   
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
+	width: 100%;
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
 }
 
 input[type=button], input[type=submit], input[type=reset] {
 	background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 1%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-left:-10%
+	border: none;
+	color: white;
+	padding: 1%;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin-left: -10%
+}
+#endD{
+	cursor:pointer;
 }
 </style>
+<script type="text/javascript">
+$(function() {
+	  $('#endD').datetimepicker({
+       format: "DD.MM.YYYY"
+      });
+	  $('#startD').datetimepicker({
+	       format: "DD.MM.YYYY"
+	      });
+});
 
-<div class="col-sm-6" id="eventCreateContainer" >
-	<center><h3 style="margin-bottom:5%;">Create New Event</h3></center>
+</script>
+<div class="col-sm-6" id="eventCreateContainer">
+	<center>
+		<h3 style="margin-bottom: 5%;">Create New Event</h3>
+	</center>
 	<form:form modelAttribute="event" action="../event/processEvent"
 		method="POST" id="myForm" cssClass="form-horizontal">
 
 		<div class="form-group">
 			<label class="col-sm-3">Name:</label>
-			<form:input path="name" cssClass="col-sm-9"/>
+			<form:input path="name" cssClass="col-sm-9" />
 		</div>
 
 		<br>
-		
+
 		<div class="form-group">
 			<label class="col-sm-3">Location:</label>
-			<form:input path="location" cssClass="col-sm-9"/>
-		</div>
-		
-		<br>
-		
-		<div class="form-group">
-			<label class="col-sm-3">Start Date:</label>
-			<form:input type="datetime-local" path="startDate" cssClass="col-sm-9"/>
+			<form:input path="location" cssClass="col-sm-9" />
 		</div>
 
 		<br>
-		
+
 		<div class="form-group">
-			<label class="col-sm-3">End Date:</label>
-			<form:input type="datetime-local" path="endDate" cssClass="col-sm-9" />
+			<label class="col-sm-3">Start Date:</label>
+			<form:input id="startD" path="startDate" cssClass="col-sm-9" />
 		</div>
 		
+		<br>
+
+		<div class="form-group">
+			<label class="col-sm-3">End Date:</label>
+			<form:input id="endD" path="endDate" cssClass="col-sm-9" />
+		</div>
+
 		<br>
 
 		<div class="form-group">
@@ -111,18 +121,26 @@ input[type=button], input[type=submit], input[type=reset] {
 			<form:select path="category" cssClass="col-sm-9">
 				<form:options items="${categories}" itemValue="id" itemLabel="type"></form:options>
 			</form:select>
-			
+
 		</div>
-		
+
 		<br>
-		
+
 		<div class="form-group">
 			<label class="col-sm-3">Price:</label>
 			<form:input path="price" class="col-sm-9" />
 		</div>
 		<br>
 		<br>
-		<center><input type="button" value="Submit" id="Apasa-ma" id="submitButton"/></center>
+		<div class="form-group">
+			<label class="col-sm-3">Picture:</label>
+			<form:input type="file" path="" id="file" onchange="showPicture(this);" />
+			<input type="hidden" name="imageBase64" id="realImageBase64"/>
+			<img id="img" src="#" alt="No picture selected" />
+		</div>
+		<center>
+			<input type="submit" value="Submit"  id="submitButton" />
+		</center>
 		<br>
 
 	</form:form>

@@ -11,7 +11,8 @@ public class Event {
 	private String location;
 	private Date startDate;
 	private Date endDate;
-	private Byte[] image;
+	private String imageBase64;
+	private byte[] image;
 	private Category category;
     private Double price;
 	private List<Artist> artists;
@@ -21,7 +22,7 @@ public class Event {
 	}
 	
 	public Event(Integer id, String name, String location, 
-			Date startDate, Date endDate, Byte[] image,
+			Date startDate, Date endDate, byte[] image,
 			Category category, List<Artist> artists, List<Ticket> tickets, Double price) {
 		super();
 		this.id = id;
@@ -83,12 +84,17 @@ public class Event {
 		this.endDate = endDate;
 	}
 	
-	public Byte[] getImage() {
+	public byte[] getImage() {
 		return image;
 	}
 	
-	public void setImage(Byte[] image) {
+	public void setImage(byte[] image) {
 		this.image = image;
+		byte[] imageHelp = new byte[image.length];
+		for (int i = 0; i < image.length; i++) {
+			imageHelp[i] = image[i];
+		}
+		imageBase64 = new String(imageHelp);
 	}
 	
 	public Category getCategory() {
@@ -135,5 +141,19 @@ public class Event {
 	
 	public Double getPrice() {
 		return price;
+	}
+
+	public String getImageBase64() {
+		return imageBase64;
+	}
+
+	public void setImageBase64(String imageBase64) {
+		this.imageBase64 = imageBase64;
+		byte[] bytes = imageBase64.getBytes();
+		byte[] theBytes = new byte[bytes.length];
+		for (int i = 0; i< bytes.length; i++){
+			theBytes[i] =bytes[i];
+		}
+		this.image = theBytes;
 	}
 }
