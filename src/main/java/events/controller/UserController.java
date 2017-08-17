@@ -129,8 +129,16 @@ public class UserController {
             return new ModelAndView("updateUser", uiModel.asMap());
         }
         try {
+            BCryptPasswordEncoder bCryptPasswordEncoder;
+            if(oldUser!=null)
+                if(user.getPassword().equals(""))
+                    user.setPassword(oldUser.getPassword());
+            else{
+            bCryptPasswordEncoder= new BCryptPasswordEncoder();
+            String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+            user.setPassword(encodedPassword);}
             manageService.saveUser(user);
-            uiModel.addAttribute("user",oldUser);
+            uiModel.addAttribute("user",user);
             uiModel.addAttribute("message", "Changes saved");
             return new ModelAndView("updateUser");
         } catch  (Exception ex) {
