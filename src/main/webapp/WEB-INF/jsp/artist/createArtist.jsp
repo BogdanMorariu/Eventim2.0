@@ -83,7 +83,7 @@ body {
 				<p id="artist-text"></p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+				<button type="submit" class="btn btn-default" data-dismiss="modal">OK</button>
 			</div>
 		</div>
 	</div>
