@@ -6,8 +6,20 @@
 	<label><b>${errorMessage}</b></label>
 </c:if>
 
-
 <style>
+	body {
+	background-image:
+		url('http://flashwallpapers.com/wp-content/uploads/2015/05/tomorrowland-2015.jpg');
+	background-size: 100% 100%;
+	overflow:hidden;
+}
+
+h1{
+	width: 60%;
+	margin: 0 20%;
+	text-align:center;
+	background-color: rgba(255,255,255,0.7);
+}
 
 #eventCreateContainer {
 	padding: 0 3%;
@@ -15,6 +27,14 @@
 	width: 60%;
 	margin:0 20%;
 	font-size: 100%;
+	overflow:auto;
+	overflow-x:hidden;
+	height:95%;
+}
+
+#eventCreateContainer img{
+	width:15%;
+	height:10%;	
 }
 
 .col-sm-9 {
@@ -61,9 +81,10 @@ input[type=button], input[type=submit], input[type=reset] {
 	cursor:pointer;
 }
 </style>
+<h1 align="center">Update ${event.name}</h1>
 <div id="eventCreateContainer">
 	
-	<h3 align="center">Update ${event.name}</h3>
+	
 
 <form:form modelAttribute="event" action="../event/processUpdateEvent"
 	method="POST" id="myForm" cssClass="form-horizontal">
@@ -103,7 +124,12 @@ input[type=button], input[type=submit], input[type=reset] {
 	
 	<div class="form-group">
 	<label class="col-sm-3">Artists: </label>
-	<form:select path="artists" cssClass="col-sm-9">
+	<c:set var="csvEvents" value=""/>
+	<c:forEach items="${event.artists}" var="artist">
+		<c:set var="csvEvents" value="${artist.id},${csvEvents}"/>
+	</c:forEach>
+	<input type="hidden" id="csvList" value="${csvEvents}"/>
+	<form:select path="artists" cssClass="col-sm-9" id="myMultiSelect">
 		<form:options items="${artists}" itemValue="id" itemLabel="name"></form:options>
 	</form:select>
 	</div>
@@ -111,7 +137,7 @@ input[type=button], input[type=submit], input[type=reset] {
 
 	<div class="form-group">
 	<label class="col-sm-3">Categories: </label>
-	<form:select path="category" cssClass="col-sm-9">
+	<form:select path="category" cssClass="col-sm-9" >
 		<form:options items="${categories}" itemValue="id" itemLabel="type"></form:options>
 	</form:select>
 	</div>
@@ -126,8 +152,7 @@ input[type=button], input[type=submit], input[type=reset] {
 	<div class="form-group">
 		<label class="col-sm-3">Picture:</label>
 		<form:input type="file" path="" id="file" onchange="showPicture(this);" />
-		<input type="hidden" name="imageBase64" id="realImageBase64"/>
-		<img id="img" src="#" alt="No picture selected" />
+		<img id="img" src="${event.imageBase64}" alt="No picture selected" />
 	</div>
 		<center>
 	<input type="button" value="Update" id="Apasa-ma"/>
@@ -139,6 +164,22 @@ input[type=button], input[type=submit], input[type=reset] {
 
 <script type="text/javascript">
 $(document).ready(function(){
+	$("#myMultiSelect").multiselect({
+	    allSelectedText: 'All selected',
+	    selectAllNumber: false,
+	    disableIfEmpty: true,
+	    disabledText: 'None available',
+	    nonSelectedText: 'None selected'
+	});
+	var csvEvents = $("#csvList").val();
+	if (csvEvents.length > 0) { 
+		csvEvents = csvEvents.substring(0, csvEvents.length -1);
+		var artistList = csvEvents.split(",");
+		for (i = 0; i < artistList.length; i++) { 
+			$("#myMultiSelect").multiselect('select', artistList[i]);
+			}
+	}
+	
     $("#Apasa-ma").click(function(){
         $.ajax({
         	url: "../event/processUpdateEvent",

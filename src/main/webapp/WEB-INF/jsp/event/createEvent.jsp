@@ -5,6 +5,12 @@
 	<label><b style="color: red"><center>${errorMessage}</center></b></label>
 </c:if>
 <style>
+body {
+	background-image:
+		url('https://static1.squarespace.com/static/55c37beae4b0336075603f86/55c3cd80e4b01531b3208f2e/5603032be4b008bd0ad4e6fb/1486126957019/?format=1500w');
+	background-size: 100% 100%;
+	overflow:hidden;
+}
 
 #eventCreateContainer {
 	padding: 0 3%;
@@ -104,7 +110,7 @@ $(function() {
 
 		<div class="form-group">
 			<label class="col-sm-3">Artists:</label>
-			<form:select path="artists" cssClass="col-sm-9">
+			<form:select path="artists" cssClass="col-sm-9" id="myMultiSelect">
 				<form:options items="${artists}" itemValue="id" itemLabel="name"></form:options>
 			</form:select>
 		</div>
@@ -142,6 +148,13 @@ $(function() {
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
+		$("#myMultiSelect").multiselect({
+		    allSelectedText: 'All selected',
+		    selectAllNumber: false,
+		    disableIfEmpty: true,
+		    disabledText: 'None available',
+		    nonSelectedText: 'None selected'
+		});
 		$("#submitButton").click(function() {
 			$.ajax({
 				url : "../event/processEvent",
@@ -159,7 +172,10 @@ $(function() {
 			});
 		});
 	});
+	
+	
 </script>
+
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">

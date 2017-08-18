@@ -6,9 +6,11 @@
 <link rel="stylesheet" type="text/css" href="${externalAddress}resources/css/bootstrap-datetimepicker.css"></link>
 <link rel="stylesheet" type="text/css" href="${externalAddress}resources/css/bootstrap-responsive.min.css"></link>
 <link rel="stylesheet" type="text/css" href="${externalAddress}resources/css/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css" href="${externalAddress}resources/css/bootstrap-multiselect.css"></link>
 <script type="text/javascript" src="${externalAddress}resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/moment.min.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/ticket.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/event.js"></script>
+<script type="text/javascript" src="${externalAddress}resources/js/bootstrap-multiselect.js"></script>

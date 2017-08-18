@@ -30,7 +30,7 @@
 			<form:input type="file" path="image" id="file"
 				onchange="showPicture(this);" />
 			<input type="hidden" name="imageBase64" id="realImageBase64"/>
-			<img id="img" src="#"  />
+			<img id="img" src="${artist.imageBase64}"  />
 		</div>
 
 		<input type="hidden" name="id" value="${artist.id}" />
