@@ -4,99 +4,90 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <style>
-#bigDiv {
-	padding: 0;
-	margin-left: 41%;
+.form-group:nth-child(odd) {
+ 	background: rgba(139, 176, 221, 0.3);
+}
+#createTicketContainer {
+	margin-left: 25%;
+	margin-right: 25%;
+	width: 50%;
+	font-size: 110%;
+	background-color: rgba(255, 255, 255, 0.85);
+	heigth: 100%;
+	padding: 2%;
+	text-align: center;
 }
 
 .buttonTicket {
 	width: 73px;
 	heigth: 21px;
-	margin-left: 15%;
 }
 
 .labelQuantity {
 	padding-top: 1%;
 }
-
-.flex-container {
- 	display: flex;
-	flex-direction: column;
-}
-
-h1 {
-    margin-left: 38%;
-}
-
-.linkToTicketList {
-	font-size: 25px;
-}
-
 </style>
 
 <body>
-	<c:if test="${not empty errorMessage}">
-		<label class="col-sm-3"><b>${errorMessage}</b></label>
-	</c:if>
-	<h1>Buy your ticket now!</h1>
-	<br/><br/>
-	<c:if test="${response=='OK'}">
-		<script>
-			setTimeout(function() {
-				setPopUp("Ticket bought!");
-			}, 50);
-		</script>
-	</c:if>
-	<c:if test="${response=='NO'}">
-		<script>
-			setTimeout(function() {
-				setPopUp("Error! Quantity must be a positive number!");
-			}, 50);
-		</script>
-	</c:if>
-	<div class="flex-container">
-		<div id="bigDiv" class="col-sm-5 col-sm-offset-4 flex-item">
-			<form:form modelAttribute="ticket"
-				action="/Eventim2.0/tickets/${ticket.event.id}/createTicket"
-				method="POST" class="form-horizontal">
-				<div class="form-group">
-					<label class="col-sm-3">User Name:</label>
-					<div class="col-sm-9">
-						<label>${ticket.user.name}</label>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3">Event:</label>
-					<div class="col-sm-9">
-						<label>${ticket.event.name}</label>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3">Price:</label>
-					<div class="col-sm-9">
-						<label>${ticket.event.price}</label>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3">Quantity:</label>
-					<div class="col-sm-2 col-sm-offset-0.5">
-						<form:input name="quantity" path="" cssClass="form-control" />
-					</div>
-				</div>
-				<br />
-				<input class="btn-success col-sm-3 col-sm-offset-1 buttonTicket" type="submit"
-					value="Buy">
-				<input class="col-sm-9" type="hidden" name="user"
-					value="${ticket.user.id}" />
-				<input class="col-sm-9" type="hidden" name="event"
-					value="${ticket.event.id}" />
-			</form:form>
-		</div>
-		<div class="flex-item linkToTicketList">
-			<a href="/Eventim2.0/tickets">List your tickets</a>
-		</div>
-	</div>
+	<div id="createTicketContainer" class="col-sm-6 col-sm-offset-4">
 
+		<c:if test="${not empty errorMessage}">
+			<label class="col-sm-3"><b>${errorMessage}</b></label>
+		</c:if>
+		<h1>Buy your ticket now!</h1>
+		<br />
+		<br />
+		<c:if test="${response=='OK'}">
+			<script>
+				setTimeout(function() {
+					setPopUp("Ticket bought!");
+				}, 50);
+			</script>
+		</c:if>
+		<c:if test="${response=='NO'}">
+			<script>
+				setTimeout(function() {
+					setPopUp("Error! Quantity must be a positive number!");
+				}, 50);
+			</script>
+		</c:if>
+		<form:form modelAttribute="ticket"
+			action="/Eventim2.0/tickets/${ticket.event.id}/createTicket"
+			method="POST" class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-4 col-sm-offset-1">User Name:</label>
+				<div class="col-sm-2">
+					<label>${ticket.user.name}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 col-sm-offset-1">Event:</label>
+				<div class="col-sm-2">
+					<label>${ticket.event.name}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 col-sm-offset-1">Price:</label>
+				<div class="col-sm-2">
+					<label>${ticket.event.price}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 col-sm-offset-1">Quantity:</label>
+				<div class="col-sm-2">
+					<form:input name="quantity" path="" cssClass="form-control" />
+				</div>
+			</div>
+			<br />
+			<input class="btn-success col-sm-4 col-sm-offset-5 buttonTicket"
+				type="submit" value="Buy">
+			<input class="col-sm-9" type="hidden" name="user"
+				value="${ticket.user.id}" />
+			<input class="col-sm-9" type="hidden" name="event"
+				value="${ticket.event.id}" />
+		</form:form>
+	</div>
+	</div>
 </body>
 
 
