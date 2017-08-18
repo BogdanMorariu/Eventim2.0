@@ -9,14 +9,12 @@
 				<param name="sequence">user_seq</param>  
 			</generator>
 		</id>
-		
-		
-
 		<property name="name" column="name" />
 		<property name="password" column="password" />
 		<property name="type" column="type" />
+		<property name="email" column="email"/>
 		
-		<bag table="ticket" name="tickets" cascade="delete" inverse="true">
+		<bag table="ticket" name="tickets" inverse="true">
 			<key column="userid"/>
 			<one-to-many class="events.model.Ticket"/>
 		</bag>
