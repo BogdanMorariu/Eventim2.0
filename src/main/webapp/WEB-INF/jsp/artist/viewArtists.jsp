@@ -65,10 +65,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 	font-size: 120%;
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'develop' of https://github.com/BogdanMorariu/Eventim2.0.git
 
 #artistImageCell {
 	text-align: left;
