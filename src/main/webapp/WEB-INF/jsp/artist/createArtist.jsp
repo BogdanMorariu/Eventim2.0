@@ -55,6 +55,8 @@ body {
 			$.ajax({
 				url : "processArtist",
 				data : $("#myForm").serialize(),
+				processData: false,
+				type: "POST",
 				success : function(result) {
 					if (result.indexOf("Succes") != -1) {
 						$("#artist-text").html("The Artist has been saved!");

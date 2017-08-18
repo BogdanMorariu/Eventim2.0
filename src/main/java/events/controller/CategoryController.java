@@ -79,6 +79,18 @@ public class CategoryController {
 			return new ModelAndView("listCategories", uiModel.asMap());
 		}
 	}
+
+	@RequestMapping("/viewCategories")
+	public ModelAndView viewCategories(Model uiModel) {
+		try {
+			List<Category> categories = fetchService.getAllCategories();
+			uiModel.addAttribute("categories" , categories);
+			return new ModelAndView("viewCategories");
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			return new ModelAndView("viewCategories", uiModel.asMap());
+		}
+	}
 	
 	@RequestMapping("/removeCategory")
 	@ResponseBody

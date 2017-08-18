@@ -2,17 +2,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: info
-  Date: 17.08.2017
-  Time: 16:04
+  Date: 18.08.2017
+  Time: 10:56
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <table>
-    <c:forEach items="${locations}" var="location">
-        <tr id="${location}">
-            <td>${location}</td>
+    <c:forEach items="${categories}" var="category">
+        <tr>
+            <td>${category.type}</td>
             <td>
-                <a href="/event/getEventsByLocation/${location}">View Events</a>
+                <a href="/event/getEventsByCategory/${category.id}">View Events</a>
             </td>
         </tr>
     </c:forEach>

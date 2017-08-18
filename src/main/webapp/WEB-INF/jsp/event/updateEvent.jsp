@@ -141,6 +141,8 @@ $(document).ready(function(){
         $.ajax({
         	url: "../event/processUpdateEvent",
         	data: $("#myForm").serialize(), 
+        	processData: false,
+			type: "POST",
         	success: function(result){
 	        	if (result.indexOf("success") != -1) {
 	        		$("#event-text").html("Event has been updated!");
