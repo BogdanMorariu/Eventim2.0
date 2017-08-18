@@ -19,8 +19,8 @@ function deleteCategoryById(id){
 
 <style>
 #categoryListContainer {
-    margin-left: 30%;
-	width: auto;
+    margin: 0 30%;
+	width: 40%;
 	font-size: 110%;
 	background-color:rgba(255,255,255,0.6);
 	heigth:auto%;
