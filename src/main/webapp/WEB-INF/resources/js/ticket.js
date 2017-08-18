@@ -28,3 +28,25 @@ function setPopUp(value) {
 	$("#ticket-text").html(value);
 	$('#myModal').modal('show');
 }
+
+function setEventId() {
+	document.getElementById("eventPlaceHolder").value = document.getElementById("eventSelect").value;
+	$.ajax({
+		url: "/Eventim2.0/tickets/"+ document.getElementById("eventPlaceHolder").value + "/getPrice",
+  		type: "GET",
+  		data:{id:document.getElementById("eventPlaceHolder").value},
+  		dataType:"json",
+ 		success: function(response) {
+ 			document.getElementById('price').innerHTML  = response;
+ 		},
+ 	 	error: function(xhr) {
+ 	 		if (xhr.status = 200) {
+ 	 			document.getElementById('price').innerHTML  = xhr;
+ 	 		}
+ 	 	}
+	});
+}
+
+function changeActionUri() {
+	document.getElementById('myForm').action = '/Eventim2.0/tickets/'+document.getElementById('eventPlaceHolder').value +'/createTicket';
+}

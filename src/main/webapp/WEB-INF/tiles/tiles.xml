@@ -53,11 +53,14 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/error.jsp"/>
 	</definition>
 	
-	<definition extends="admin" name="listTicket">
+	<definition extends="default" name="listTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/listTicket.jsp"/>
 	</definition>
 	<definition extends="default" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
+	</definition>
+	<definition extends="default" name="createTicketWithEvent">
+		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicketWithEvent.jsp"/>
 	</definition>
 
 

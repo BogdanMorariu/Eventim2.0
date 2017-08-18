@@ -58,7 +58,7 @@ h1 {
 		<div id="bigDiv" class="col-sm-5 col-sm-offset-4 flex-item">
 			<form:form modelAttribute="ticket"
 				action="/Eventim2.0/tickets/${ticket.event.id}/createTicket"
-				method="POST" class="form-horizontal">
+				method="POST" class="form-horizontal" id="myForm">
 				<div class="form-group">
 					<label class="col-sm-3">User Name:</label>
 					<div class="col-sm-9">
@@ -68,13 +68,18 @@ h1 {
 				<div class="form-group">
 					<label class="col-sm-3">Event:</label>
 					<div class="col-sm-9">
-						<label>${ticket.event.name}</label>
+						<select id="eventSelect" onchange="setEventId();">
+						    <option style="display:none">
+							<c:forEach items="${event}" var="events" >
+								<option value="${events.id}">${events.name}</option>
+							</c:forEach>
+						</select>						
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3">Price:</label>
 					<div class="col-sm-9">
-						<label>${ticket.event.price}</label>
+						<label id="price"></label>
 					</div>
 				</div>
 				<div class="form-group">
@@ -85,11 +90,10 @@ h1 {
 				</div>
 				<br />
 				<input class="btn-success col-sm-3 col-sm-offset-1 buttonTicket" type="submit"
-					value="Buy">
+					value="Buy" onclick="changeActionUri();">
 				<input class="col-sm-9" type="hidden" name="user"
 					value="${ticket.user.id}" />
-				<input class="col-sm-9" type="hidden" name="event"
-					value="${ticket.event.id}" />
+				<input class="col-sm-9" type="hidden" name="event" id="eventPlaceHolder"/>
 			</form:form>
 		</div>
 		<div class="flex-item linkToTicketList">
