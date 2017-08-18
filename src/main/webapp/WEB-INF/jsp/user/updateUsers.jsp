@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-control">
                         <label class="col-sm-3">Password:</label>
-                        <input name="password" class="col-sm-9" value="${user.password}"/>
+                        <input name="password" type="password" class="col-sm-9" value="${user.password}"/>
                     </div>
                     <div class="form-control">
                         <label class="col-sm-3">Email:</label>

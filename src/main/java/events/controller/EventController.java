@@ -1,7 +1,10 @@
 package events.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -85,6 +88,38 @@ public class EventController {
 			return new ModelAndView("listEvents", uiModel.asMap());
 		}
 	}
+
+	@RequestMapping("/listLocations")
+	public ModelAndView listLocations( Model uiModel) {
+		try {
+			List<Event> events = fetchService.getAllEvents();
+			List<String> locations = new ArrayList<>();
+			for(Event e : events){
+				if(!locations.contains(e.getLocation()))
+					locations.add(e.getLocation());
+			}
+			uiModel.addAttribute("locations",locations);
+			return new ModelAndView("listLocations");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ModelAndView("listLocations", uiModel.asMap());
+		}
+	}
+
+
+	@RequestMapping("/getEventsbyLocation")
+	public ModelAndView listLocations(@RequestParam("location") String location,Model uiModel) {
+		try {
+			List<Event> events = fetchService.getAllEvents().stream()
+					.filter(e -> e.getLocation().equals(location)).collect(Collectors.toList());
+			uiModel.addAttribute("events",events);
+			return new ModelAndView("listEventsByLocation");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ModelAndView("listEventsByLocation", uiModel.asMap());
+		}
+	}
+
 	
 	@RequestMapping("/removeEvent")
 	@ResponseBody

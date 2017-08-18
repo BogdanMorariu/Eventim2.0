@@ -22,7 +22,7 @@
     <definition extends="admin" name="updateCategory">
         <put-attribute name="body" value="/WEB-INF/jsp/category/updateCategory.jsp"/>
     </definition>
-    <definition extends="admin" name="listCategories">
+    <definition extends="default" name="listCategories">
         <put-attribute name="body" value="/WEB-INF/jsp/category/listCategories.jsp"/>
     </definition>
 
@@ -56,7 +56,7 @@
 	<definition extends="admin" name="listTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/listTicket.jsp"/>
 	</definition>
-	<definition extends="admin" name="createTicket">
+	<definition extends="default" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
 	</definition>
 
@@ -71,9 +71,17 @@
     <definition extends="default" name="createEventInfo">
         <put-attribute name="body" value="/WEB-INF/jsp/event/createEventInfo.jsp"/>
     </definition>
-    <definition extends="admin" name="listEvents">
+    <definition extends="default" name="listEvents">
         <put-attribute name="body" value="/WEB-INF/jsp/event/listEvents.jsp"/>
     </definition>
+	<definition extends="default" name="listLocations">
+		<put-attribute name="body" value="/WEB-INF/jsp/event/listLocations.jsp"/>
+	</definition>
+	<definition extends="default" name="listEventsByLocation">
+		<put-attribute name="body" value="/WEB-INF/jsp/event/listEventsByLocation.jsp"/>
+	</definition>
+
+
 
 
 	 <definition extends="default" name="changePassword">
@@ -86,7 +94,7 @@
 	<definition extends="admin" name="createArtist">
 		<put-attribute name="body" value="/WEB-INF/jsp/artist/createArtist.jsp"/>
 	</definition>
-	<definition extends="admin" name="listArtists">
+	<definition extends="default" name="listArtists">
 		<put-attribute name="body" value="/WEB-INF/jsp/artist/listArtists.jsp"/>
 	</definition>
 		<definition extends="admin" name="updateArtist">

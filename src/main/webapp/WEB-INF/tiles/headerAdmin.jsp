@@ -52,7 +52,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href='<spring:url value="/users/updateUser"/>'>Update Users</a></li>
+            <li><a href='<spring:url value="/users/updateUsers"/>'>Update Users</a></li>
             <li><a href='<spring:url value="/users/deleteUser"/>'>Delete Users</a></li>
           </ul>
         </li>
