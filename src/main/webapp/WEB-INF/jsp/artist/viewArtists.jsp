@@ -10,8 +10,13 @@
 	background: rgba(139, 176, 221, 0.3);
 }
 
-#event {
+a:hover {
+	 color: #0f3d63;
+}
+
+a {
 	font-weight: 700; color: #245986;
+	font-size:130%;
 }
 
 #artistHeader {
@@ -33,7 +38,7 @@
 	margin: 0 25%;
 	width: 50%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: 95%;
+	height: 100%;
 	padding: 2%;
 	overflow: auto;
 	overflow-x: hidden;
@@ -66,7 +71,6 @@ input[type=button], input[type=hidden], input[type=submit] {
 }
 
 
-
 #artistImageCell {
 	text-align: left;
 	width: 30%;
@@ -81,6 +85,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 
 #artistButtonCell {
 	width: 60%;
+	text-align:center;
 }
 </style>
 
@@ -96,7 +101,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 				<td id="artistImageCell"><img id="artistImage"   src="${artist.imageBase64}"/></td>
 				<td id="artistNameCell">${artist.name}</td>
 				<td id="artistButtonCell"><a href="../event/getEventsByArtist/${artist.id}">
-						<label id="event">View Events</label> </a></td>
+						<label >View Events</label> </a></td>
 			</tr>
 		</c:forEach>
 	</table>

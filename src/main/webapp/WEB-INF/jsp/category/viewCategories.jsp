@@ -10,7 +10,6 @@ h3 {
 	margin-top: -1%;
 }
 
-
 #tableOfCategories tr:nth-child(odd) {
 	background: rgba(139, 176, 221, 0.3);
 }
@@ -30,6 +29,7 @@ h3 {
 	margin-top: -15%;
 }
 
+
 #tableOfCategories {
 	width: 60%;
 	margin: 1% 20%;
@@ -43,6 +43,11 @@ border: 1px solid black;
 a{
  font-weight: 700;
     color: #245986;
+}
+
+a:hover {
+	 color: #0f3d63;
+	 text-decoration:none;
 }
 
 #categoryNameCell {
