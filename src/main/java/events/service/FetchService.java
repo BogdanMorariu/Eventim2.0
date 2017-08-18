@@ -14,6 +14,7 @@ public interface FetchService {
 	List<User> getAllUsers();
 	List<TemporaryUser> getAllTemporaryUsers();
 	List<Event> getNextEvents();
+	List<Event> getLimitedEvents(Integer limit);
 	
 	//Get by ID
 	Artist getArtistById(Integer id);
