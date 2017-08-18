@@ -35,7 +35,7 @@ body {
 		
 		<div class="form-group" >
 			<label class="col-sm-3">Picture:</label>
-			<form:input type="file" path="" id="file" onchange="showPicture(this);" />
+			<form:input type="file" path="" id="file" onchange="showPicture(this);"/>
 			<input type="hidden" name="imageBase64" id="realImageBase64"/>
 			<img id="img" src="#" alt="No picture selected" />
 		</div>
