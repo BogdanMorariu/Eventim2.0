@@ -83,7 +83,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 
 <br>
 <div id="artistHeader">
-	<h1>Line-up</h1>
+	<h1>Events Locations</h1>
 </div>
 
 
