@@ -25,6 +25,9 @@
     <definition extends="default" name="listCategories">
         <put-attribute name="body" value="/WEB-INF/jsp/category/listCategories.jsp"/>
     </definition>
+	<definition extends="default" name="viewCategories">
+		<put-attribute name="body" value="/WEB-INF/jsp/category/viewCategories.jsp"/>
+	</definition>
 
 
 	<definition extends="default" name="confirmUser">
@@ -80,8 +83,8 @@
 	<definition extends="default" name="listLocations">
 		<put-attribute name="body" value="/WEB-INF/jsp/event/listLocations.jsp"/>
 	</definition>
-	<definition extends="default" name="listEventsByLocation">
-		<put-attribute name="body" value="/WEB-INF/jsp/event/listEventsByLocation.jsp"/>
+	<definition extends="default" name="viewEvents">
+		<put-attribute name="body" value="/WEB-INF/jsp/event/viewEvents.jsp"/>
 	</definition>
 
 
@@ -100,9 +103,13 @@
 	<definition extends="default" name="listArtists">
 		<put-attribute name="body" value="/WEB-INF/jsp/artist/listArtists.jsp"/>
 	</definition>
-		<definition extends="admin" name="updateArtist">
+	<definition extends="admin" name="updateArtist">
 		<put-attribute name="body" value="/WEB-INF/jsp/artist/updateArtist.jsp"/>
 	</definition>
+	<definition extends="admin" name="viewArtists">
+		<put-attribute name="body" value="/WEB-INF/jsp/artist/viewArtists.jsp"/>
+	</definition>
+
     
 
 </tiles-definitions>
