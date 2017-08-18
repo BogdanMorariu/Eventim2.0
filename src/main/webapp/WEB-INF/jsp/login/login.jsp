@@ -35,12 +35,6 @@ input[type=password] {
 	padding: 2%;
 }
 
-body {
-	background-image:
-		url('http://cdn.wallpapersafari.com/50/1/0DHPtg.jpg');
-	background-size: 100% 100%
-}
-
 input[type=button], input[type=submit], input[type=reset] {
 	background-color: #4CAF50;
 	color: White;

@@ -14,10 +14,7 @@
  	background-color:rgba(255,255,255,0.7);
 }
 
-body{
-background-image:url('http://cdn01.androidauthority.net/wp-content/uploads/2015/07/Best-DJ-apps-for-Android-840x473.jpg');
-background-size:100% 100%;}
-}
+
 </style>
 <div class="col-sm-6" id="createArtistContainer">
 <center><h3>Update Artist</h3></center><br>

@@ -20,12 +20,6 @@ margin:0 35%;
 	width:100%;
 }
 
-body{
-background-image:url(http://www.theransomnote.com/media/articles/electric-castle-announces-dixon-moderat-and-more-for-2017/960b0903-5e78-491e-90cc-0ef49f21a659.jpg);background-size:100% 100%;
-
-width:100%
-}
-
 .col-sm-5{
 margin-bottom:1%;
 
