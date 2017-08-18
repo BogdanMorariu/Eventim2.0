@@ -80,14 +80,6 @@ input[type=email] {
 	margin-left: -2%
 }
 
-body {
-	background-image:
-		url('https://images6.alphacoders.com/303/303014.jpg');
-	background-size: 100% 100%;
-	width: 100%;
-	
-}
-
 input[type=button], input[type=submit], input[type=reset] {
 	background-color: #4CAF50;
 	color: White;

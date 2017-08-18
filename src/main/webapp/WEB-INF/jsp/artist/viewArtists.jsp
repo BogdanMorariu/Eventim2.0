@@ -65,11 +65,6 @@ input[type=button], input[type=hidden], input[type=submit] {
 	font-size: 120%;
 }
 
-body {
-	background-image:
-		url('http://technext.github.io/Evento/images/demo/bg-slide-01.jpg');
-	background-size: 100% 100%;
-}
 
 #artistImageCell {
 	text-align: left;

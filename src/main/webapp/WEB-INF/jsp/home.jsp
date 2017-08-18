@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <style>
 
 h3 {
@@ -19,42 +20,33 @@ color: white;
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
 			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			<li data-target="#myCarousel" data-slide-to="4"></li>
+			<li data-target="#myCarousel" data-slide-to="5"></li>
+			<li data-target="#myCarousel" data-slide-to="6"></li>
 		</ol>
-
+		
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item active">
-			<a href="https://electriccastle.com/"> 
-				<img src="https://sarahjanek.files.wordpress.com/2017/04/bereczky_sacc81ndor_ec_day3-179.jpg" alt="Electric Castle"
+				<img src="https://sarahjanek.files.wordpress.com/2017/04/bereczky_sacc81ndor_ec_day3-179.jpg" alt="Eventim2.0"
 					style="width: 1024p×; height: 562px; width:100%">
 				<div class="carousel-caption">
-					<h3>Electric Castle 2018!</h3>
-					<a href="https://electriccastle.com/" style="color: white">Buy Tickets</a>
+					<h3>Welcome to Event-Master!</h3>
 				</div>
-				</a>
 			</div>
-
-			<div class="item">
-				<a href="https://untold.com/en"> 
-				<img src="http://jugokoncert.rs/wp-content/uploads/2016/07/Untold2016.jpg" alt="Untold Festival"
-					style="width: 1024p×; height: 562px; width:100%">
-				<div class="carousel-caption">
-					<h3>Untold Festival!</h3>
-					<a href="https://untold.com/en" style="color: white">Buy Tickets</a>
-				</div>
-				</a>
-			</div>
-
-			<div class="item">
-				<a href="https://electriccastle.com/"> 
-				<img src="https://sarahjanek.files.wordpress.com/2017/04/bereczky_sacc81ndor_ec_day3-179.jpg" alt="Electric Castle"
-					style="width: 1024p×; height: 562px; width:100%">
-				<div class="carousel-caption">
-					<h3>Electric Castle 2018!</h3>
-					<a href="https://electriccastle.com/" style="color: white">Buy Tickets</a>
-				</div>
-				</a>
-			</div>
+		
+		
+			<!-- Events from database -->
+			<c:forEach items="${events}" var="event">
+					<div class="item">
+						<img src="${event.imageBase64}" alt="${event.name}" style="width: 1024p×; height: 562px; width:100%">
+						<div class="carousel-caption">
+							<h3>${event.name}</h3>
+							<a href="../Eventim2.0/tickets/${event.id}/createTicket" style="color: white">Buy Tickets</a>
+						</div>
+					</div>
+			</c:forEach>
 		</div>
 
 		<!-- Left and right controls -->
