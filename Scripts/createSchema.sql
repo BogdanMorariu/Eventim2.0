@@ -54,6 +54,7 @@ CREATE TABLE category (
    
 CREATE TABLE artist(
 	id Integer PRIMARY KEY default nextval('artist_seq'),
+	"image" bytea,
     name VARCHAR(1000) NOT NULL
 );
 

@@ -28,7 +28,7 @@ input[type=password] {
 #eventCreateContainer {
 	margin-left: 25%;
 	margin-right: 25%;
-	width: 55%;
+	width: 50%;
 	font-size:110%;
 	background-color: rgba(255, 255, 255, 0.85);
 	heigth: 100%;

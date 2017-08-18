@@ -8,8 +8,8 @@
 
 <style>
 #createArtistContainer {
-	margin-left: 30%;
-	
+	width: auto;
+	height: auto;
  	background-color:rgba(255,255,255,0.7);
 }
 
