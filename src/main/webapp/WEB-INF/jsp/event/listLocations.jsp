@@ -12,7 +12,7 @@
         <tr id="${location}">
             <td>${location}</td>
             <td>
-                <a href="/event/getEventsByLocation/${location}">View Events</a>
+                <a href="../event/getEventsByLocation/${location}">View Events</a>
             </td>
         </tr>
     </c:forEach>

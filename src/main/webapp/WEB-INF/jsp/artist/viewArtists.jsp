@@ -13,7 +13,7 @@
             <td><img width="100" src="${artist.imageBase64}"/></td>
             <td>${artist.name}</td>
             <td>
-                <a href="/event/getEventsByArtist/${artist.id}">View Events</a>
+                <a href="../event/getEventsByArtist/${artist.id}">View Events</a>
             </td>
         </tr>
     </c:forEach>

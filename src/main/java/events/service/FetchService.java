@@ -28,6 +28,7 @@ public interface FetchService {
 	List<Event> getEventsByLocation(String location);
 	List<Event> getEventByCategory(Integer categoryId);
 	List<Event> getEventsByArtist(Integer artistId);
+	List<Artist> getArtistByEvent(Integer eventId);
 	
 	//Get by username & password
 	User findUserAtLogin(String username);
