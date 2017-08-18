@@ -7,7 +7,7 @@
 	margin-left: 30%;
 	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: auto;
+	height: 90%;
 	padding: 2%;
 	overflow: auto;
 	overflow-x: hidden;
