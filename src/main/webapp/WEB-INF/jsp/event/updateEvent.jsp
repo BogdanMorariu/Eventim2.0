@@ -8,52 +8,125 @@
 
 
 <style>
+	body {
+	background-image:
+		url('http://flashwallpapers.com/wp-content/uploads/2015/05/tomorrowland-2015.jpg');
+	background-size: 100% 100%;
+
+}
+
+#eventCreateContainer {
+	padding: 0 3%;
+	background-color: rgba(255, 255, 255, 0.7);
+	width: 60%;
+	margin:0 20%;
+	font-size: 100%;
+}
+
+.col-sm-9 {
+	padding: 1%
+}
+
+.col-sm-6 {
+	padding: 1%
+}
+
+input[type=datetime-local] {
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+}
+
+input[type=text] {
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+}
+
+select {
+	width: 100%;
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+	background-color: #4CAF50; /* Green */
+	width:20%;
 	
+	border: none;
+	color: white;
+	padding: 1%;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 0 40%;
+}
+#endD{
+	cursor:pointer;
+}
 </style>
-<div >
+<div id="eventCreateContainer">
+	
+	<h3 align="center">Update ${event.name}</h3>
+
 <form:form modelAttribute="event" action="../event/processUpdateEvent"
-	method="POST" id="myForm" cssClass="form-horizontal" cssClass="form-horizontal">
+	method="POST" id="myForm" cssClass="form-horizontal">
 	
 	
-	<label>Event: </label>
+	
 	<br>
 	<div class="form-group">
 	<label class="col-sm-3">New Name: </label>
 	<form:input path="name" cssClass="col-sm-9"/>
 	<input type="hidden" name="id" value="${event.id}" />
 	</div>
+	
 	<br>
 	
+	
+	<div class="form-group">
 	<label class="col-sm-3">Start Date: </label>
 	<form:input path="startDate" cssClass="col-sm-9"/>
+	</div>
 	
 	<br>
+	
+	<div class="form-group">
 	<label class="col-sm-3">Location:</label>
 	<form:input path="location" cssClass="col-sm-9"/>
+	</div>
+	
 	<br>
 	
+	<div class="form-group">
 	<label class="col-sm-3">End Date: </label>
 	<form:input path="endDate" cssClass="col-sm-9"/>
-
+	</div>
+	
 	<br>
-
+	
+	<div class="form-group">
 	<label class="col-sm-3">Artists: </label>
 	<form:select path="artists" cssClass="col-sm-9">
 		<form:options items="${artists}" itemValue="id" itemLabel="name"></form:options>
 	</form:select>
-
+	</div>
 	<br>
 
+	<div class="form-group">
 	<label class="col-sm-3">Categories: </label>
 	<form:select path="category" cssClass="col-sm-9">
 		<form:options items="${categories}" itemValue="id" itemLabel="type"></form:options>
 	</form:select>
-
+	</div>
+	
 	<br>
-
+	<div class="form-group">
 	<label class="col-sm-3">Price: </label>
 	<form:input path="price" cssClass="col-sm-9"/>
-	
+	</div>
 	<br>
 	
 	<input type="button" value="Update" id="Apasa-ma"/>

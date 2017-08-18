@@ -140,7 +140,7 @@ $(function() {
 			<img id="img" src="#" alt="No picture selected" />
 		</div>
 		<center>
-			<input type="submit" value="Submit"  id="submitButton" />
+			<input type="button" value="Submit"  id="submitButton" />
 		</center>
 		<br>
 
