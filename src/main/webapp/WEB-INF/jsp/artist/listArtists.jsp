@@ -2,15 +2,42 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
+
+
 <style>
-#createArtistContainer {
-	margin-left: 30%;
-	width: 40%;
+#artistTable tr:nth-child(odd) {
+	background: rgba(139, 176, 221, 0.3);
+}
+
+#artistHeader {
+	
+	text-align: center;
+	margin-left : 25%;
+	margin-right : 25%;
+	margin-bottom:-1.5%;
+	margin-top:-5%;
+	width: 50%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: 90%;
+}
+
+#artistHeader h1{
+	font-weight:bold;
+	font-size:300%;
+}
+
+#createArtistContainer {
+	margin: 0 25%;
+	width: 50%;
+	background-color: rgba(255, 255, 255, 0.7);
+	height: 95%;
 	padding: 2%;
 	overflow: auto;
 	overflow-x: hidden;
+}
+
+input[type=button], input[type=hidden], input[type=submit] {
+	width: 30%;
+	display: inline-block
 }
 
 #asd {
@@ -21,25 +48,51 @@
 	margin-left: 30;
 }
 
+#artistNameCell {
+	text-align: center;
+	padding-left: 1%;
+	width: 30%;
+	font-weight: bold;
+	font-size: 120%;
+}
+
 body {
 	background-image:
 		url('http://technext.github.io/Evento/images/demo/bg-slide-01.jpg');
 	background-size: 100% 100%;
 }
+
+#artistImageCell {
+	text-align: left;
+	width: 30%;
+	height: 10%;
+}
+
+#artistImage {
+	display: block;
+	width: 100%;
+	vertical-align: bottom;
+}
+
+#artistButtonCell {
+	width: 60%;
 }
 </style>
 
 <br>
+<div id="artistHeader">
+<h1>Line-up</h1>
+</div>
 <div class="col-sm-6" id="createArtistContainer">
 	<center>
-	<h3>Line-up</h3>
+	
 </center>
-	<table align="center">
+	<table align="center" id="artistTable">
 		<c:forEach items="${artists}" var="artist">
 			<tr id="${artist.id}">
-				<td><img width="100" src="${artist.imageBase64}"/></td>
-				<td>${artist.name}</td>
-				<td>
+				<td id="artistImageCell"><img id="artistImage"   src="${artist.imageBase64}"/></td>
+				<td id="artistNameCell">${artist.name}</td>
+				<td id="artistButtonCell">
 					<div style="padding-top:10px">
 						<form action="../artists/updateArtist" method="POST" style="display: inline;">
 							<input type="hidden" name="idValue" value="${artist.id}"/>

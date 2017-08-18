@@ -30,7 +30,8 @@ background-size:100% 100%;}
 
 		<div class="form-group" >
 			<label class="col-sm-3">Picture:</label>
-			<form:input type="file" path="image" id="file" onchange="showPicture(this);" />
+			<form:input type="file" path="image" id="file"
+				onchange="showPicture(this);" />
 			<input type="hidden" name="imageBase64" id="realImageBase64"/>
 			<img id="img" src="#"  />
 		</div>
@@ -87,7 +88,7 @@ background-size:100% 100%;}
 				<p id="artist-text"></p>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-default" data-dismiss="modal"
+				<button type="button" class="btn btn-default" data-dismiss="modal"
 					onClick="redirect()">OK</button>
 				<script type="text/javascript">
 					function redirect() {

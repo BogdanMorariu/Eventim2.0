@@ -40,7 +40,7 @@ body {
 			<img id="img" src="#" alt="No picture selected" />
 		</div>
 			
-			<input type="submit" value="Save"
+			<input type="button" value="Save"
 				class="btn-success col-sm-offset-1" id="Apasa-ma"
 				style="margin-left: 32px;" />
 		</div>
@@ -83,7 +83,8 @@ body {
 				<p id="artist-text"></p>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-default" data-dismiss="modal">OK</button>
+			<button type="button" value="Refresh Page" onClick="history.go(0)"
+				 class="btn btn-default" data-dismiss="modal">OK</button>
 			</div>
 		</div>
 	</div>
