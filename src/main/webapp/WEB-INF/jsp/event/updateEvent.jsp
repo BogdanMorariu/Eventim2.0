@@ -8,6 +8,12 @@
 
 
 <style>
+	body {
+	background-image:
+		url('http://flashwallpapers.com/wp-content/uploads/2015/05/tomorrowland-2015.jpg');
+	background-size: 100% 100%;
+	overflow:hidden;
+}
 
 #eventCreateContainer {
 	padding: 0 3%;
@@ -122,9 +128,17 @@ input[type=button], input[type=submit], input[type=reset] {
 	<form:input path="price" cssClass="col-sm-9"/>
 	</div>
 	<br>
-	
+	<br>
+	<div class="form-group">
+		<label class="col-sm-3">Picture:</label>
+		<form:input type="file" path="" id="file" onchange="showPicture(this);" />
+		<input type="hidden" name="imageBase64" id="realImageBase64"/>
+		<img id="img" src="#" alt="No picture selected" />
+	</div>
+		<center>
 	<input type="button" value="Update" id="Apasa-ma"/>
-	
+		</center>
+		<br>
 	
 </form:form>
 </div>
