@@ -1,7 +1,10 @@
 package events.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -58,12 +61,7 @@ public class EventController {
 	public String processEvent(@Valid Event event ,BindingResult result ,Model uiModel) {
 		try {
 			if(result.hasErrors()) {
-				/*uiModel.addAttribute("artists", fetchService.getAllArtists());
-				uiModel.addAttribute("categories", fetchService.getAllCategories());
-				uiModel.addAttribute("event", event);
 				
-				uiModel.addAttribute("errorMessage","Invalid input");
-				*/
 				return "failed";
 			}
 			System.out.println(event.getImage());
@@ -85,6 +83,38 @@ public class EventController {
 			return new ModelAndView("listEvents", uiModel.asMap());
 		}
 	}
+	
+	@RequestMapping("/listLocations")
+	public ModelAndView listLocations( Model uiModel) {
+		try {
+			List<Event> events = fetchService.getAllEvents();
+			List<String> locations = new ArrayList<>();
+			for(Event e : events){
+				if(!locations.contains(e.getLocation()))
+					locations.add(e.getLocation());
+			}
+			uiModel.addAttribute("locations",locations);
+			return new ModelAndView("listLocations");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ModelAndView("listLocations", uiModel.asMap());
+		}
+	}
+
+
+	@RequestMapping("/getEventsbyLocation")
+	public ModelAndView listLocations(@RequestParam("location") String location,Model uiModel) {
+		try {
+			List<Event> events = fetchService.getAllEvents().stream()
+					.filter(e -> e.getLocation().equals(location)).collect(Collectors.toList());
+			uiModel.addAttribute("events",events);
+			return new ModelAndView("listEventsByLocation");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ModelAndView("listEventsByLocation", uiModel.asMap());
+		}
+	}
+
 	
 	@RequestMapping("/removeEvent")
 	@ResponseBody
@@ -113,20 +143,20 @@ public class EventController {
 	}
 	
 	@RequestMapping("/processUpdateEvent")
-	public ModelAndView processUpdateEvent(@Valid Event event, BindingResult result, Model uiModel) {
+	@ResponseBody
+	public String processUpdateEvent(@Valid Event event, BindingResult result, Model uiModel) {
 		try {
 			if(result.hasErrors()) {
 				uiModel.addAttribute("event", event);
 				uiModel.addAttribute("errorMessage", "Invalid input!");
 				
-				return new ModelAndView("updateEvent", uiModel.asMap());
+				return "failed";
 			}
-			System.out.println(event.getImageBase64());
 			manageService.saveEvent(event);
-			return new ModelAndView("updateEventInfo");
+			return "success";
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			return new ModelAndView("updateEvent", uiModel.asMap());
+			return "failed";
 		}
 	}
 }

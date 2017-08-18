@@ -5,8 +5,9 @@
 <style>
 #createArtistContainer {
 	margin-left: 30%;
+	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: 100%;
+	height: 90%;
 	padding: 2%;
 	overflow: auto;
 	overflow-x: hidden;
@@ -36,6 +37,7 @@ body {
 	<table align="center">
 		<c:forEach items="${artists}" var="artist">
 			<tr id="${artist.id}">
+				<td><img width="100" src="${artist.imageBase64}"/></td>
 				<td>${artist.name}</td>
 				<td>
 					<div style="padding-top:10px">

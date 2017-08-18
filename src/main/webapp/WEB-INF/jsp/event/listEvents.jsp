@@ -70,7 +70,6 @@ form {
 						<input type="hidden" name="idValue" value="${event.id}">
 						<input type="button" value="Delete event" class="btn-danger" onclick="deleteEvent('${event.id}')"/>
 					</form>
-
 				</td>
 			</tr>
 		</c:forEach>

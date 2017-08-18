@@ -11,7 +11,9 @@
 		</id>
 
 		<property name="name" column="name" />
-
+		<property name="image" type="binary">
+            <column name="IMAGE" not-null="true" />
+        </property>
 
 		<bag name="events" table="event_artist" lazy="false" inverse="true">
 

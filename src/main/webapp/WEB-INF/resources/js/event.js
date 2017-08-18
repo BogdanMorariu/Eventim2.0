@@ -6,8 +6,7 @@ function showPicture(input) {
         reader.onload = function (e) {
             $('#img')
                 .attr('src', e.target.result)
-                .width(150)
-                .height(200);
+                .width(150);
         };
         console.log(input.files[0]);
         reader.readAsDataURL(input.files[0]);

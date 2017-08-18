@@ -9,22 +9,30 @@
 	flex-direction: column;
 }
 
-th, td {
+.myDiv {
+	background-color: white;
+}
+
+#ticketTable th,#ticketTable td {
 	text-align: center;
 	padding: 8px;
 }
 
-tr {
+#ticketTable tr {
 	background: rgba(0, 0, 0, 0.1);
 }
 
-tr:nth-child(even) {
+#ticketTable tr:nth-child(even) {
 	background: rgba(0, 0, 0, 0.3);
 }
 
-th {
+#ticketTable th {
 	background-color: #272f3d;
 	color: white;
+}
+
+h1 {
+	margin-left: 41%;
 }
 
 </style>
@@ -34,10 +42,10 @@ th {
 	<c:if test="${not empty errorMessage}">
 		<label><b>${errorMessage}</b></label>
 	</c:if>
-	<div class="flex-container">
+	<div class="flex-container myDiv">
 		<div class="myTicket flex-item col-sm-7 col-sm-offset-3">
 			<table id="ticketTable">
-				<tr>
+				<tr >
 					<th><b>Barcode</b></th>
 					<th><b>Event Name</b></th>
 					<th><b>Location</b></th>
@@ -53,17 +61,13 @@ th {
 						<td><fmt:formatDate pattern="yyyy-MM-dd"
 								value="${ticket.event.endDate}" /></td>
 						<td>${ticket.event.price}</td>
-						<td><input type="button" value="Refund"
+						<td><input class="btn-danger" type="button" value="Refund"
 							onclick="refundTicket(${ticket.id});" /></td>
 					</tr>
 				</c:forEach>
 			</table>
-			<input type="hidden" id="eventID" value="${tickets[0].event.id}">
 		</div>
 		
-		<div class="flex-item">
-			<a href="/Eventim2.0/tickets/${tickets[0].event.id}/createTicket">Do you need more tickets?</a>
-		</div>
 	</div>
 
 </body>

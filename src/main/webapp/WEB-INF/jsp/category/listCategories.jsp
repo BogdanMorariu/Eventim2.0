@@ -19,11 +19,11 @@ function deleteCategoryById(id){
 
 <style>
 #categoryListContainer {
-    margin-left: 35%;
-	width: 26%;
+    margin-left: 30%;
+	width: auto;
 	font-size: 110%;
 	background-color:rgba(255,255,255,0.6);
-	heigth:100%;
+	heigth:auto%;
 	padding:2%;
 	
 	overflow:auto;

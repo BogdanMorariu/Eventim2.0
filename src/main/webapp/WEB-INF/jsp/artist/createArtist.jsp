@@ -6,8 +6,9 @@
 <style>
 #createArtistContainer {
 	margin-left: 30%;
+	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: 100%;
+	height: auto;
 	padding: 2%;
 	overflow: auto;
 	overflow-x: hidden;
@@ -21,15 +22,28 @@ body {
 }
 </style>
 <div class="col-sm-6" id="createArtistContainer">
-	<center><h3>Create new Artist</h3></center><br>
+	<center>
+		<h3>Create new Artist</h3>
+	</center>
+	<br>
 	<form:form modelAttribute="artist" action="processArtist" id="myForm">
 		<div class="form-group">
-			<label class="col-sm-3">Artist name:</label>
-			<form:input path="name" cssClass="col-sm-9" />
+			<label class="col-sm-4">Artist name:</label>
+			<form:input path="name" cssClass="col-sm-6" />
 			<br />
-		</div>
 		<br />
-		<input type="button" value="Save"  class="btn-success" id="Apasa-ma" style="margin-left: 32px;" />
+		
+		<div class="form-group" >
+			<label class="col-sm-3">Picture:</label>
+			<form:input type="file" path="" id="file" onchange="showPicture(this);"/>
+			<input type="hidden" name="imageBase64" id="realImageBase64"/>
+			<img id="img" src="#" alt="No picture selected" />
+		</div>
+			
+			<input type="button" value="Save"
+				class="btn-success col-sm-offset-1" id="Apasa-ma"
+				style="margin-left: 32px;" />
+		</div>
 	</form:form>
 
 </div>
@@ -69,7 +83,7 @@ body {
 				<p id="artist-text"></p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+				<button type="submit" class="btn btn-default" data-dismiss="modal">OK</button>
 			</div>
 		</div>
 	</div>

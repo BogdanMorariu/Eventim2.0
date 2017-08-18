@@ -56,7 +56,7 @@
 	<definition extends="admin" name="listTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/listTicket.jsp"/>
 	</definition>
-	<definition extends="admin" name="createTicket">
+	<definition extends="default" name="createTicket">
 		<put-attribute name="body" value="/WEB-INF/jsp/ticket/createTicket.jsp"/>
 	</definition>
 
@@ -74,6 +74,14 @@
     <definition extends="admin" name="listEvents">
         <put-attribute name="body" value="/WEB-INF/jsp/event/listEvents.jsp"/>
     </definition>
+	<definition extends="default" name="listLocations">
+		<put-attribute name="body" value="/WEB-INF/jsp/event/listLocations.jsp"/>
+	</definition>
+	<definition extends="default" name="listEventsByLocation">
+		<put-attribute name="body" value="/WEB-INF/jsp/event/listEventsByLocation.jsp"/>
+	</definition>
+
+
 
 
 	 <definition extends="default" name="changePassword">

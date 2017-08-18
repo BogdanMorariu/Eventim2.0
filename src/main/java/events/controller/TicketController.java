@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import events.model.Ticket;
+import events.model.User;
 import events.service.FetchService;
 import events.service.ManageService;
 
@@ -33,18 +35,18 @@ public class TicketController {
 	@Autowired
 	private FetchService fetchService;
 
-	@RequestMapping(value = "/{eventId}", method = RequestMethod.GET)
-	public ModelAndView getTickets( @PathVariable("eventId") Integer eventId, Model uiModel) {
-		uiModel.addAttribute("tickets", fetchService.getUserTickets(1));	//userId from session
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView getTickets(Model uiModel) {
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		uiModel.addAttribute("tickets", fetchService.getUserTickets(user.getId()));	//userId from session
 		return new ModelAndView("listTicket", uiModel.asMap());
 	}
 	
 	@RequestMapping(value = "/{eventId}/createTicket", method = RequestMethod.GET)
 	public ModelAndView getBuyTicketSite( @PathVariable("eventId") Integer eventId, Model uiModel) {
 		Ticket ticket = new Ticket();
-		ticket.setUser(fetchService.getUserById(1));	//userId from session
-		//User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		//System.out.println(user.getName());
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		ticket.setUser(fetchService.getUserById(user.getId()));	
 		ticket.setEvent(fetchService.getEventById(eventId));
 		uiModel.addAttribute("ticket", ticket);
 		return new ModelAndView("createTicket", uiModel.asMap());
