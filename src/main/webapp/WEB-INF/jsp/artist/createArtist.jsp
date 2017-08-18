@@ -14,11 +14,7 @@
 	overflow-x: hidden;
 }
 
-body {
-	background-image:
-		url('http://technext.github.io/Evento/images/demo/bg-slide-01.jpg');
-	background-size: 100% 100%;
-}
+
 }
 </style>
 <div class="col-sm-6" id="createArtistContainer">

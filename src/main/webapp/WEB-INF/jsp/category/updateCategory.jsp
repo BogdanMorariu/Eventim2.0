@@ -20,7 +20,6 @@ margin:0 35%;
 	width:100%;
 }
 
-
 .col-sm-5{
 margin-bottom:1%;
 

@@ -1,16 +1,14 @@
 package events.controller;
 
 import events.model.Artist;
+import events.model.Event;
 import events.service.FetchService;
 import events.service.ManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -68,6 +66,18 @@ public class ArtistController {
 	public ModelAndView viewArtist(Model uiModel) {
 		try {
 			List<Artist> artists = fetchService.getAllArtists();
+			uiModel.addAttribute("artists", artists);
+			return new ModelAndView("viewArtists", uiModel.asMap());
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			return new ModelAndView("viewArtists", uiModel.asMap());
+		}
+	}
+
+	@RequestMapping("/viewArtistsByEvent/{id}")
+	public ModelAndView viewArtist(@PathVariable("id") Integer id, Model uiModel) {
+		try {
+			List<Artist> artists = fetchService.getArtistByEvent(id);
 			uiModel.addAttribute("artists", artists);
 			return new ModelAndView("viewArtists", uiModel.asMap());
 		} catch (Exception ex) {

@@ -12,7 +12,7 @@
         <tr>
             <td>${category.type}</td>
             <td>
-                <a href="/event/getEventsByCategory/${category.id}">View Events</a>
+                <a href="../event/getEventsByCategory/${category.id}">View Events</a>
             </td>
         </tr>
     </c:forEach>

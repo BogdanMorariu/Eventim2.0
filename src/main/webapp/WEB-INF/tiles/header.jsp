@@ -16,7 +16,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a
-					href="<spring:url value="/event/listEvents"/>" class="dropdown-toggle"
+					href="<spring:url value="/event/viewEvents"/>" class="dropdown-toggle"
 					role="button" aria-haspopup="true" aria-expanded="false">Events</a>
 				</li>
 			</ul>
@@ -28,13 +28,13 @@
 			</ul>
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a
-					href="<spring:url value="/event/listLocations"/>" class="dropdown-toggle"
+					href="<spring:url value="/categories/viewCategories"/>" class="dropdown-toggle"
 					role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a
-					href="<spring:url value="/artists/listArtists"/>" class="dropdown-toggle"
+					href="<spring:url value="/artists/viewArtists"/>" class="dropdown-toggle"
 					role="button" aria-haspopup="true" aria-expanded="false">Performers</a>
 				</li>
 			</ul>

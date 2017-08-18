@@ -91,6 +91,17 @@ public class EventController {
 			return new ModelAndView("viewEvents", uiModel.asMap());
 		}
 	}
+
+	@RequestMapping("/viewLimitedEvents/{limit}")
+	public ModelAndView viewEvents( @PathVariable("limit") Integer limit, Model uiModel) {
+		try {
+			uiModel.addAttribute("events", fetchService.getLimitedEvents(limit));
+			return new ModelAndView("viewEvents");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ModelAndView("viewEvents", uiModel.asMap());
+		}
+	}
 	
 	@RequestMapping("/listLocations")
 	public ModelAndView listLocations( Model uiModel) {

@@ -106,9 +106,19 @@ public class FetchServiceImpl implements FetchService {
 		return eventDao.getNextEvents("",-1);
 		
 	}
+
+	@Override
+	public List<Event> getLimitedEvents(Integer limit) {
+		return eventDao.getLimitedEvents(limit);
+	}
+
 	public List<Event> getEventsByArtist(Integer artistId) {
 		return eventDao.getNextEventsForArtist(artistId);
+	}
 
+	@Override
+	public List<Artist> getArtistByEvent(Integer eventId) {
+		return artistDao.getArtistsByEvent(eventId);
 	}
 
 }

@@ -86,5 +86,16 @@ public class EventDAOImpl implements EventDAO {
 		query.setParameter("artid",artistId);
 		return query.list();
 	}
-	
+
+	@Override
+	public List<Event> getLimitedEvents(Integer limit) {
+		String hql = "from Event where startDate >= :currentdate";
+
+		hql+=" order by startDate desc";
+		Query query = getCurrentSession().createQuery(hql).setMaxResults(limit);
+		query.setParameter("currentdate", new Date());
+
+		return query.list();
+	}
+
 }

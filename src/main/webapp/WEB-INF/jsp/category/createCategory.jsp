@@ -20,6 +20,8 @@ margin:0 35%;
 }
 
 
+
+
 .col-sm-5{
 margin-bottom:-1%;
 

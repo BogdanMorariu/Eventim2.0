@@ -3,13 +3,15 @@ package events.dao;
 import java.util.List;
 
 import events.model.Artist;
+import events.model.Event;
 
 
 public interface ArtistDAO {
 
-	public Artist findArtistById(Integer id);
-	public List<Artist> getAllArtists();
-	public void saveArtist(Artist artist);
-	public void deleteArtist(Artist artist);
-	public void deleteArtistById(Integer id);
+	Artist findArtistById(Integer id);
+	List<Artist> getAllArtists();
+	void saveArtist(Artist artist);
+	void deleteArtist(Artist artist);
+	void deleteArtistById(Integer id);
+	List<Artist> getArtistsByEvent(Integer eventId);
 }

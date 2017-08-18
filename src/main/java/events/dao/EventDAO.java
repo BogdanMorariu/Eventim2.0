@@ -12,4 +12,5 @@ public interface EventDAO {
 	void deleteEvent(Integer id);
 	List<Event> getNextEvents(String location,Integer categoryId);
 	List<Event> getNextEventsForArtist(Integer artistId);
+	List<Event> getLimitedEvents(Integer limit);
 }
