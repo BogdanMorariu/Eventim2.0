@@ -38,7 +38,7 @@ background-size:100% 100%;}
 
 		<input type="hidden" name="id" value="${artist.id}" />
 
-		<input type="submit" value="Update" class="btn-success" id="Apasa-ma" style="margin-left: 10%;"/>
+		<input type="button" value="Update" class="btn-success" id="Apasa-ma" style="margin-left: 10%;"/>
 
 
 		<script type="text/javascript">
@@ -55,6 +55,8 @@ background-size:100% 100%;}
 			$.ajax({
 				url : "processUpdateArtist",
 				data : $("#myForm").serialize(),
+				processData: false,
+				type: "POST",
 				success : function(result) {
 					if (result.indexOf("Succes") != -1) {
 						$("#artist-text").html("The Artist has been updated!");

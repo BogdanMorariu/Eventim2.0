@@ -152,6 +152,8 @@ $(function() {
 			$.ajax({
 				url : "../event/processEvent",
 				data : $("#myForm").serialize(),
+				processData: false,
+				type: "POST",
 				success : function(result) {
 					if (result.indexOf("success") != -1) {
 						$("#event-text").html("Event has been saved!");
