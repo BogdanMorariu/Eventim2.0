@@ -8,7 +8,8 @@
 
 <style>
 #createArtistContainer {
-	width: auto;
+	margin-left:30%;
+	width: 40%;
 	height: auto;
  	background-color:rgba(255,255,255,0.7);
 }
@@ -23,13 +24,13 @@ background-size:100% 100%;}
 	<form:form modelAttribute="artist" action="processUpdateArtist"
 		id="myForm" cssClass="form-horizontal">
 		<div class="form-group">
-			<label class="col-sm-3">New name: </label>
-			<form:input path="name" class="col-sm-9" />
+			<label class="col-sm-3 col-sm-offset-1">New name: </label>
+			<form:input path="name" class="col-sm-7" />
 		</div>
 
 		<input type="hidden" name="id" value="${artist.id}" />
 
-		<input type="button" value="Update" class="btn-success" id="Apasa-ma" style="margin-left: 5px;"/>
+		<input type="button" value="Update" class="btn-success" id="Apasa-ma" style="margin-left: 10%;"/>
 
 
 		<script type="text/javascript">
