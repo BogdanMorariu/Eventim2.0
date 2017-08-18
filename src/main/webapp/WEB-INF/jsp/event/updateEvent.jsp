@@ -8,12 +8,6 @@
 
 
 <style>
-	body {
-	background-image:
-		url('http://flashwallpapers.com/wp-content/uploads/2015/05/tomorrowland-2015.jpg');
-	background-size: 100% 100%;
-	overflow:hidden;
-}
 
 #eventCreateContainer {
 	padding: 0 3%;

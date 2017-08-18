@@ -40,12 +40,16 @@ color: white;
 			<!-- Events from database -->
 			<c:forEach items="${events}" var="event">
 					<div class="item">
+					<a href="../Eventim2.0/tickets/${event.id}/createTicket">
 						<img src="${event.imageBase64}" alt="${event.name}" style="width: 1024p×; height: 562px; width:100%">
 						<div class="carousel-caption">
 							<h3>${event.name}</h3>
-							<a href="../Eventim2.0/tickets/${event.id}/createTicket" style="color: white">Buy Tickets</a>
+							<a href="../Eventim2.0/tickets/${event.id}/createTicket" style="color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}">Buy Tickets now!</a>
 						</div>
+						</a>
 					</div>
+					
 			</c:forEach>
 		</div>
 

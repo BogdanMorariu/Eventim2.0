@@ -21,13 +21,6 @@ function deleteEvent(id){
 
 <style>
 
-body {
-	width: 100%;
-	background-image:
-		url("http://www.clujulcultural.ro/wp-content/uploads/2015/06/Electric-Castle-ziua-2-foto-Vlad-Gabriel.jpg");
-	background-size: 100% 100%;
-}
-
 h1 {
 	text-align:center;
 	background-color: rgba(255, 255, 255, 0.7);
