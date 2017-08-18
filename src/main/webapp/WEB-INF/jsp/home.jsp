@@ -11,7 +11,7 @@ text{
 color: white;
 }
 </style>
-<div class="container" style="max-width:84%; margin-left:8%">
+<div class="container" style="max-width:84%; vertical-align:top; ">
 	<h3>Welcome to Eventim 2.0</h3>
 	<br>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="max-width: 1024p×; max-height: 562px">
