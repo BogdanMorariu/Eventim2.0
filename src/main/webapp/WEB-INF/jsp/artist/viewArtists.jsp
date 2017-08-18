@@ -66,6 +66,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 }
 
 
+
 #artistImageCell {
 	text-align: left;
 	width: 30%;
