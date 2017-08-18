@@ -16,7 +16,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href='<spring:url value="/event/listEvents"/>'>View Events</a></li>
+                        <li><a href='<spring:url value="/event/viewEvents"/>'>View Events</a></li>
                         <li><a href='<spring:url value="/event/listLocations"/>'>View Locations</a></li>
                     </ul>
                 </li>
@@ -25,7 +25,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artists<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href='<spring:url value="/artists/listArtists"/>'>View Artist</a></li>
+                        <li><a href='<spring:url value="/artists/viewArtists"/>'>View Artist</a></li>
                     </ul>
                 </li>
             </ul>
@@ -33,7 +33,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href='<spring:url value="/categories/listCategories"/>'>View Categories</a></li>
+                        <li><a href='<spring:url value="/categories/viewCategories"/>'>View Categories</a></li>
                     </ul>
                 </li>
             </ul>

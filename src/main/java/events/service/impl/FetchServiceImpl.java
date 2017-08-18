@@ -80,6 +80,21 @@ public class FetchServiceImpl implements FetchService {
 		return ticketDao.getUserTickets(userId);
 	}
 
+	@Override
+	public List<Event> getEventsByLocation(String location) {
+		return eventDao.getNextEvents(location,-1,-1);
+	}
+
+	@Override
+	public List<Event> getEventByArtist(Integer artistId) {
+		return eventDao.getNextEvents("",artistId,-1);
+	}
+
+	@Override
+	public List<Event> getEventByCategory(Integer categoryId) {
+		return eventDao.getNextEvents("",-1,categoryId);
+	}
+
 	public User findUserAtLogin(String username) {
 		return userDao.findUserAtLogin(username);
 	}
@@ -93,7 +108,7 @@ public class FetchServiceImpl implements FetchService {
 	}
 
 	public List<Event> getNextEvents() {
-		return eventDao.getNextEvents();
+		return eventDao.getNextEvents("",-1,-1);
 		
 	}
 

@@ -63,6 +63,18 @@ public class ArtistController {
 			return new ModelAndView("listArtists", uiModel.asMap());
 		}
 	}
+
+	@RequestMapping("/viewArtists")
+	public ModelAndView viewArtist(Model uiModel) {
+		try {
+			List<Artist> artists = fetchService.getAllArtists();
+			uiModel.addAttribute("artists", artists);
+			return new ModelAndView("viewArtists", uiModel.asMap());
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			return new ModelAndView("viewArtists", uiModel.asMap());
+		}
+	}
     
 	
 	@RequestMapping("/removeArtist")

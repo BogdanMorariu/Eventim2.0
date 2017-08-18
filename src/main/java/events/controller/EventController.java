@@ -15,10 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import events.model.Event;
@@ -83,6 +80,17 @@ public class EventController {
 			return new ModelAndView("listEvents", uiModel.asMap());
 		}
 	}
+
+	@RequestMapping("/viewEvents")
+	public ModelAndView viewEvents( Model uiModel) {
+		try {
+			uiModel.addAttribute("events", fetchService.getAllEvents());
+			return new ModelAndView("viewEvents");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ModelAndView("viewEvents", uiModel.asMap());
+		}
+	}
 	
 	@RequestMapping("/listLocations")
 	public ModelAndView listLocations( Model uiModel) {
@@ -102,16 +110,40 @@ public class EventController {
 	}
 
 
-	@RequestMapping("/getEventsbyLocation")
-	public ModelAndView listLocations(@RequestParam("location") String location,Model uiModel) {
+	@RequestMapping("/getEventsByLocation/{location}")
+	public ModelAndView listEventsByLocation(@PathVariable("location") String location,Model uiModel) {
 		try {
-			List<Event> events = fetchService.getAllEvents().stream()
-					.filter(e -> e.getLocation().equals(location)).collect(Collectors.toList());
+			//List<Event> events = fetchService.getAllEvents().stream().filter(e -> e.getLocation().equals(location)).collect(Collectors.toList());
+			List<Event> events = fetchService.getEventsByLocation(location);
 			uiModel.addAttribute("events",events);
-			return new ModelAndView("listEventsByLocation");
+			return new ModelAndView("viewEvents");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			return new ModelAndView("listEventsByLocation", uiModel.asMap());
+			return new ModelAndView("viewEvents", uiModel.asMap());
+		}
+	}
+
+	@RequestMapping("/getEventsByArtist/{id}")
+	public ModelAndView listEventsByArtist(@PathVariable("id") Integer id,Model uiModel) {
+		try {
+			List<Event> events = fetchService.getEventByArtist(id);
+			uiModel.addAttribute("events",events);
+			return new ModelAndView("viewEvents");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ModelAndView("viewEvents", uiModel.asMap());
+		}
+	}
+
+	@RequestMapping("/getEventsByCategory/{id}")
+	public ModelAndView listEventsByCategory(@PathVariable("id") Integer id, Model uiModel) {
+		try {
+			List<Event> events = fetchService.getEventByCategory(id);
+			uiModel.addAttribute("events",events);
+			return new ModelAndView("viewEvents");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ModelAndView("viewEvents", uiModel.asMap());
 		}
 	}
 
