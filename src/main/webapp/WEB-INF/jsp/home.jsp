@@ -1,9 +1,13 @@
 <style>
-body {
-	background-image:
-		url('https://www.pixelstalk.net/wp-content/uploads/2016/06/Lovely-bright-wallpaper-hd-wallpapers.jpg');
-	background-size: 100% 100%;
-	width: 100%;	
+
+h3 {
+color: white;
+}
+href {
+color: white;
+}
+text{
+color: white;
 }
 </style>
 <div class="container" style="width:84%; margin-left:8%">
@@ -25,7 +29,7 @@ body {
 					style="width: 1024p×; height: 562px; width:100%">
 				<div class="carousel-caption">
 					<h3>Electric Castle 2018!</h3>
-					<a href="https://electriccastle.com/">Buy Tickets</a>
+					<a href="https://electriccastle.com/" style="color: white">Buy Tickets</a>
 				</div>
 				</a>
 			</div>
@@ -36,7 +40,7 @@ body {
 					style="width: 1024p×; height: 562px; width:100%">
 				<div class="carousel-caption">
 					<h3>Untold Festival!</h3>
-					<a href="https://untold.com/en">Buy Tickets</a>
+					<a href="https://untold.com/en" style="color: white">Buy Tickets</a>
 				</div>
 				</a>
 			</div>
@@ -47,7 +51,7 @@ body {
 					style="width: 1024p×; height: 562px; width:100%">
 				<div class="carousel-caption">
 					<h3>Electric Castle 2018!</h3>
-					<a href="https://electriccastle.com/">Buy Tickets</a>
+					<a href="https://electriccastle.com/" style="color: white">Buy Tickets</a>
 				</div>
 				</a>
 			</div>

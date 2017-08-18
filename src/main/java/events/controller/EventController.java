@@ -84,7 +84,18 @@ public class EventController {
 	@RequestMapping("/viewEvents")
 	public ModelAndView viewEvents( Model uiModel) {
 		try {
-			uiModel.addAttribute("events", fetchService.getAllEvents());
+			uiModel.addAttribute("events", fetchService.getNextEvents());
+			return new ModelAndView("viewEvents");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ModelAndView("viewEvents", uiModel.asMap());
+		}
+	}
+
+	@RequestMapping("/viewLimitedEvents/{limit}")
+	public ModelAndView viewEvents( @PathVariable("limit") Integer limit, Model uiModel) {
+		try {
+			uiModel.addAttribute("events", fetchService.getLimitedEvents(limit));
 			return new ModelAndView("viewEvents");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -95,7 +106,7 @@ public class EventController {
 	@RequestMapping("/listLocations")
 	public ModelAndView listLocations( Model uiModel) {
 		try {
-			List<Event> events = fetchService.getAllEvents();
+			List<Event> events = fetchService.getNextEvents();
 			List<String> locations = new ArrayList<>();
 			for(Event e : events){
 				if(!locations.contains(e.getLocation()))
@@ -126,7 +137,7 @@ public class EventController {
 	@RequestMapping("/getEventsByArtist/{id}")
 	public ModelAndView listEventsByArtist(@PathVariable("id") Integer id,Model uiModel) {
 		try {
-			List<Event> events = fetchService.getEventByArtist(id);
+			List<Event> events = fetchService.getEventsByArtist(id);
 			uiModel.addAttribute("events",events);
 			return new ModelAndView("viewEvents");
 		} catch (Exception e) {

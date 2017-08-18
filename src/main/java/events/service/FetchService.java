@@ -14,6 +14,7 @@ public interface FetchService {
 	List<User> getAllUsers();
 	List<TemporaryUser> getAllTemporaryUsers();
 	List<Event> getNextEvents();
+	List<Event> getLimitedEvents(Integer limit);
 	
 	//Get by ID
 	Artist getArtistById(Integer id);
@@ -26,14 +27,16 @@ public interface FetchService {
 	//Get by Foreign key
 	List<Ticket> getUserTickets(Integer userId);
 	List<Event> getEventsByLocation(String location);
-	List<Event> getEventByArtist(Integer artistId);
 	List<Event> getEventByCategory(Integer categoryId);
+	List<Event> getEventsByArtist(Integer artistId);
+	List<Artist> getArtistByEvent(Integer eventId);
 	
 	//Get by username & password
 	User findUserAtLogin(String username);
 	
 	//Barcode_seq nextval
 	Long getNextBarcode();
+
 	
 	
 

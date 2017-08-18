@@ -7,7 +7,7 @@
 <html>
 <head>
 <jsp:include page="../../tiles/includes.jsp" />
-<title>Insert title here</title>
+<title>Eventim - Login</title>
 </head>
 <body>
 	

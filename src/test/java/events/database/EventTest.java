@@ -89,4 +89,9 @@ public class EventTest {
 		List<Event> events = fetchService.getAllEvents();
 		assertNotNull(events);
 	}
+
+	@Test
+	public void getNextEventsForArtist() throws Exception {
+		assertEquals(1,fetchService.getEventsByArtist(46).size());
+	}
 }

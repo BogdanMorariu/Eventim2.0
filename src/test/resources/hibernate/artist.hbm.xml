@@ -14,7 +14,11 @@
 		<property name="image" type="binary">
             <column name="IMAGE" not-null="true" />
         </property>
-		<bag name="events" table="event_artist">
+
+		<bag name="events" table="event_artist" lazy="false" inverse="true">
+
+		
+
 			<key column="artistid"></key>
 			<many-to-many class="events.model.Event" >
 				<column name="eventid" />

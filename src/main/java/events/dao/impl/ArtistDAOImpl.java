@@ -1,7 +1,10 @@
 package events.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
+import events.model.Event;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +47,13 @@ public class ArtistDAOImpl implements ArtistDAO {
 	public void deleteArtistById(Integer id) {
 		String hql = "delete from Artist where id = " + id;
 		getCurrentSession().createQuery(hql).executeUpdate();
+	}
+
+	public List<Artist> getArtistsByEvent(Integer eventId) {
+		String hql = "from Artist artist join fetch artist.events event where event.id=:evid";
+		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("evid",eventId);
+		return query.list();
 	}
 
 }

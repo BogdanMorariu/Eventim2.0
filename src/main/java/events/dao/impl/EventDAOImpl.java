@@ -56,15 +56,11 @@ public class EventDAOImpl implements EventDAO {
 	* location "", artistId=-1
 	* */
 	@SuppressWarnings("unchecked")
-	//TODO something not good debug it!
-	public List<Event> getNextEvents(String location,Integer artistId,Integer categoryId) {
+	public List<Event> getNextEvents(String location,Integer categoryId) {
 		String hql = "from Event where startDate >= :currentdate";
 
 		if(StringUtils.isNotBlank(location)){
 			hql+=" and location = :loc";
-		}
-		if(artistId!=-1){
-			hql+=" and artist_Id = :artid";
 		}
 		if(categoryId!=-1){
 			hql+=" and category_id = :catid";
@@ -77,13 +73,29 @@ public class EventDAOImpl implements EventDAO {
 		if(StringUtils.isNotBlank(location)){
 			query.setParameter("loc",location);
 		}
-		if(artistId!=-1){
-			query.setParameter("artid",artistId);
-		}
 		if(categoryId!=-1){
 			query.setParameter("catid",categoryId);
 		}
 		return query.list();
 	}
-	
+
+	public List<Event> getNextEventsForArtist(Integer artistId) {
+		String hql = "from Event event join fetch event.artists artist where startDate >= :currentdate and artist.id=:artid order by startDate desc";
+		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("currentdate", new Date());
+		query.setParameter("artid",artistId);
+		return query.list();
+	}
+
+	@Override
+	public List<Event> getLimitedEvents(Integer limit) {
+		String hql = "from Event where startDate >= :currentdate";
+
+		hql+=" order by startDate desc";
+		Query query = getCurrentSession().createQuery(hql).setMaxResults(limit);
+		query.setParameter("currentdate", new Date());
+
+		return query.list();
+	}
+
 }
