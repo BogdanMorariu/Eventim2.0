@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Eventim 2.0</a>
+            <a class="navbar-brand" href="<spring:url value="/home"/>">Eventim 2.0</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -41,8 +41,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tickets<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href='<spring:url value="#"/>'>Purchase new Ticket</a></li>
-                        <li><a href='<spring:url value="#"/>'>Refund Ticket</a></li>
+                        <li><a href='<spring:url value="/tickets/createTicketWithEvent"/>'>Purchase new Ticket</a></li>
+                        <li><a href='<spring:url value="/tickets"/>'>Refund Ticket</a></li>
                     </ul>
                 </li>
             </ul>
@@ -50,7 +50,6 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href='<spring:url value="/users/createUser"/>'>New Account</a></li>
                         <li><a href='<spring:url value="/users/updateUser"/>'>View Account</a></li>
                     </ul>
                 </li>

@@ -13,7 +13,7 @@
             <td><img width="100" src="${event.imageBase64}"/></td>
             <td>${event.name}</td>
             <td>
-                <a href="/tickets/${event.id}/createTicket">Buy Tickets</a>
+                <a href="../tickets/${event.id}/createTicket">Buy Tickets</a>
             </td>
         </tr>
     </c:forEach>

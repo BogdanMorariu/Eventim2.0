@@ -42,6 +42,13 @@ public class TicketController {
 		return new ModelAndView("listTicket", uiModel.asMap());
 	}
 	
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ModelAndView getTickets2(Model uiModel) {
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		uiModel.addAttribute("tickets", fetchService.getUserTickets(user.getId()));	//userId from session
+		return new ModelAndView("listTicket", uiModel.asMap());
+	}
+	
 	@RequestMapping(value = "/{eventId}/createTicket", method = RequestMethod.GET)
 	public ModelAndView getBuyTicketSite( @PathVariable("eventId") Integer eventId, Model uiModel) {
 		Ticket ticket = new Ticket();
@@ -50,6 +57,16 @@ public class TicketController {
 		ticket.setEvent(fetchService.getEventById(eventId));
 		uiModel.addAttribute("ticket", ticket);
 		return new ModelAndView("createTicket", uiModel.asMap());
+	}
+	
+	@RequestMapping(value = "/createTicketWithEvent", method = RequestMethod.GET)
+	public ModelAndView getBuyTicketSite( Model uiModel ) {
+		Ticket ticket = new Ticket();
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		ticket.setUser(fetchService.getUserById(user.getId()));	
+		uiModel.addAttribute("event", fetchService.getAllEvents());
+		uiModel.addAttribute("ticket", ticket);
+		return new ModelAndView("createTicketWithEvent", uiModel.asMap());
 	}
 
 	@RequestMapping(value="/{eventId}/createTicket", method = RequestMethod.POST)
@@ -93,6 +110,19 @@ public class TicketController {
 			System.out.println(ex.getMessage());
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			return "Fail";
+		}
+	}
+	
+	@RequestMapping(value = "/{eventId}/getPrice", method = RequestMethod.GET)
+	@ResponseBody
+	public String getPrice(@RequestParam("id") Integer id, HttpServletResponse response) {
+		try {
+			response.setStatus(200);
+			return fetchService.getEventById(id).getPrice().toString();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			return fetchService.getEventById(id).getPrice().toString();
 		}
 	}
 }

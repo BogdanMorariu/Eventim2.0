@@ -66,6 +66,7 @@ h1 {
 					</tr>
 				</c:forEach>
 			</table>
+			<input type="hidden" id="eventID" value="${ticket.event.id}"/>
 		</div>
 		
 	</div>

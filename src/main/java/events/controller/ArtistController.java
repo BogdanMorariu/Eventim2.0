@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,6 +27,7 @@ public class ArtistController {
     @Autowired
     private FetchService fetchService;
     @RequestMapping("/createArtist")
+    
     public ModelAndView createArtist(Model uiModel){
 	   uiModel.addAttribute("artist", new Artist());
        return new ModelAndView("createArtist", uiModel.asMap());
@@ -33,6 +35,7 @@ public class ArtistController {
     
     @RequestMapping("/processArtist")
     @ResponseBody
+    
     public String processArtist(@Valid Artist artist, BindingResult result, Model uiModel){
         if (result.hasErrors()) {
             return "Failed";
@@ -80,6 +83,7 @@ public class ArtistController {
 		try {
 			 Artist artist = fetchService.getArtistById(id);
 			 uiModel.addAttribute("artist", artist);
+			 uiModel.addAttribute("image", artist.getImageBase64());
 			 
 			 return new ModelAndView("updateArtist");
 		} catch (Exception ex) {

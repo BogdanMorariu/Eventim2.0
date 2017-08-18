@@ -40,7 +40,7 @@ body {
 			<img id="img" src="#" alt="No picture selected" />
 		</div>
 			
-			<input type="button" value="Save"
+			<input type="submit" value="Save"
 				class="btn-success col-sm-offset-1" id="Apasa-ma"
 				style="margin-left: 32px;" />
 		</div>
@@ -77,7 +77,7 @@ body {
 		<div class="modal-content">
 			<div class="modal-header">
 				
-				<h4 class="modal-title">Succes</h4>
+				<h4 class="modal-title">Created Artist</h4>
 			</div>
 			<div class="modal-body">
 				<p id="artist-text"></p>
