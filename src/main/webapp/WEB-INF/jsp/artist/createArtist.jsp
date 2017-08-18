@@ -31,7 +31,15 @@ body {
 			<label class="col-sm-4">Artist name:</label>
 			<form:input path="name" cssClass="col-sm-6" />
 			<br />
-		<br />	
+		<br />
+		
+		<div class="form-group" >
+			<label class="col-sm-3">Picture:</label>
+			<form:input type="file" path="" id="file" onchange="showPicture(this);" />
+			<input type="hidden" name="imageBase64" id="realImageBase64"/>
+			<img id="img" src="#" alt="No picture selected" />
+		</div>
+			
 			<input type="button" value="Save"
 				class="btn-success col-sm-offset-1" id="Apasa-ma"
 				style="margin-left: 32px;" />
