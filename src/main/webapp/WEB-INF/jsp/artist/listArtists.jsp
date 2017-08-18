@@ -96,7 +96,7 @@ body {
 					<div style="padding-top:10px">
 						<form action="../artists/updateArtist" method="POST" style="display: inline;">
 							<input type="hidden" name="idValue" value="${artist.id}"/>
-							<input type="submit" value="Update artist" class="btn-success" id="asd"/>
+							<input type="submit" value="Update Artist" class="btn-success" id="asd"/>
 						</form>
 
 						<form action="../artists/removeArtist" method="POST" style="display: inline;">

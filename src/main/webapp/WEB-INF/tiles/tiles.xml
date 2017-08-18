@@ -106,7 +106,7 @@
 	<definition extends="admin" name="updateArtist">
 		<put-attribute name="body" value="/WEB-INF/jsp/artist/updateArtist.jsp"/>
 	</definition>
-	<definition extends="admin" name="viewArtists">
+	<definition extends="default" name="viewArtists">
 		<put-attribute name="body" value="/WEB-INF/jsp/artist/viewArtists.jsp"/>
 	</definition>
 
