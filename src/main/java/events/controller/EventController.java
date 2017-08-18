@@ -61,12 +61,7 @@ public class EventController {
 	public String processEvent(@Valid Event event ,BindingResult result ,Model uiModel) {
 		try {
 			if(result.hasErrors()) {
-				/*uiModel.addAttribute("artists", fetchService.getAllArtists());
-				uiModel.addAttribute("categories", fetchService.getAllCategories());
-				uiModel.addAttribute("event", event);
 				
-				uiModel.addAttribute("errorMessage","Invalid input");
-				*/
 				return "failed";
 			}
 			System.out.println(event.getImage());
@@ -88,7 +83,7 @@ public class EventController {
 			return new ModelAndView("listEvents", uiModel.asMap());
 		}
 	}
-
+	
 	@RequestMapping("/listLocations")
 	public ModelAndView listLocations( Model uiModel) {
 		try {
@@ -148,20 +143,20 @@ public class EventController {
 	}
 	
 	@RequestMapping("/processUpdateEvent")
-	public ModelAndView processUpdateEvent(@Valid Event event, BindingResult result, Model uiModel) {
+	@ResponseBody
+	public String processUpdateEvent(@Valid Event event, BindingResult result, Model uiModel) {
 		try {
 			if(result.hasErrors()) {
 				uiModel.addAttribute("event", event);
 				uiModel.addAttribute("errorMessage", "Invalid input!");
 				
-				return new ModelAndView("updateEvent", uiModel.asMap());
+				return "failed";
 			}
-			System.out.println(event.getImageBase64());
 			manageService.saveEvent(event);
-			return new ModelAndView("updateEventInfo");
+			return "success";
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
-			return new ModelAndView("updateEvent", uiModel.asMap());
+			return "failed";
 		}
 	}
 }

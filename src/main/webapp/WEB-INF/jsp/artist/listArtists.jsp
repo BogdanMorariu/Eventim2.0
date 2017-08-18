@@ -36,6 +36,7 @@ body {
 	<table align="center">
 		<c:forEach items="${artists}" var="artist">
 			<tr id="${artist.id}">
+				<td><img width="100" src="${artist.imageBase64}"/></td>
 				<td>${artist.name}</td>
 				<td>
 					<div style="padding-top:10px">
