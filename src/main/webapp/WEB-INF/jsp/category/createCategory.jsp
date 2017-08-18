@@ -19,12 +19,6 @@ margin:0 35%;
 	width:100%;
 }
 
-body{
-background-image:url(https://i1.wp.com/festpop.com/news/wp-content/uploads/2017/03/Hammock.jpeg);
-background-size:100% 100%;
-
-width:100%
-}
 
 .col-sm-5{
 margin-bottom:-1%;

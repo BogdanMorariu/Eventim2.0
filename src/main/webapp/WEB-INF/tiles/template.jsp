@@ -1,9 +1,11 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <jsp:include page="includes.jsp" />
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<spring:url value="/" var="externalAddress"/>
 <style>
 body {
 	background-image:
-		url('https://www.pixelstalk.net/wp-content/uploads/2016/06/Lovely-bright-wallpaper-hd-wallpapers.jpg');
+		url('${externalAddress}resources/img/background.jpg');
 	background-size: 100% 100%;
 	width: 100%;
 }

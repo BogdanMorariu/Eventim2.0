@@ -18,41 +18,74 @@ function deleteCategoryById(id){
 </script>
 
 <style>
-#categoryListContainer {
-    margin: 0 30%;
-	width: 40%;
-	font-size: 110%;
-	background-color:rgba(255,255,255,0.6);
-	heigth:auto%;
-	padding:2%;
-	
-	overflow:auto;
-	overflow-x:hidden;
+
+h3{
+width: 40%;
+background-color:rgba(255,255,255,0.7);
+font-weight:bold;
+font-size:200%;
+padding:2%;
+margin-top:-1%;
 }
 
-body{
-background-image:url(http://www.theransomnote.com/media/articles/electric-castle-announces-dixon-moderat-and-more-for-2017/960b0903-5e78-491e-90cc-0ef49f21a659.jpg);
-background-size:100% 100%
+
+#tableOfCategories tr:nth-child(odd) {
+	background: rgba(139, 176, 221, 0.3);
 }
+
+#categoryListContainer {
+
+	margin: 0 30%;
+	width: 40%;
+	font-size: 110%;
+	background-color: rgba(255, 255, 255, 0.7);
+	heigth: 95%;
+		overflow: auto;
+	overflow-x: hidden;
+	height:87%;
+}
+
 .col-sm-3 {
 	margin-top: -15%;
 }
 
+#tableOfCategories{
+	width:90%;
+	
+	margin:1% 5%;
+}
+
+
+#categoryNameCell{
+	width:30%;
+	
+	text-align:center;
+}
+
+input[type=button], input[type=hidden], input[type=submit] {
+	width: 45%;
+	display: inline-block
+}
+
+#categoryManageCell{
+
+	width:70%;
+	text-align:center;
+	
+	
+}
 </style>
-<div class="col-sm-6" id="categoryListContainer">
 <center>
 	<h3>List of Categories</h3>
 </center>
-<br>
-<br>
-
-	<table align="center">
+<div  id="categoryListContainer">
+	<table  id="tableOfCategories">
 		<c:forEach items="${categories}" var="category">
 			<tr id="${category.id}">
-				<td><br> <label class="col-sm-3"> ${category.type} <br></label>
+				<td id="categoryNameCell"><br> <label class="col-sm-9"> ${category.type} <br></label>
 				</td>
-				<td>
-				<div style="padding:10px">
+				<td id="categoryManageCell">
+				
 					<form action="../categories/updateCategory" method="POST"
 						style="display: inline;">
 						<input type="hidden" name="idValue" value="${category.id}">
@@ -63,13 +96,13 @@ background-size:100% 100%
 						<input type="hidden" name="idValue" value="${category.id}">
 						<input type="button" value="Delete category" class="btn-danger"
 							onclick="deleteCategoryById('${category.id}')" />
-					</form>
-					</div>
+					</form>	
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
 </div>
+
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
