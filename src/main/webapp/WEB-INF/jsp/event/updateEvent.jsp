@@ -8,9 +8,8 @@
 
 <style>
 	body {
-	background-image:
-		url('http://flashwallpapers.com/wp-content/uploads/2015/05/tomorrowland-2015.jpg');
-	background-size: 100% 100%;
+	
+	
 	overflow:hidden;
 }
 
@@ -152,6 +151,7 @@ input[type=button], input[type=submit], input[type=reset] {
 	<div class="form-group">
 		<label class="col-sm-3">Picture:</label>
 		<form:input type="file" path="" id="file" onchange="showPicture(this);" />
+		<input type="hidden" name="imageBase64" id="realImageBase64"/>
 		<img id="img" src="${event.imageBase64}" alt="No picture selected" />
 	</div>
 		<center>
