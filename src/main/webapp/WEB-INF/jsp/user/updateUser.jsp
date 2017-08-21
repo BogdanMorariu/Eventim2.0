@@ -13,7 +13,7 @@
     <c:if test="${not empty message}">
         <label>${message}</label><br>
     </c:if>
-    <form:form modelAttribute="user" action="/users/updateUser" method="POST" class="form-hotizontal">
+    <form:form modelAttribute="user" action="/client/updateUser" method="POST" class="form-hotizontal">
         <input hidden name="id" value="${pageContext['request'].userPrincipal.principal.id}"/>
         <div class="form-group">
             <label class="col-sm-3" for="username">Username:</label>

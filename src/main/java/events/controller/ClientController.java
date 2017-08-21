@@ -192,7 +192,7 @@ public class ClientController {
             //Send mail
             String subject = "Eventim 2.0 Acount validation !\n";
             String message = "Hello " + temporaryUser.getName() + "!\n Please click on the link below to activate your acount:\n";
-            message += "http://localhost:8080/users/validate?token=" + encrypt(temporaryUser.getId());
+            message += "http://localhost:8080/client/validate?token=" + encrypt(temporaryUser.getId());
             message += "\n\n Have a Great day,\nEventim 2.0 Team.";
             MailUtil.sendMail(subject, message, temporaryUser.getEmail());
 
