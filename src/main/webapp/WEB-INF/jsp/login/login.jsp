@@ -76,7 +76,7 @@ input[type=button], input[type=submit], input[type=reset] {
 				</div>
 				<br>
 				<div class="col-sm-offset-3">
-					Not a user yet? <a href='<spring:url value="/users/createUser"/>'> Register here!</a>
+					Not a user yet? <a href='<spring:url value="/client/createUser"/>'> Register here!</a>
 				</div>
 			</div>
 		</form>
