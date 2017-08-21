@@ -8,7 +8,7 @@
     <label>${message}</label><br>
 </c:if>
 <div class="col-sm-4 offset5">
-    <form:form modelAttribute="temporaryUser" action="/users/createUser" method="POST" class="form-hotizontal">
+    <form:form modelAttribute="temporaryUser" action="../users/createUser" method="POST" class="form-hotizontal">
         <div class="form-group">
             <label class="col-sm-2" for="name">Username:</label>
             <div class="col-sm-9">

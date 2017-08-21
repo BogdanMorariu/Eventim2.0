@@ -9,8 +9,31 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+    	#wrapper{
+    		padding-top:2%;
+    		padding-bottom:2%;
+    		width:40%;
+   			margin:0 auto;
+   			text-align:center;
+   			background-color:rgba(255,255,255,0.5);
+    	}
+    	
+    	h1{
+    		text-align:center;
+    	}
+    	img{
+    		width:30%;
+    		height:65%;
+    	}
+    	
+    </style>
+    
 </head>
 <body>
-    YOU HAVE REGISTEREDEDEDEDE !!!!
+	<div id="wrapper">
+    <h1>YOU HAVE REGISTERED !!!!</h1>
+    <img src="../resources/img/succesConfirmation-img.gif"/>
+    </div>
 </body>
 </html>

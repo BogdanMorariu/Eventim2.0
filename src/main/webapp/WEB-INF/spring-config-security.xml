@@ -11,11 +11,13 @@
         <intercept-url pattern="/loginUri/**" access="permitAll" />
         <intercept-url pattern="/logout/**" access="permitAll" />
         <intercept-url pattern="/forgotPassword/**" access="permitAll" />
-        <intercept-url pattern="/users/**" access="permitAll" />
-        <intercept-url pattern="/artists/**" access="permitAll" />
+        <intercept-url pattern="/users/**" access="permitAll"/>
+        <intercept-url pattern="/artists/**" access="permitAll()" />
         <intercept-url pattern="/tickets/**" access="isAuthenticated()" />
         <intercept-url pattern="/events/**" access="permitAll" />
         <intercept-url pattern="/home/**" access="permitAll" />
+
+        <access-denied-handler error-page="/WEB-INF/jsp/error.jsp"/>
         
 	    <session-management session-fixation-protection="migrateSession" session-authentication-error-url="/loginFailUri"> 
 	        <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" expired-url="/logoutUri" session-registry-alias="sessionRegistry"/>

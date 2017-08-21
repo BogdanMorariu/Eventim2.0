@@ -19,10 +19,8 @@ h3 {
 	width: 40%;
 	font-size: 110%;
 	background-color: rgba(255, 255, 255, 0.7);
-	heigth: 95%;
 	overflow: auto;
 	overflow-x: hidden;
-	height: 87%;
 }
 
 .col-sm-3 {
@@ -40,7 +38,7 @@ h3 {
 border: 1px solid black;
 }
 
-a{
+#categoryListContainer > a{
  font-weight: 700;
     color: #245986;
 }

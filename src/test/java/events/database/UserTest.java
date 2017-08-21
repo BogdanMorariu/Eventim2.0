@@ -30,7 +30,8 @@ public class UserTest {
 		User user = new User();
 		user.setName("Cristin");
 		user.setPassword("myPass");
-		user.setType("type1");
+		user.setEmail("bogdanmorariu96@gmail.comn");
+		user.setType("normal");
 		manageService.saveUser(user);
 		
 		Ticket ticket = new Ticket();
@@ -50,13 +51,18 @@ public class UserTest {
 		assertNotNull(ticket1.getId());
 	}
 	
-	
-	
+
 	@Test
 	public void testDeleteUser(){
-		User user = fetchService.getUserById(14);
+		User newUser = new User();
+		newUser.setName("Cristin");
+		newUser.setPassword("myPass");
+		newUser.setEmail("bogdanmorariu96@gmail.comn");
+		newUser.setType("normal");
+		manageService.saveUser(newUser);
+		User user = fetchService.getUserById(newUser.getId());
 		manageService.deleteUser(user);
-		user = fetchService.getUserById(14);
+		user = fetchService.getUserById(newUser.getId());
 		assertNull(user);
 		
 	}
@@ -83,7 +89,7 @@ public class UserTest {
 	
 	@Test
 	public void testFindUserAtLogin(){
-		String username = "cristin";
+		String username = "Sava";
 		User user = fetchService.findUserAtLogin(username);
 		assertNotNull(user);
 		
