@@ -11,11 +11,15 @@
         <intercept-url pattern="/loginUri/**" access="permitAll" />
         <intercept-url pattern="/logout/**" access="permitAll" />
         <intercept-url pattern="/forgotPassword/**" access="permitAll" />
-        <intercept-url pattern="/users/**" access="permitAll"/>
-        <intercept-url pattern="/artists/**" access="permitAll()" />
-        <intercept-url pattern="/tickets/**" access="isAuthenticated()" />
-        <intercept-url pattern="/events/**" access="permitAll" />
+        <intercept-url pattern="/client/**" access="premitAll"/>
         <intercept-url pattern="/home/**" access="permitAll" />
+        
+        <intercept-url pattern="/users/**" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/categories/**" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/events/**" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/artists/**" access="hasRole('ADMIN')" />
+        
+        <intercept-url pattern="/tickets/**" access="hasRole('NORMAL')" />
 
         <access-denied-handler error-page="/WEB-INF/jsp/error.jsp"/>
         
