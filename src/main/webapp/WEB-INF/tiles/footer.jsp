@@ -1,1 +1,1 @@
-<div style="text-align:center">© Gasca Javra Industries</div>
+<div style="text-align:center">&copy; Java Industries&trade;</div>

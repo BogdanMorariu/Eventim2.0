@@ -23,10 +23,10 @@
  	</ul> 
  	 <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artists<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Performers<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href='<spring:url value="../artists/createArtist"/>'>Create New Artist</a></li>
-              <li><a href='<spring:url value="../artists/listArtists"/>'>Manage Artists</a></li>
+            <li><a href='<spring:url value="../artists/createArtist"/>'>Create New Performers</a></li>
+              <li><a href='<spring:url value="../artists/listArtists"/>'>Manage Performers</a></li>
           </ul>
         </li>
  	</ul> 
