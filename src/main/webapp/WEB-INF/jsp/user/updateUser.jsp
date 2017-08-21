@@ -7,13 +7,25 @@
   Time: 09:49
   To change this template use File | Settings | File Templates.
 --%>
+<style>
+#eventCreateContainer {
+	margin-left: 30%;
+	margin-right: 30%;
+	width: 40%;
+	font-size:110%;
+	background-color: rgba(255, 255, 255, 0.85);
+	height: 50%;
+	padding: 2%;
+}
+</style>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div  id="eventCreateContainer">
 <h3 class="col-md-offset-5">User Details</h3>
-<div class="col-sm-4 offset5">
+<div class="col-sm 0">
     <c:if test="${not empty message}">
         <label>${message}</label><br>
     </c:if>
-    <form:form modelAttribute="user" action="/client/updateUser" method="POST" class="form-hotizontal">
+    <form:form modelAttribute="user" action="/users/updateUser" method="POST" class="form-hotizontal">
         <input hidden name="id" value="${pageContext['request'].userPrincipal.principal.id}"/>
         <div class="form-group">
             <label class="col-sm-3" for="username">Username:</label>
@@ -36,4 +48,5 @@
         <input name="type" value="${pageContext['request'].userPrincipal.principal.type}" hidden/>
         <input type="submit" style="margin-left: 27%; margin-top: 2%" class="btn btn-success col-sm-3" value="Save"/><br>
     </form:form>
+</div>
 </div>

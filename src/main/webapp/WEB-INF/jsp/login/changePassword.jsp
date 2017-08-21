@@ -94,7 +94,7 @@ input[type=button], input[type=submit], input[type=reset] {
 
 	<h3 align="center">Change Password</h3>
 	<br> <br>
-	<h4 align="left">A new Password will be sent to your e-Mail.</h4>
+	<h4 align="left">A new Password will be sent to your email.</h4>
 
 
 
