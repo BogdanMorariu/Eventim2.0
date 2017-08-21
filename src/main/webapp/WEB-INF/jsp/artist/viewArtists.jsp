@@ -14,7 +14,7 @@ a:hover {
 	 color: #0f3d63;
 }
 
-a {
+#createArtistContainer > a {
 	font-weight: 700; color: #245986;
 	font-size:130%;
 }
@@ -23,7 +23,6 @@ a {
 	text-align: center;
 	margin-left: 25%;
 	margin-right: 25%;
-	margin-bottom: -1.5%;
 	margin-top: -5%;
 	width: 50%;
 	background-color: rgba(255, 255, 255, 0.7);

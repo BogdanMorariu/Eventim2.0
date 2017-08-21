@@ -9,23 +9,69 @@
   To change this template use File | Settings | File Templates.
 --%>
 <style>
-h1 {
-text-align:center;
+
+img {
+	height: 150px;
+	width: 230px;
 }
+
+h1 {
+	text-align:center;
+}
+
+#ticketTable {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+#ticketTable thead {
+background-color: rgba(255, 255, 255, 0.2);
+	 font-weight: 900;
+}
+
+#ticketTable thead,#ticketTable td {
+	text-align: center;
+	padding: 8px;
+		vertical-align: middle;
+}
+
+.myDiv {
+	text-align: center;
+	margin-left: 18%;
+	margin-right: 18%;
+	width: 70%;
+}
+
+#eventHeader {
+	text-align: center;
+	margin-left: 18%;
+	margin-right: 18%;
+	width: 70%;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+#eventHeader h1 {
+	font-weight: bold;
+	font-size: 300%;
+}
+
 </style>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <spring:url value="/" var="externalAddress"/>
-<h1>Events</h1>
-<div class="col-sm-8 offset2">
-    <table class="table table-striped table-hover" style="background:ghostwhite; opacity: 75%">
+<div id="eventHeader">
+	<h1>Events</h1>
+</div>
+<div class="myDiv">
+    <table id="ticketTable" class="table table-striped table-hover">
         <thead>
+        <tr>
             <td>Image</td>
             <td>Event</td>
             <td>Location</td>
-            <td>StartDate - EndDate</td>
+            <td>StartDate / EndDate</td>
             <td>Performers</td>
-            <td>Price</td>
+            <td>Price (Lei)</td>
             <td>Tickets</td>
+        </tr>
         </thead>
         <c:forEach items="${events}" var="event">
 
@@ -34,7 +80,7 @@ text-align:center;
                 <td>${event.name}</td>
                 <td>${event.location}</td>
                 <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${event.startDate}"/>
-                    <b> - </b>
+                    <b> / </b>
                     <fmt:formatDate pattern = "yyyy-MM-dd" value = "${event.endDate}"/>
                 </td>
                 <td>

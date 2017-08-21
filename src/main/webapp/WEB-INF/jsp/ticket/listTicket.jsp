@@ -4,11 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <style>
-.flex-container {
- 	display: flex;
-	flex-direction: column;
-}
-
 .myDiv {
 	background-color: white;
 }
@@ -42,8 +37,8 @@ h1 {
 	<c:if test="${not empty errorMessage}">
 		<label><b>${errorMessage}</b></label>
 	</c:if>
-	<div class="flex-container myDiv">
-		<div class="myTicket flex-item col-sm-7 col-sm-offset-3">
+	<div class="myDiv">
+		<div class="myTicket col-sm-7 col-sm-offset-3">
 			<table id="ticketTable">
 				<tr >
 					<th><b>Barcode</b></th>
