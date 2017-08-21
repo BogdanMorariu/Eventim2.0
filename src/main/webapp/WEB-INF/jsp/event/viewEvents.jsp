@@ -15,9 +15,10 @@ text-align:center;
 </style>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <spring:url value="/" var="externalAddress"/>
-<h1>Events</h1>
-<div class="col-sm-8 offset2">
-    <table class="table table-striped table-hover" style="background:ghostwhite; opacity: 75%">
+<div class="col-sm-8 offset2" style="background:ghostwhite; opacity: 75%">
+    <table class="table table-striped table-hover" >
+    <h1>Events</h1>
+    <br>
         <thead>
             <td>Image</td>
             <td>Event</td>
