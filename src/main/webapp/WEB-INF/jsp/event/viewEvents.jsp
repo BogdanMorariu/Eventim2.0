@@ -42,7 +42,7 @@ text-align:center;
                 </td>
                 <td>${event.price}</td>
                 <td>
-                    <a href="../tickets/${event.id}/createTicket">Buy Tickets</a>
+                    <a href="${externalAddress}tickets/${event.id}/createTicket">Buy Tickets</a>
                 </td>
             </tr>
         </c:forEach>

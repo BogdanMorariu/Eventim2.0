@@ -4,10 +4,10 @@
 h3 {
 	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
-	font-weight: bold;
 	font-size: 250%;
-	padding: 2%;
-	margin-top: -1%;
+	padding: 1%;
+	margin-top: -3%;
+	font-weight: bold;
 }
 
 #tableOfCategories tr:nth-child(odd) {
@@ -47,7 +47,7 @@ a{
 
 a:hover {
 	 color: #0f3d63;
-	 text-decoration:none;
+	 text-decoration: underline;
 }
 
 #categoryNameCell {

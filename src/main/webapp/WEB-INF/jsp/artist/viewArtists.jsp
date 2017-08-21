@@ -32,6 +32,7 @@ a {
 #artistHeader h1 {
 	font-weight: bold;
 	font-size: 300%;
+	padding: 1%;
 }
 
 #createArtistContainer {
@@ -100,8 +101,8 @@ input[type=button], input[type=hidden], input[type=submit] {
 			<tr id="${artist.id}">
 				<td id="artistImageCell"><img id="artistImage"   src="${artist.imageBase64}"/></td>
 				<td id="artistNameCell">${artist.name}</td>
-				<td id="artistButtonCell"><a href="${externalAddress}event/getEventsByArtist/${artist.id}">
-						<label id="event">View Events</label> </a></td>
+				<td id="artistButtonCell"><a id="event" href="${externalAddress}event/getEventsByArtist/${artist.id}">
+						View Events</a></td>
 			</tr>
 		</c:forEach>
 	</table>

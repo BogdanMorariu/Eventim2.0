@@ -3,34 +3,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <style>
-#artistTable tr:nth-child(odd) {
+#tableOfLocations tr:nth-child(odd) {
 	background: rgba(139, 176, 221, 0.3);
-}
-
-#event {
-	font-weight: 700; color: #245986;
-}
-
-#artistHeader {
 	text-align: center;
-	margin-left: 25%;
-	margin-right: 25%;
-	margin-bottom: -1.5%;
-	margin-top: -5%;
-	width: 50%;
+
+}
+
+#locationHeader {
+	text-align: center;
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-top: -1%;
+	margin-bottom: 0;
+	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
 }
 
-#artistHeader h1 {
+#locationHeader h3 {
+	padding: 2%;
+	font-size: 250%;
 	font-weight: bold;
-	font-size: 300%;
 }
 
-#createArtistContainer {
-	margin: 0 25%;
-	width: 50%;
+#locationContainer {
+	margin: 0 30%;
+	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: 95%;
+	height: 87%;
 	padding: 2%;
 	overflow: auto;
 	overflow-x: hidden;
@@ -41,61 +40,53 @@ input[type=button], input[type=hidden], input[type=submit] {
 	display: inline-block
 }
 
-#nustiu {
-	font-weight: 700;
-	color: #245986;
+
+a{
+
+font-weight: 700; 
+	width: 50%;
+	text-align: center;
+    color: #245986;
 }
 
-#asd {
-	margin-left: 30;
+a:hover {
+	 color: #0f3d63;
+	 text-decoration: underline;
 }
 
-#Apasa-ma {
-	margin-left: 30;
-}
-
-#artistNameCell {
+#locationCell {
 	text-align: center;
 	padding-left: 1%;
-	width: 30%;
+	width: 50%;
 	font-weight: bold;
 	font-size: 120%;
+	padding:2%;
 }
 
 
 
-#artistImageCell {
-	text-align: left;
-	width: 30%;
-	height: 10%;
-}
-
-#artistImage {
-	display: block;
-	width: 100%;
-	vertical-align: bottom;
-}
-
-#artistButtonCell {
-	width: 60%;
+#locationLink {
+	width: 50%;
+	padding: 2%;
+	text-align: center;
+	font-size: 120%;
 }
 </style>
 
 <br>
-<div id="artistHeader">
-	<h1>Events Locations</h1>
+<div id="locationHeader">
+	<h3>Events Locations</h3>
 </div>
 
 
-<div class="col-sm-6" id="createArtistContainer">
-	<center></center>
-<table>
+<div class="col-sm-6" id="locationContainer">
+<table id="tableOfLocations" align="center">
     <c:forEach items="${locations}" var="location">
         <tr id="${location}">
-            <td id="artistNameCell">${location}</td>
-            <td id="artistButtonCell">
-                <a href="../event/getEventsByLocation/${location}">
-                	<label id="event">View Events</label>
+            <td id="locationCell">${location}</td>
+            <td id="locationLink">
+                <a  href="../event/getEventsByLocation/${location}">
+                	  View Events
                 </a>
             </td>
         </tr>
