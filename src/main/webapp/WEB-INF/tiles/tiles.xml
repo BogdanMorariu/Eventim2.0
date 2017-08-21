@@ -74,9 +74,6 @@
         <put-attribute name="body" value="/WEB-INF/jsp/event/updateEvent.jsp"/>
     </definition>
 
-    <definition extends="default" name="createEventInfo">
-        <put-attribute name="body" value="/WEB-INF/jsp/event/createEventInfo.jsp"/>
-    </definition>
     <definition extends="admin" name="listEvents">
         <put-attribute name="body" value="/WEB-INF/jsp/event/listEvents.jsp"/>
     </definition>

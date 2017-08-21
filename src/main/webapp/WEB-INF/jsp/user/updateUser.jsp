@@ -34,6 +34,6 @@
             </div>
         </div>
         <input name="type" value="${pageContext['request'].userPrincipal.principal.type}" hidden/>
-        <input type="submit" style="margin-left: 2%; margin-top: 2%" class="btn btn-success col-sm-3" value="Save"/><br>
+        <input type="submit" style="margin-left: 27%; margin-top: 2%" class="btn btn-success col-sm-3" value="Save"/><br>
     </form:form>
 </div>

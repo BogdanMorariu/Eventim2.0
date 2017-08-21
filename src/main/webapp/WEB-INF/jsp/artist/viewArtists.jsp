@@ -1,8 +1,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
+<spring:url value="/" var="externalAddress"/>
 
 
 <style>
@@ -100,8 +100,8 @@ input[type=button], input[type=hidden], input[type=submit] {
 			<tr id="${artist.id}">
 				<td id="artistImageCell"><img id="artistImage"   src="${artist.imageBase64}"/></td>
 				<td id="artistNameCell">${artist.name}</td>
-				<td id="artistButtonCell"><a href="../event/getEventsByArtist/${artist.id}">
-						<label >View Events</label> </a></td>
+				<td id="artistButtonCell"><a href="${externalAddress}event/getEventsByArtist/${artist.id}">
+						<label id="event">View Events</label> </a></td>
 			</tr>
 		</c:forEach>
 	</table>
