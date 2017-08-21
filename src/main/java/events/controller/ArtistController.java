@@ -24,8 +24,8 @@ public class ArtistController {
     
     @Autowired
     private FetchService fetchService;
+
     @RequestMapping("/createArtist")
-    
     public ModelAndView createArtist(Model uiModel){
 	   uiModel.addAttribute("artist", new Artist());
        return new ModelAndView("createArtist", uiModel.asMap());
@@ -33,7 +33,6 @@ public class ArtistController {
     
     @RequestMapping("/processArtist")
     @ResponseBody
-    
     public String processArtist(@Valid Artist artist, BindingResult result, Model uiModel){
         if (result.hasErrors()) {
             return "Failed";
@@ -59,30 +58,6 @@ public class ArtistController {
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return new ModelAndView("listArtists", uiModel.asMap());
-		}
-	}
-
-	@RequestMapping("/viewArtists")
-	public ModelAndView viewArtist(Model uiModel) {
-		try {
-			List<Artist> artists = fetchService.getAllArtists();
-			uiModel.addAttribute("artists", artists);
-			return new ModelAndView("viewArtists", uiModel.asMap());
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-			return new ModelAndView("viewArtists", uiModel.asMap());
-		}
-	}
-
-	@RequestMapping("/viewArtistsByEvent/{id}")
-	public ModelAndView viewArtist(@PathVariable("id") Integer id, Model uiModel) {
-		try {
-			List<Artist> artists = fetchService.getArtistByEvent(id);
-			uiModel.addAttribute("artists", artists);
-			return new ModelAndView("viewArtists", uiModel.asMap());
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-			return new ModelAndView("viewArtists", uiModel.asMap());
 		}
 	}
     

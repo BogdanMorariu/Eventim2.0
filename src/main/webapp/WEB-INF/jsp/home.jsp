@@ -14,7 +14,7 @@ color: white;
 <div class="container" style="max-width:84%; vertical-align:top; ">
 	<h3>Welcome to Eventim 2.0</h3>
 	<br>
-	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="max-width: 1024p×; max-height: 562px">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="max-width: 1024pï¿½; max-height: 562px">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -30,7 +30,7 @@ color: white;
 		<div class="carousel-inner">
 			<div class="item active">
 				<img src="https://sarahjanek.files.wordpress.com/2017/04/bereczky_sacc81ndor_ec_day3-179.jpg" alt="Eventim2.0"
-					style="width: 1024p×; height: 562px; width:100%">
+					style="width: 1024pï¿½; height: 562px; width:100%">
 				<div class="carousel-caption">
 					<h3>Welcome to Event-Master!</h3>
 				</div>
@@ -40,11 +40,11 @@ color: white;
 			<!-- Events from database -->
 			<c:forEach items="${events}" var="event">
 					<div class="item">
-					<a href="../Eventim2.0/tickets/${event.id}/createTicket">
-						<img src="${event.imageBase64}" alt="${event.name}" style="width: 1024p×; height: 562px; width:100%">
+					<a href="../tickets/${event.id}/createTicket">
+						<img src="${event.imageBase64}" alt="${event.name}" style="width: 1024pï¿½; height: 562px; width:100%">
 						<div class="carousel-caption">
 							<h3>${event.name}</h3>
-							<a href="../Eventim2.0/tickets/${event.id}/createTicket" style="color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+							<a href="../tickets/${event.id}/createTicket" style="color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }">Buy Tickets now!</a>
 						</div>
 						</a>

@@ -77,8 +77,8 @@
     <definition extends="admin" name="listEvents">
         <put-attribute name="body" value="/WEB-INF/jsp/event/listEvents.jsp"/>
     </definition>
-	<definition extends="default" name="listLocations">
-		<put-attribute name="body" value="/WEB-INF/jsp/event/listLocations.jsp"/>
+	<definition extends="default" name="viewLocations">
+		<put-attribute name="body" value="/WEB-INF/jsp/event/viewLocations.jsp"/>
 	</definition>
 	<definition extends="default" name="viewEvents">
 		<put-attribute name="body" value="/WEB-INF/jsp/event/viewEvents.jsp"/>

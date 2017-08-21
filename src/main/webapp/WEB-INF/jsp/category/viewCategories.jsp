@@ -84,7 +84,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 		<c:forEach items="${categories}" var="category">
 			<tr>
 				<td id="categoryNameCell"> <label class="col-sm-9">${category.type}</label></td>
-				<td id="categoryLink"><a href="../event/getEventsByCategory/${category.id}">View
+				<td id="categoryLink"><a href="../client/getEventsByCategory/${category.id}">View
 						Events</a></td>
 			</tr>
 		</c:forEach>

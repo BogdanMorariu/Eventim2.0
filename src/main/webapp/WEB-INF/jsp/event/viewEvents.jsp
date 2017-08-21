@@ -86,7 +86,7 @@ background-color: rgba(255, 255, 255, 0.2);
                     <fmt:formatDate pattern = "yyyy-MM-dd" value = "${event.endDate}"/>
                 </td>
                 <td>
-                    <a href="${externalAddress}artists/viewArtistsByEvent/${event.id}">View Upcoming Performers</a>
+                    <a href="${externalAddress}client/viewArtistsByEvent/${event.id}">View Upcoming Performers</a>
                 </td>
                 <td>${event.price}</td>
                 <td>

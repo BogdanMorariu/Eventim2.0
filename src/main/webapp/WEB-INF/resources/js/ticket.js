@@ -1,6 +1,6 @@
 function refundTicket(ticketId) {
 	var help = document.getElementById("eventID").value;
-	var urlHelp = "/Eventim2.0/tickets/"+help+"/deleteTicket";
+	var urlHelp = "../tickets/"+help+"/deleteTicket";
 	$.ajax({
 		url: urlHelp,
   		type: "POST",
@@ -32,7 +32,7 @@ function setPopUp(value) {
 function setEventId() {
 	document.getElementById("eventPlaceHolder").value = document.getElementById("eventSelect").value;
 	$.ajax({
-		url: "/Eventim2.0/tickets/"+ document.getElementById("eventPlaceHolder").value + "/getPrice",
+		url: "../tickets/"+ document.getElementById("eventPlaceHolder").value + "/getPrice",
   		type: "GET",
   		data:{id:document.getElementById("eventPlaceHolder").value},
   		dataType:"json",
@@ -48,5 +48,5 @@ function setEventId() {
 }
 
 function changeActionUri() {
-	document.getElementById('myForm').action = '/Eventim2.0/tickets/'+document.getElementById('eventPlaceHolder').value +'/createTicket';
+	document.getElementById('myForm').action = '../tickets/'+document.getElementById('eventPlaceHolder').value +'/createTicket';
 }

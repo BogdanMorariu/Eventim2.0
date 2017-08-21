@@ -91,7 +91,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 
 <br>
 <div id="artistHeader">
-	<h3>Performers</h3>
+	<h1>Performers</h1>
 </div>
 <div class="col-sm-6" id="createArtistContainer">
 	<center></center>
@@ -100,8 +100,8 @@ input[type=button], input[type=hidden], input[type=submit] {
 			<tr id="${artist.id}">
 				<td id="artistImageCell"><img id="artistImage"   src="${artist.imageBase64}"/></td>
 				<td id="artistNameCell">${artist.name}</td>
-				<td id="artistButtonCell"><a id="event" href="${externalAddress}event/getEventsByArtist/${artist.id}">
-						View Events</a></td>
+				<td id="artistButtonCell"><a href="${externalAddress}client/getEventsByArtist/${artist.id}">
+						<label id="event">View Events</label> </a></td>
 			</tr>
 		</c:forEach>
 	</table>

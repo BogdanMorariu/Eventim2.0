@@ -16,25 +16,25 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a
-					href="<spring:url value="/event/viewEvents"/>" class="dropdown-toggle"
+					href="<spring:url value="/client/viewEvents"/>" class="dropdown-toggle"
 					role="button" aria-haspopup="true" aria-expanded="false">Events</a>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a
-					href="<spring:url value="/event/listLocations"/>" class="dropdown-toggle"
+					href="<spring:url value="/client/viewLocations"/>" class="dropdown-toggle"
 					role="button" aria-haspopup="true" aria-expanded="false">Locations</a>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a
-					href="<spring:url value="/categories/viewCategories"/>" class="dropdown-toggle"
+					href="<spring:url value="/client/viewCategories"/>" class="dropdown-toggle"
 					role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a
-					href="<spring:url value="/artists/viewArtists"/>" class="dropdown-toggle"
+					href="<spring:url value="/client/viewArtists"/>" class="dropdown-toggle"
 					role="button" aria-haspopup="true" aria-expanded="false">Performers</a>
 				</li>
 			</ul>
@@ -48,7 +48,7 @@
 								class="caret"></span>
 						</a>
 							<ul class="dropdown-menu">
-								<li><a href='<spring:url value="/users/updateUser"/>'>View
+								<li><a href='<spring:url value="/client/updateUser"/>'>View
 										Account</a></li>
 								<li><a
 									href='<spring:url value="/tickets/createTicketWithEvent"/>'>Purchase

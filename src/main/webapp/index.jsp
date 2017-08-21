@@ -1,1 +1,1 @@
-<% response.sendRedirect(request.getRequestURL() + "home"); %>
+<% response.sendRedirect(request.getRequestURL() + "client/home"); %>

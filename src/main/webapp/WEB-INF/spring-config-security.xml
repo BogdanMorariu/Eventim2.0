@@ -11,7 +11,7 @@
         <intercept-url pattern="/loginUri/**" access="permitAll" />
         <intercept-url pattern="/logout/**" access="permitAll" />
         <intercept-url pattern="/forgotPassword/**" access="permitAll" />
-        <intercept-url pattern="/client/**" access="premitAll"/>
+        <intercept-url pattern="/client/**" access="permitAll"/>
         <intercept-url pattern="/home/**" access="permitAll" />
         
         <intercept-url pattern="/users/**" access="hasRole('ADMIN')"/>

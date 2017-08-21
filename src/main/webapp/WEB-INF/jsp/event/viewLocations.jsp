@@ -15,7 +15,7 @@
 	margin-left: 30%;
 	margin-right: 30%;
 	margin-top:-5%;
-	
+
 	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
 }
@@ -46,7 +46,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 	font-weight: none;
 	width: 50%;
 	text-align: center;
-  
+
 }
 
 a:hover {
@@ -70,7 +70,7 @@ a:hover {
 	padding: 2%;
 	text-align: center;
 	font-size: 120%;
-	
+
 }
 </style>
 
@@ -88,7 +88,7 @@ a:hover {
         <tr id="${location}">
             <td id="locationCell">${location}</td>
             <td id="locationLink">
-                <a  href="../event/getEventsByLocation/${location}">
+                <a  href="../client/getEventsByLocation/${location}">
                 	  View Events
                 </a>
             </td>
