@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3" for="pass">New password:</label>
+            <label class="col-sm-3" for="pass">Password:</label>
             <div class="col-sm-9">
                 <input id="pass" name="password" class="form-control" type="password" placeholder="********"/>
             </div>
