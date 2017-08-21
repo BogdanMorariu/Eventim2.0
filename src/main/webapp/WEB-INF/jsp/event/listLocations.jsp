@@ -42,7 +42,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 }
 
 
-a{
+#locationContainer > a{
 	font-weight: none;
 	width: 50%;
 	text-align: center;
