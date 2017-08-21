@@ -9,12 +9,13 @@
 
 }
 
+
 #locationHeader {
 	text-align: center;
 	margin-left: 30%;
 	margin-right: 30%;
-	margin-top: -1%;
-	margin-bottom: 0;
+	margin-top:-5%;
+	
 	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
 }
@@ -29,8 +30,8 @@
 	margin: 0 30%;
 	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: 87%;
-	padding: 2%;
+	height: 97%;
+	padding: 1%;
 	overflow: auto;
 	overflow-x: hidden;
 }
@@ -42,11 +43,10 @@ input[type=button], input[type=hidden], input[type=submit] {
 
 
 a{
-
-font-weight: 700; 
+	font-weight: none;
 	width: 50%;
 	text-align: center;
-    color: #245986;
+  
 }
 
 a:hover {
@@ -70,10 +70,13 @@ a:hover {
 	padding: 2%;
 	text-align: center;
 	font-size: 120%;
+	
 }
 </style>
 
 <br>
+
+
 <div id="locationHeader">
 	<h3>Events Locations</h3>
 </div>

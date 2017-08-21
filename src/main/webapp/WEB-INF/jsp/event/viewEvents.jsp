@@ -15,7 +15,7 @@ img {
 	width: 230px;
 }
 
-h1 {
+h3 {
 	text-align:center;
 }
 
@@ -49,16 +49,18 @@ background-color: rgba(255, 255, 255, 0.2);
 	background-color: rgba(255, 255, 255, 0.7);
 }
 
-#eventHeader h1 {
+#eventHeader h3 {
 	font-weight: bold;
-	font-size: 300%;
+	font-size: 250%;
+	margin-top:-1%;
+	padding: 1%;
 }
 
 </style>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <spring:url value="/" var="externalAddress"/>
 <div id="eventHeader">
-	<h1>Events</h1>
+	<h3>Events</h3>
 </div>
 <div class="myDiv">
     <table id="ticketTable" class="table table-striped table-hover">

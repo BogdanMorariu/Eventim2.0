@@ -5,7 +5,7 @@
 
 <style>
 #createArtistContainer {
-	margin-left: 30%;
+	margin:0 30%;
 	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
 	height: auto;
@@ -15,31 +15,48 @@
 }
 
 
+
+input[type=button], input[type=submit], input[type=reset] {
+    text-align: center;
+    text-decoration: none;
+    
+    font-size: 16px;
+    
+
 }
+input[type=text]{
+    
+    border: none;
+    padding: 1%;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
 </style>
 <div class="col-sm-6" id="createArtistContainer">
 	<center>
-		<h3>Create new Artist</h3>
+		<h3>Create new Performer</h3>
 	</center>
 	<br>
 	<form:form modelAttribute="artist" action="processArtist" id="myForm">
-		<div class="form-group">
-			<label class="col-sm-4">Artist name:</label>
+		<div class="form-group" id="">
+			<label class="col-sm-3">Performer name:</label>
 			<form:input path="name" cssClass="col-sm-6" />
-			<br />
-		<br />
-		
-		<div class="form-group" >
-			<label class="col-sm-3">Picture:</label>
-			<form:input type="file" path="" id="file" onchange="showPicture(this);"/>
-			<input type="hidden" name="imageBase64" id="realImageBase64"/>
-			<img id="img" src="#" alt="No picture selected" />
+			<br /> <br /> <br>
+			<div class="form-group">
+				<label class="col-sm-3">Picture:</label>
+
+				<center>
+					<form:input type="file" path="" class="col-sm-6" id="file"
+						onchange="showPicture(this);" />
+
+					<input type="hidden" name="imageBase64" id="realImageBase64" /> <img
+						id="img" src="#" align="left" />
+			</div>
+			<br> <br> <input align="center" type="button" value="Save"
+				class="btn-success col-sm-offset-5" id="Apasa-ma" />
 		</div>
-			
-			<input type="button" value="Save"
-				class="btn-success col-sm-offset-1" id="Apasa-ma"
-				style="margin-left: 32px;" />
-		</div>
+
 	</form:form>
 
 </div>

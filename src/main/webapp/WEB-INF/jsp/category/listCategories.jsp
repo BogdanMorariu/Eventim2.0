@@ -23,9 +23,9 @@ h3{
 width: 40%;
 background-color:rgba(255,255,255,0.7);
 font-weight:bold;
-font-size:200%;
-padding:2%;
-margin-top:-1%;
+font-size:300%;
+padding:1%;
+margin-top:-3%;
 }
 
 
@@ -40,13 +40,14 @@ margin-top:-1%;
 	font-size: 110%;
 	background-color: rgba(255, 255, 255, 0.7);
 	heigth: 95%;
-		overflow: auto;
+	overflow: auto;
 	overflow-x: hidden;
 	height:87%;
 }
 
 .col-sm-3 {
 	margin-top: -15%;
+
 }
 
 #tableOfCategories{
@@ -63,7 +64,7 @@ margin-top:-1%;
 }
 
 input[type=button], input[type=hidden], input[type=submit] {
-	width: 45%;
+	width: 30%;
 	display: inline-block
 }
 

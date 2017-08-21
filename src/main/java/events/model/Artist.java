@@ -5,10 +5,13 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+
 public class Artist {
 	private Integer id;
 	
 	@NotNull
+	@Length(min=1)
 	private String name;
 	
 	private String imageBase64;

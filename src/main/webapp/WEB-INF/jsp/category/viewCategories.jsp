@@ -17,10 +17,11 @@ h3 {
 #categoryListContainer {
 	margin: 0 30%;
 	width: 40%;
-	font-size: 110%;
 	background-color: rgba(255, 255, 255, 0.7);
+	height: 97%;
 	overflow: auto;
 	overflow-x: hidden;
+	padding: 1%;
 }
 
 .col-sm-3 {
@@ -53,6 +54,8 @@ a:hover {
 	vertical-align:middle;
 	text-align: center;
 	padding: 2%;
+	font-size: 110%;
+	font-weight: bold;
 
 }
 

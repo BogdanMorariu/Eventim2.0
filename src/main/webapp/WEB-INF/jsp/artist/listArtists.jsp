@@ -10,7 +10,7 @@
 }
 
 #artistHeader {
-	
+	padding:1%;
 	text-align: center;
 	margin-left : 25%;
 	margin-right : 25%;
@@ -21,6 +21,7 @@
 }
 
 #artistHeader h1{
+	padding:1%;
 	font-weight:bold;
 	font-size:300%;
 }
@@ -77,7 +78,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 
 <br>
 <div id="artistHeader">
-<h1>Line-up</h1>
+<h1>Performers</h1>
 </div>
 <div class="col-sm-6" id="createArtistContainer">
 	<center>

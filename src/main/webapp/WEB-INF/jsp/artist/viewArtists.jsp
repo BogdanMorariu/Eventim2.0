@@ -28,17 +28,17 @@ a:hover {
 	background-color: rgba(255, 255, 255, 0.7);
 }
 
-#artistHeader h1 {
+#artistHeader h3 {
 	font-weight: bold;
-	font-size: 300%;
-	padding: 1%;
+	font-size: 250%;
+	padding: 2%;
 }
 
 #createArtistContainer {
 	margin: 0 25%;
 	width: 50%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: 100%;
+	height: 97%;
 	padding: 2%;
 	overflow: auto;
 	overflow-x: hidden;
@@ -91,7 +91,7 @@ input[type=button], input[type=hidden], input[type=submit] {
 
 <br>
 <div id="artistHeader">
-	<h1>Line-up</h1>
+	<h3>Performers</h3>
 </div>
 <div class="col-sm-6" id="createArtistContainer">
 	<center></center>
