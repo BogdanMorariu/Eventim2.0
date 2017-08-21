@@ -155,7 +155,7 @@ input[type=button], input[type=submit], input[type=reset] {
 		<img id="img" src="${event.imageBase64}" alt="No picture selected" />
 	</div>
 		<center>
-	<input type="button" value="Update" id="Apasa-ma"/>
+	<input onclick="document.body.style.cursor='wait'" type="button" value="Update" id="Apasa-ma" />
 		</center>
 		<br>
 	
