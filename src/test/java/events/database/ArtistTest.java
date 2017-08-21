@@ -38,17 +38,23 @@ public class ArtistTest {
 	
 	@Test
 	public void testDeleteArtist() {
-		Artist artist = fetchService.getArtistById(2);
+		Artist newArtist = new Artist();
+		newArtist.setName("Ion");
+		manageService.saveArtist(newArtist);
+		Artist artist = fetchService.getArtistById(newArtist.getId());
 		manageService.deleteArtist(artist);
-		artist = fetchService.getArtistById(2);
+		artist = fetchService.getArtistById(newArtist.getId());
 		assertNull(artist);
 	}
 	
 	@Test
 	public void testDeleteArtistById() {
-		Artist artist = fetchService.getArtistById(1);
-		manageService.deleteArtistById(1);
-		artist = fetchService.getArtistById(1);
+		Artist newArtist = new Artist();
+		newArtist.setName("TestArtistNameX2");
+		manageService.saveArtist(newArtist);
+		Artist artist = fetchService.getArtistById(newArtist.getId());
+		manageService.deleteArtistById(artist.getId());
+		artist = fetchService.getArtistById(newArtist.getId());
 		assertNull(artist);
 	}
 	
@@ -61,7 +67,7 @@ public class ArtistTest {
 	
 	@Test
 	public void testGetArtistById() {
-		Artist artist = fetchService.getArtistById(1);
+		Artist artist = fetchService.getArtistById(2);
 		assertNotNull(artist);
 	}
 	

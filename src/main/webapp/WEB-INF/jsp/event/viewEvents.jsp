@@ -88,7 +88,7 @@ background-color: rgba(255, 255, 255, 0.2);
                 </td>
                 <td>${event.price}</td>
                 <td>
-                    <a href="../tickets/${event.id}/createTicket">Buy Tickets</a>
+                    <a href="${externalAddress}tickets/${event.id}/createTicket">Buy Tickets</a>
                 </td>
             </tr>
         </c:forEach>

@@ -18,10 +18,9 @@ public class EventDAOImplTest {
     private EventDAO eventDAO;
 
 
-
     @Test
     public void getNextEventsForArtist() throws Exception {
-        assertEquals(1,eventDAO.getNextEventsForArtist(46).size());
+        assertEquals(1,eventDAO.getNextEventsForArtist(2).size());
     }
 
 }

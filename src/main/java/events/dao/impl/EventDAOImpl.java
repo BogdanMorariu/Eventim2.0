@@ -12,8 +12,10 @@ import org.springframework.stereotype.Repository;
 
 import events.dao.EventDAO;
 import events.model.Event;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
+@Transactional
 public class EventDAOImpl implements EventDAO {
 	
 	@Autowired
