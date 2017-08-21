@@ -152,7 +152,7 @@ input[type=button], input[type=submit], input[type=reset] {
 		<label class="col-sm-3">Picture:</label>
 		<form:input type="file" path="" id="file" onchange="showPicture(this);" />
 		<input type="hidden" name="imageBase64" id="realImageBase64" value="${event.imageBase64}"/>
-		<img id="img" src="${event.imageBase64}" alt="No picture selected" />
+		<img id="img" src="${event.imageBase64}" width=150px height=100px />
 	</div>
 		<center>
 	<input onclick="document.body.style.cursor='wait'" type="button" value="Update" id="Apasa-ma" />

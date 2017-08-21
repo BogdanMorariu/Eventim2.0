@@ -6,8 +6,7 @@
 </c:if>
 <style>
 body {
-	background-image:
-		url('https://static1.squarespace.com/static/55c37beae4b0336075603f86/55c3cd80e4b01531b3208f2e/5603032be4b008bd0ad4e6fb/1486126957019/?format=1500w');
+	
 	background-size: 100% 100%;
 	overflow:hidden;
 }
@@ -75,7 +74,7 @@ $(function() {
 </script>
 <div class="col-sm-6" id="eventCreateContainer">
 	<center>
-		<h3 style="margin-bottom: 5%;">Create New Event</h3>
+		<h1 style="margin-bottom: 5%;">Create New Event</h1>
 	</center>
 	<form:form modelAttribute="event" action="../event/processEvent"
 		method="POST" id="myForm" cssClass="form-horizontal">

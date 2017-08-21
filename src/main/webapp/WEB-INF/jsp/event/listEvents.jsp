@@ -27,7 +27,7 @@ h1 {
 	width: 50%;
 	margin-left: 25%;
 	margin-right: 25%;
-	
+	font-size:300%;
 	margin-top: -2%;
 }
 
@@ -36,7 +36,7 @@ h1 {
 }
 
 #manageEventsContainer {
-	width: 50%;
+	width: 45%;
 	
 	margin-left: 25%;
 	margin-right: 25%;
@@ -59,8 +59,8 @@ form {
 }
 
 #tableOfEventList{
-	width:80%;
-	border: 1px solid black;
+	width:100%;
+	
 }
 
 
@@ -80,7 +80,7 @@ form {
 }
 </style>
 
-<h1 align="center">List of Events</h1>
+<h1 align="center"><b>List of Events</b></h1>
 <div id="manageEventsContainer">
 
 <table align="center" id="tableOfEventList">

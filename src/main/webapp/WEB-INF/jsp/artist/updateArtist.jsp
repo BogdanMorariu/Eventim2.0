@@ -14,7 +14,13 @@
  	background-color:rgba(255,255,255,0.7);
 }
 
-
+input[type=text] {
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+	width:40%;
+	font-size: 120%;
+}
 </style>
 <div class="col-sm-6" id="createArtistContainer">
 <center><h3>Update Artist</h3></center><br>
@@ -26,16 +32,17 @@
 		</div>
 
 		<div class="form-group" >
-			<label class="col-sm-3">Picture:</label>
+			<label class="col-sm-3 col-sm-offset-1">Picture:</label>
 			<form:input type="file" path="image" id="file"
 				onchange="showPicture(this);" />
-			<input type="hidden" name="imageBase64" id="realImageBase64"/>
-			<img id="img" src="${artist.imageBase64}"  width=150px height=100px/>
+			<input type="hidden" name="imageBase64" id="realImageBase64" value="${artist.imageBase64}"/>
+			<br>
+			<center><img  id="img" src="${artist.imageBase64}"  width=150px height=100px/></center>
 		</div>
 
 		<input type="hidden" name="id" value="${artist.id}" />
 
-		<input type="button" value="Update" class="btn-success" id="Apasa-ma" style="margin-left: 10%;"/>
+		<center><input type="button" value="Update" class="btn-success" id="Apasa-ma" style="margin-left: 10%;"/></center>
 
 
 		<script type="text/javascript">
