@@ -65,15 +65,26 @@ public class EventTest {
 	
 	@Test
 	public void testFindById(){
-		Event event = fetchService.getEventById(1);
+		Event event = fetchService.getEventById(5);
 		assertNotNull(event);
 	}
 	
 	@Test
-	public void testDeleteEvent(){
-		Event event = fetchService.getEventById(4);
+	public void testDeleteEvent() throws ParseException {
+		Event newEvent = new Event();
+		Category category = fetchService.getCategoryById(1);
+		DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
+		Date startDate = df.parse("12/07/2017");
+		Date endDate = df.parse("16/07/2017");
+		newEvent.setName("Electric Castle");
+		newEvent.setLocation("Cluj, Bontida");
+		newEvent.setStartDate(startDate);
+		newEvent.setEndDate(endDate);
+		newEvent.setCategory(category);
+		manageService.saveEvent(newEvent);
+		Event event = fetchService.getEventById(newEvent.getId());
 		manageService.deleteEvent(event);
-		event = fetchService.getEventById(4);
+		event = fetchService.getEventById(newEvent.getId());
 		assertNull(event);
 	}
 	
@@ -92,6 +103,6 @@ public class EventTest {
 
 	@Test
 	public void getNextEventsForArtist() throws Exception {
-		assertEquals(1,fetchService.getEventsByArtist(46).size());
+		assertEquals(1,fetchService.getEventsByArtist(2).size());
 	}
 }

@@ -10,8 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import events.dao.UserDAO;
 import events.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
 	@Autowired
