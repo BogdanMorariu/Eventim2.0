@@ -39,7 +39,7 @@ a:hover {
 	margin: 0 25%;
 	width: 50%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: 97%;
+	height: 90%;
 	padding: 2%;
 	overflow: auto;
 	overflow-x: hidden;

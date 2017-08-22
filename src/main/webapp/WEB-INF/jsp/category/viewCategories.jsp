@@ -18,7 +18,7 @@ h3 {
 	margin: 0 30%;
 	width: 40%;
 	background-color: rgba(255, 255, 255, 0.7);
-	height: 97%;
+	height: 90%;
 	overflow: auto;
 	overflow-x: hidden;
 	padding: 1%;

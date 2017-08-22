@@ -91,11 +91,11 @@ form {
 				<td id="manageEventCell" style="width: 40%;">
 					<form action="../event/updateEvent" method="POST">
 						<input type="hidden" name="idValue" value="${event.id}">
-						<input type="submit" value="Update event" class="btn-success" />
+						<input type="submit" value="Update" class="btn-success" />
 					</form>
 					<form action="../event/removeEvent" method="POST">
 						<input type="hidden" name="idValue" value="${event.id}">
-						<input type="button" value="Delete event" class="btn-danger" onclick="deleteEvent('${event.id}')"/>
+						<input type="button" value="Delete" class="btn-danger" onclick="deleteEvent('${event.id}')"/>
 					</form>
 				</td>
 			</tr>

@@ -39,15 +39,6 @@
           </ul>
         </li>
  	</ul> 
- 	<ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tickets<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href='<spring:url value="../tickets/createTicket"/>'>Create New Ticket</a></li>
-              <li><a href='<spring:url value="../tickets/createTicket"/>'>Manage Tickets</a></li>
-          </ul>
-        </li>
- 	</ul>
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
@@ -57,6 +48,14 @@
           </ul>
         </li>
       </ul>
+    <c:if test="${pageContext['request'].userPrincipal.principal != null}">
+				<div style="float: right;">
+					<ul class="nav navbar-nav">
+						<li class="dropdown"><a href="<spring:url value="/logout"/>" class="dropdown-toggle" role="button" aria-haspopup="true"
+							aria-expanded="false">Logout</a></li>
+					</ul>
+				</div>
+			</c:if>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

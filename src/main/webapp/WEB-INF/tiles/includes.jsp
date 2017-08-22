@@ -13,4 +13,5 @@
 <script type="text/javascript" src="${externalAddress}resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/ticket.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/event.js"></script>
+<script type="text/javascript" src="${externalAddress}resources/js/user.js"></script>
 <script type="text/javascript" src="${externalAddress}resources/js/bootstrap-multiselect.js"></script>

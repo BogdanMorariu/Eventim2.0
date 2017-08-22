@@ -90,12 +90,12 @@ input[type=button], input[type=hidden], input[type=submit] {
 					<form action="../categories/updateCategory" method="POST"
 						style="display: inline;">
 						<input type="hidden" name="idValue" value="${category.id}">
-						<input type="submit" value="Update category" class="btn-success" />
+						<input type="submit" value="Update" class="btn-success" />
 					</form>
 					<form action="../categories/removeCategory" method="POST"
 						style="display: inline;">
 						<input type="hidden" name="idValue" value="${category.id}">
-						<input type="button" value="Delete category" class="btn-danger"
+						<input type="button" value="Delete" class="btn-danger"
 							onclick="deleteCategoryById('${category.id}')" />
 					</form>	
 				</td>

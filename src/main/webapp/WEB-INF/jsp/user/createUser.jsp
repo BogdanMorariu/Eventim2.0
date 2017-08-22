@@ -3,10 +3,13 @@
 
 <jsp:include page="../../tiles/includes.jsp"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<h3 class="col-md-offset-6">Register</h3>
+<h3 class="col-md-offset-6">Register
+</h3>
+<div class= "col-md-offset-5">
 <c:if test="${not empty message}">
     <label>${message}</label><br>
 </c:if>
+</div>
 <div class="col-sm-5 offset4">
     <form:form modelAttribute="temporaryUser" action="../client/createUser" method="POST" class="form-hotizontal">
         <div class="form-group">
