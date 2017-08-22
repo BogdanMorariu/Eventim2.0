@@ -1,6 +1,6 @@
 function refundTicket(ticketId) {
 	var help = document.getElementById("eventID").value;
-	var urlHelp = "../tickets/"+help+"/deleteTicket";
+	var urlHelp = "../Eventim2.0/tickets/"+help+"/deleteTicket";
 	$.ajax({
 		url: urlHelp,
   		type: "POST",

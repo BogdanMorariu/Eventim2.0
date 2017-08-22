@@ -93,12 +93,12 @@ input[type=button], input[type=hidden], input[type=submit] {
 					<div style="padding-top:10px">
 						<form action="../artists/updateArtist" method="POST" style="display: inline;">
 							<input type="hidden" name="idValue" value="${artist.id}"/>
-							<input type="submit" value="Update Artist" class="btn-success" id="asd"/>
+							<input type="submit" value="Update" class="btn-success" id="asd"/>
 						</form>
 
 						<form action="../artists/removeArtist" method="POST" style="display: inline;">
 							<input type="hidden" name="idValue" value="${artist.id}">
-							<input type="button" value="Delete Artist" id="Apasa-ma" class="btn-danger" onclick="deleteArtistById('${artist.id}')" />
+							<input type="button" value="Delete" id="Apasa-ma" class="btn-danger" onclick="deleteArtistById('${artist.id}')" />
 						</form>
 					</div>
 				</td>
